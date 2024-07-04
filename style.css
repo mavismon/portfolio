@@ -1,0 +1,184 @@
+
+html, body {
+   background-color: #F0F5FC;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.container {
+    width: 1200px; /* Set a fixed width */
+    margin: 20px auto; /* Center the container */
+    border-radius: 1px;
+    padding: 40px;
+    background-color: #E9F0F8  ;
+ 
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 10px;
+    height: auto;
+    color: #0D1821;
+}
+
+h2 {
+    color: #0D1821;
+    margin-bottom: 10px;
+}
+
+.img-responsive {
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; 
+}
+
+.text-center {
+    color: #0D1821;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 27px; 
+}
+
+.content-wrapper, .edu {
+    animation: flyIn 2s ease-in-out; 
+    animation-fill-mode:forwards;
+    opacity: 0;
+}
+
+@keyframes flyIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fly-in {
+    animation: flyIn 1s ease forwards;
+    opacity: 0; 
+}
+
+a.co-topic:link, a.co-topic:visited {
+    color: black;
+}
+
+a.co-topic:hover {
+    color: black;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.c-address {
+    text-align: center;
+    margin-top: 20px;
+    padding-left: 50px;
+}
+.c-email {
+    text-align: center;
+    margin-top: 23px;
+    padding-left: 50px;
+}
+
+.email-link {
+    color: inherit; /* Ensure the link color matches the surrounding text */
+    text-decoration: none; /* Remove underline */
+}
+
+.email-link:hover {
+    text-decoration: underline; /* Optional: underline on hover for clarity */
+}
+
+.c-phone {
+    text-align: center;
+    margin-top: 23px;
+    padding-left: 50px;
+}
+
+.contact-text {
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.container-contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+.edu-language, .work-ep, .certi, .pj {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edu-section, .language-section, .skill-section, .certi-section, .Programming-section, .workep-section, .vol-section, .pj-section, .web-section {
+    width: 45%; /* Adjust as necessary */
+}
+
+.co-topic {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #0D1821;
+    text-decoration: underline;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.left-align {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.middle-align {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.para {
+    color: #0D1821;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.insiti {
+    font-weight: bold;
+    color: #0D1821;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.para-left {
+    margin-top: 20px; /* Adjusted margin-top to reduce space between paragraphs */
+}
+
+.c-skill, .c-lang, .right-align {
+    text-align: center;
+}
+
+.project-link {
+    color: #0D1821;
+    margin-top: 10px;
+    font-size: 20px;
+    display: block; /* Makes each link occupy its own line */
+    margin-bottom: 10px; /* Adds space between links */
+}
