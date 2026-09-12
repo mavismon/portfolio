@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yowza Desserts — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      :root {
+        --accent: #d63b96;
+        --accent2: #ff6dc0;
+        --soft: #ffeaf5;
+        --band: #fbeaf3;
+        --hero-a: #ffe1f1;
+        --hero-b: #fffbe0;
+        --ink: #102c5c;
+        --sub: #5b6378;
+        --border: #f0e2ec;
+        --bg: #fbf7f5;
+        --pos: #2fa86a;
+        --neg: #db5a72;
+        --disp: "Playfair Display", serif;
+        --body: "Inter", sans-serif;
+      }
+      .ia {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .ia .col {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .ia .col .h {
+        background: #102c5c;
+        color: #fff;
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 13.5px;
+        padding: 12px 14px;
+        text-align: center;
+      }
+      .ia .col ul {
+        list-style: none;
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 0;
+      }
+      .ia .col li {
+        font-family: var(--body);
+        font-size: 13px;
+        color: var(--sub);
+        line-height: 1.35;
+      }
+      @media (max-width: 768px) {
+        .ia {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .ia {
+          grid-template-columns: 1fr;
+        }
+      }
+      .ds-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 30px;
+        margin-top: 16px;
+      }
+      .ds-label {
+        font-family: var(--body);
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: #d63b96;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .ds-pal {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 18px;
+      }
+      .ds-sw .chip {
+        height: 96px;
+        border-radius: 16px;
+        border: 1px solid #eee7ec;
+      }
+      .ds-sw .hex {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--ink);
+        margin-top: 10px;
+      }
+      .ds-sw .nm {
+        font-family: var(--body);
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--ink);
+        margin-top: 3px;
+      }
+      .ds-sw .role {
+        font-family: var(--body);
+        font-size: 12.5px;
+        color: #9c92a0;
+        margin-top: 2px;
+      }
+      .ds-div {
+        height: 1px;
+        background: var(--border);
+        margin: 26px 0;
+      }
+      .ds-scale {
+        display: flex;
+        flex-direction: column;
+      }
+      .ds-row {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 20px;
+        align-items: center;
+        padding: 16px 0;
+        border-top: 1px solid var(--border);
+      }
+      .ds-row:first-child {
+        border-top: none;
+      }
+      .ds-row .lab {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.07em;
+        color: #9c92a0;
+        text-transform: uppercase;
+      }
+      .ds-row .samp {
+        color: var(--ink);
+        line-height: 1.1;
+      }
+      @media (max-width: 768px) {
+        .ds-pal {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ds-card {
+          padding: 22px;
+        }
+      }
+      @media (max-width: 480px) {
+        .ds-pal {
+          grid-template-columns: 1fr;
+        }
+        .ds-row {
+          grid-template-columns: 76px 1fr;
+          gap: 12px;
+        }
+      }
+      .shead .num {
+        background: #ff6dc0;
+      }
+      .persona-side {
+        background: linear-gradient(150deg, #ff6dc0, #ff9ad0);
+      }
+      /* give topics room to breathe from their content + slightly smaller topic sizes (match Nestly) */
+      .shead h2 {
+        font-size: 30px;
+      }
+      .sub {
+        font-size: 22px;
+        margin-bottom: 16px;
+      }
+      .card h3 {
+        margin-bottom: 12px;
+      }
+      .shead {
+        margin-bottom: 12px;
+      }
+      .phases {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .phase {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .phase .pnum {
+        display: inline-block;
+        background: #ffeaf5;
+        color: #d63b96;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        padding: 5px 11px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .phase h4 {
+        font-family: var(--disp);
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .phase ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .phase li {
+        font-size: 13.5px;
+        line-height: 1.4;
+        color: var(--sub);
+      }
+      .tl {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 24px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .tl .weeks {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 6px;
+      }
+      .tl .wk {
+        text-align: center;
+        font-weight: 700;
+        font-size: 11px;
+        color: #9c92a0;
+        padding-bottom: 2px;
+      }
+      .tl .trk {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .tl .trk .nm {
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      .tl .trk .bar {
+        height: 26px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12.5px;
+      }
+      @media (max-width: 768px) {
+        .phases {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .phases {
+          grid-template-columns: 1fr;
+        }
+        .tl .weeks {
+          display: none;
+        }
+      }
+      /* match index.html: nav, content and footer share the same horizontal padding at every breakpoint */
+      .nav-inner {
+        padding: 18px 96px;
+      }
+      .wrap {
+        padding: 0 96px;
+      }
+      footer.ft {
+        padding: 24px 96px 0;
+      }
+      @media (max-width: 900px) {
+        .nav-inner {
+          padding: 16px 40px;
+        }
+        .wrap {
+          padding: 0 40px;
+        }
+        footer.ft {
+          padding: 24px 40px 0;
+        }
+      }
+      @media (max-width: 640px) {
+        .nav-inner {
+          padding: 14px 22px;
+        }
+        .wrap {
+          padding: 0 22px;
+        }
+        footer.ft {
+          padding: 24px 22px 0;
+        }
+      }
+      /* stack the wide 3-up feature grids (Three features / Next steps) on phones */
+      @media (max-width: 768px) {
+        .fgrid.n3 {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div
+          class="hero-blob"
+          style="
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #ffc7e5, #ffe7b8);
+            top: -110px;
+            right: -70px;
+            opacity: 0.6;
+          "
+        ></div>
+        <div class="hero-inner">
+          <span class="hero-tag" style="color: #d63b96"
+            >🍦 End-to-end Case Study · 2025</span
+          >
+          <h1>Turning paper loyalty cards<br />into a sweet digital habit</h1>
+          <div class="lead-accent">
+            Yowza Desserts — a frozen-yogurt app that makes every visit easier
+            to enjoy.
+          </div>
+          <p class="lead">
+            Yowza's customers kept losing paper stamp cards and missing out on
+            rewards. I designed an end-to-end mobile app that replaces those
+            cards with a digital rewards tracker, a built-in wallet, and an
+            interactive menu — making every visit easier to come back to.
+          </p>
+          <div class="hero-meta">
+            <div>
+              <div class="k">Role</div>
+              <div class="v">UX/UI Designer</div>
+            </div>
+            <div>
+              <div class="k">Timeline</div>
+              <div class="v">8 weeks</div>
+            </div>
+            <div>
+              <div class="k">Tools</div>
+              <div class="v">Figma, FigJam</div>
+            </div>
+            <div>
+              <div class="k">Platform</div>
+              <div class="v">iOS · Mobile</div>
+            </div>
+            <div>
+              <div class="k">Scope</div>
+              <div class="v">23 screens</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">01</span>
+          <h2>Overview</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card">
+            <h3>The problem</h3>
+            <p>
+              At Yowza's physical stores, loyalty ran on paper stamp cards.
+              Customers regularly lost or forgot them, lost track of how close
+              they were to a free dessert, and rarely heard about promotions
+              until they were already at the counter. Paying and topping up was
+              manual and slow. The result was a loyalty programme that quietly
+              leaked the very engagement it was meant to build.
+            </p>
+          </div>
+          <div class="card soft">
+            <h3>The goal</h3>
+            <p>
+              Replace the paper card with one playful, on-brand app that brings
+              rewards, payments, and promotions into a single place — so
+              customers can track stamps, redeem treats, top up a wallet, and
+              discover offers without friction.
+            </p>
+          </div>
+          <div class="sub" style="margin-top: 8px">
+            What the app needed to deliver
+          </div>
+          <div class="fgrid">
+            <div class="feature">
+              <div class="ic">🎨</div>
+              <h4>Brand-aligned design</h4>
+              <p>Fun, vibrant and effortless to navigate.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">⭐</div>
+              <h4>Rewards system</h4>
+              <p>Collect 18 stamps to earn a free dessert.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">💳</div>
+              <h4>Mobile wallet</h4>
+              <p>Quick pay, top-ups and gift-card sharing.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">✨</div>
+              <h4>Personalization</h4>
+              <p>Allergy filters and tailored offers.</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px">
+            <div class="sub">My process</div>
+            <p class="intro">
+              I followed a five-stage, user-centred design process — moving from
+              understanding the customer through to testing and iterating the
+              final product.
+            </p>
+            <div class="phases">
+              <div class="phase">
+                <span class="pnum">01</span>
+                <h4>Discover</h4>
+                <ul>
+                  <li>User interviews</li>
+                  <li>In-store observation</li>
+                  <li>20-person survey</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <span class="pnum">02</span>
+                <h4>Define</h4>
+                <ul>
+                  <li>Persona</li>
+                  <li>Pain points</li>
+                  <li>Empathy map</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <span class="pnum">03</span>
+                <h4>Ideate</h4>
+                <ul>
+                  <li>User flows</li>
+                  <li>Information architecture</li>
+                  <li>Sketches</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <span class="pnum">04</span>
+                <h4>Design</h4>
+                <ul>
+                  <li>Wireframes</li>
+                  <li>UI &amp; design system</li>
+                  <li>Prototype</li>
+                </ul>
+              </div>
+              <div class="phase">
+                <span class="pnum">05</span>
+                <h4>Test</h4>
+                <ul>
+                  <li>Usability study</li>
+                  <li>Findings</li>
+                  <li>Iteration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 34px">
+            <div class="sub">Project timeline</div>
+            <p class="intro">
+              An eight-week project, split into a research-led first half and a
+              design-and-test second half.
+            </p>
+            <div class="tl">
+              <div class="weeks">
+                <div class="wk">W1</div>
+                <div class="wk">W2</div>
+                <div class="wk">W3</div>
+                <div class="wk">W4</div>
+                <div class="wk">W5</div>
+                <div class="wk">W6</div>
+                <div class="wk">W7</div>
+                <div class="wk">W8</div>
+              </div>
+              <div class="trk">
+                <div class="nm">Phase 1 · UX Research</div>
+                <div
+                  class="bar"
+                  style="
+                    width: 50%;
+                    background: linear-gradient(135deg, #ff6dc0, #ff9ad0);
+                  "
+                >
+                  Interviews · Survey · Synthesis · Persona
+                </div>
+              </div>
+              <div class="trk">
+                <div class="nm">Phase 2 · UI Design</div>
+                <div
+                  class="bar"
+                  style="
+                    width: 50%;
+                    margin-left: 50%;
+                    background: linear-gradient(135deg, #102c5c, #3a5591);
+                  "
+                >
+                  Wireframes · UI · Prototype · Usability testing
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">02</span>
+          <h2>Understanding the user</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card">
+            <h3>Research approach</h3>
+            <p>
+              I ran 20 interviews with regular Yowza customers and spent time
+              observing behaviour in-store — watching how people tracked stamps,
+              asked staff about rewards, and paid at the counter. A 20-person
+              survey then helped me measure how widely those frustrations were
+              felt. The recurring theme was clear: the paper loyalty card was
+              doing more harm than good.
+            </p>
+          </div>
+          <div class="stat-band">
+            <div class="stat" style="background: #ffeaf5">
+              <div class="big" style="color: #d63b96">82%</div>
+              <div class="lbl">prefer digital loyalty over paper cards</div>
+            </div>
+            <div class="stat" style="background: #ffeaf5">
+              <div class="big" style="color: #d63b96">76%</div>
+              <div class="lbl">would visit more if rewards auto-tracked</div>
+            </div>
+            <div class="stat" style="background: #ffeaf5">
+              <div class="big" style="color: #d63b96">71%</div>
+              <div class="lbl">want a mobile wallet for quick pay</div>
+            </div>
+            <div class="stat" style="background: #ffeaf5">
+              <div class="big" style="color: #d63b96">84%</div>
+              <div class="lbl">say an app makes Yowza feel modern</div>
+            </div>
+          </div>
+          <div
+            class="card soft"
+            style="background: #fffbe0; border-color: #f2e7b0"
+          >
+            <h3>What surprised me</h3>
+            <p style="color: #7a6a1f">
+              I expected the headline ask to be faster payment. It mattered —
+              but the deeper frustration was emotional. Losing a paper card
+              didn't just cost a free dessert; it felt like throwing away
+              progress people had earned visit by visit. That reframed the
+              brief: the rewards tracker wasn't a nice-to-have, it was the heart
+              of the product.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Survey deep-dive</div>
+          <p class="intro">
+            The survey confirmed which frustrations were most widely felt — and
+            pointed straight at the rewards tracker as the feature to get right
+            first.
+          </p>
+          <div class="two-col">
+            <div class="card">
+              <h3 style="font-size: 18px">What frustrated customers most</h3>
+              <div class="bars" style="margin-top: 16px">
+                <div class="bar">
+                  <div class="top">
+                    <span class="n">Lost or forgot paper cards</span
+                    ><span class="p" style="color: #d63b96">82%</span>
+                  </div>
+                  <div class="track">
+                    <div
+                      class="fill"
+                      style="
+                        width: 82%;
+                        background: linear-gradient(90deg, #ff6dc0, #d63b96);
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="top">
+                    <span class="n">Couldn't track reward progress</span
+                    ><span class="p" style="color: #d63b96">76%</span>
+                  </div>
+                  <div class="track">
+                    <div
+                      class="fill"
+                      style="
+                        width: 76%;
+                        background: linear-gradient(90deg, #ff6dc0, #d63b96);
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="top">
+                    <span class="n">Missed promotions</span
+                    ><span class="p" style="color: #d63b96">71%</span>
+                  </div>
+                  <div class="track">
+                    <div
+                      class="fill"
+                      style="
+                        width: 71%;
+                        background: linear-gradient(90deg, #ff6dc0, #d63b96);
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="top">
+                    <span class="n">Slow counter payment</span
+                    ><span class="p" style="color: #d63b96">64%</span>
+                  </div>
+                  <div class="track">
+                    <div
+                      class="fill"
+                      style="
+                        width: 64%;
+                        background: linear-gradient(90deg, #ff6dc0, #d63b96);
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card soft">
+              <h3 style="font-size: 18px">Key survey findings</h3>
+              <ul
+                style="
+                  list-style: none;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+                  margin-top: 14px;
+                "
+              >
+                <li style="display: flex; gap: 10px">
+                  <span style="color: #d63b96; font-weight: 800">✓</span
+                  ><span
+                    style="
+                      color: var(--sub);
+                      font-size: 15px;
+                      line-height: 1.45;
+                    "
+                    >4 in 5 had lost or forgotten a stamp card at least
+                    once.</span
+                  >
+                </li>
+                <li style="display: flex; gap: 10px">
+                  <span style="color: #d63b96; font-weight: 800">✓</span
+                  ><span
+                    style="
+                      color: var(--sub);
+                      font-size: 15px;
+                      line-height: 1.45;
+                    "
+                    >Most couldn't say how many stamps they currently had.</span
+                  >
+                </li>
+                <li style="display: flex; gap: 10px">
+                  <span style="color: #d63b96; font-weight: 800">✓</span
+                  ><span
+                    style="
+                      color: var(--sub);
+                      font-size: 15px;
+                      line-height: 1.45;
+                    "
+                    >Nearly all wanted rewards, wallet and offers in one
+                    place.</span
+                  >
+                </li>
+                <li style="display: flex; gap: 10px">
+                  <span style="color: #d63b96; font-weight: 800">✓</span
+                  ><span
+                    style="
+                      color: var(--sub);
+                      font-size: 15px;
+                      line-height: 1.45;
+                    "
+                    >A digital tracker was the single most requested
+                    feature.</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Pain points</div>
+          <div class="fgrid">
+            <div class="feature">
+              <div class="ic">🗂️</div>
+              <h4>Lost &amp; forgotten cards</h4>
+              <p>
+                Customers regularly misplaced paper stamp cards, wiping out
+                weeks of progress.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">❓</div>
+              <h4>Confusing tracking</h4>
+              <p>
+                Hard to tell how many stamps were left, so a free dessert never
+                felt within reach.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">📣</div>
+              <h4>Invisible promotions</h4>
+              <p>
+                People only found offers from posters or staff — often after
+                ordering.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🐌</div>
+              <h4>Slow payment</h4>
+              <p>
+                Paying and topping up at the counter added friction to a quick,
+                fun treat.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Persona</div>
+          <div class="persona">
+            <div class="persona-side">
+              <div class="ava">🧁</div>
+              <div class="nm">Emma Brown, 24</div>
+              <div class="meta">University student · weekly regular</div>
+              <div class="quote">
+                “I love Yowza's desserts, but keeping up with paper stamps and
+                missing offers feels old-fashioned. I just want everything in
+                one easy app.”
+              </div>
+            </div>
+            <div class="persona-cols">
+              <div>
+                <div class="k">Goals</div>
+                <p>
+                  Easily track rewards and redeem free desserts, discover new
+                  offers quickly, and pay fast and contactless.
+                </p>
+              </div>
+              <div>
+                <div class="k">Frustrations</div>
+                <p>
+                  Loses or forgets her paper loyalty card, doesn't know when new
+                  offers drop, and finds paying at the counter slow.
+                </p>
+              </div>
+              <div>
+                <div class="k">Needs</div>
+                <p>
+                  One app that combines rewards, wallet and offers, with
+                  personalised recommendations and simple navigation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Empathy map</div>
+          <p class="intro">
+            Stepping into Emma's shoes across a typical visit — what she says,
+            thinks, does and feels around loyalty and payment.
+          </p>
+          <div class="quad">
+            <div class="q">
+              <span class="qh" style="background: #ffeaf5; color: #d63b96"
+                >🗣️ SAYS</span
+              >
+              <ul>
+                <li>"I always lose my stamp card."</li>
+                <li>"Is there a deal on today?"</li>
+                <li>"How many stamps do I have left?"</li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #eaf1ff; color: #3a5591"
+                >💭 THINKS</span
+              >
+              <ul>
+                <li>Am I close to a free dessert?</li>
+                <li>I hope I didn't miss an offer.</li>
+                <li>Paying should be quicker than this.</li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #e7f6e8; color: #2f8a45"
+                >🙌 DOES</span
+              >
+              <ul>
+                <li>Asks staff about rewards at the counter.</li>
+                <li>Keeps a paper card tucked in her purse.</li>
+                <li>Checks social media for promotions.</li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #fff3c9; color: #7a6a1f"
+                >💗 FEELS</span
+              >
+              <ul>
+                <li>Frustrated when progress is lost.</li>
+                <li>Excited by a treat and a good deal.</li>
+                <li>Unsure whether a reward is close.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Journey map — a typical visit</div>
+          <div class="journey" style="--cols: 6">
+            <div class="jrow">
+              <div class="jcell h" style="background: #ffeaf5">
+                <div class="stage">Arrives</div>
+                <div class="emo">😊</div>
+              </div>
+              <div class="jcell h" style="background: #ffe0f0">
+                <div class="stage">Orders</div>
+                <div class="emo">😄</div>
+              </div>
+              <div class="jcell h" style="background: #fff4d6">
+                <div class="stage">Pays</div>
+                <div class="emo">😐</div>
+              </div>
+              <div class="jcell h" style="background: #fcebd6">
+                <div class="stage">Stamp time</div>
+                <div class="emo">😟</div>
+              </div>
+              <div class="jcell h" style="background: #f6e2dd">
+                <div class="stage">Rewards?</div>
+                <div class="emo">😕</div>
+              </div>
+              <div class="jcell h" style="background: #efe6e6">
+                <div class="stage">Leaves</div>
+                <div class="emo">🙁</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="callout"
+            style="
+              background: #ffeaf5;
+              border: 1px solid #fad0e6;
+              margin-top: 16px;
+            "
+          >
+            <div class="em">💡</div>
+            <p style="color: #6b4358">
+              Design opportunity: the mood drops the moment loyalty enters the
+              picture. If the app makes stamps, rewards and offers visible and
+              effortless — right where Emma already is — the whole visit stays
+              joyful.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">From pains to gains</div>
+          <div class="cmp">
+            <div class="hd">
+              <div style="background: #ffeaf5; color: #d63b96">
+                😣 &nbsp;PAIN
+              </div>
+              <div style="background: #e7f6e8; color: #2f8a45">
+                🎉 &nbsp;GAIN
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff7fb">
+                Loses or forgets paper loyalty cards
+              </div>
+              <div class="r" style="background: #fff">
+                A digital stamp card that lives in the app
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Unclear tracking causes missed desserts
+              </div>
+              <div class="r" style="background: #f6fcf7">
+                Visible progress toward 18 stamps, always on screen
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff7fb">
+                Limited visibility of promotions
+              </div>
+              <div class="r" style="background: #fff">
+                Instant access to promos &amp; personalised recs
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Slow, manual payment at checkout
+              </div>
+              <div class="r" style="background: #f6fcf7">
+                Fast, contactless top-ups and quick pay
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff7fb">
+                No personalised or digital convenience
+              </div>
+              <div class="r" style="background: #fff">
+                One app for rewards, offers and payments
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">03</span>
+          <h2>Starting the design</h2>
+        </div>
+        <hr class="srule" />
+        <div class="sub">Information architecture</div>
+        <p class="intro">
+          Everything fans do is organised into five clear areas — mirrored in
+          the bottom navigation — so scanning, paying, and exploring offers are
+          always one tap away.
+        </p>
+        <div class="ia">
+          <div class="col">
+            <div class="h">Home</div>
+            <ul>
+              <li>Featured offers</li>
+              <li>Nearby store</li>
+              <li>Quick actions</li>
+              <li>Personalised feed</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h">Rewards</div>
+            <ul>
+              <li>Stamp card</li>
+              <li>Scan code</li>
+              <li>Progress to 18</li>
+              <li>Redeem a treat</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h">Wallet</div>
+            <ul>
+              <li>Balance</li>
+              <li>Top up</li>
+              <li>Quick pay</li>
+              <li>Gift a card</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h">Menu</div>
+            <ul>
+              <li>Browse desserts</li>
+              <li>Allergy filters</li>
+              <li>Item detail</li>
+              <li>Add to order</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h">Profile</div>
+            <ul>
+              <li>Account</li>
+              <li>Offers &amp; history</li>
+              <li>Preferences</li>
+              <li>Settings</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Core user flow — earning a reward</div>
+          <p class="intro">
+            The core loop turns a purchase into visible, rewarding progress.
+          </p>
+          <div class="pills">
+            <span class="pill">Open app</span><span class="arrow">→</span>
+            <span class="pill">Tap Code</span><span class="arrow">→</span>
+            <span class="pill">Scan at counter</span
+            ><span class="arrow">→</span> <span class="pill">Earn a stamp</span
+            ><span class="arrow">→</span>
+            <span class="pill">Reach 18 stamps</span
+            ><span class="arrow">→</span>
+            <span class="pill on">Redeem free treat</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Low-fidelity wireframes</div>
+          <p class="intro">
+            Before any visual styling, I sketched the core screens as
+            low-fidelity wireframes to test structure and flow — home, rewards,
+            wallet and menu — and mapped each one-to-one to the final designs.
+          </p>
+          <div class="gallery" style="--g: 4">
+            <div class="gitem">
+              <figure>
+                <img src="../images/yowza/Home.png" alt="Home wireframe" />
+              </figure>
+              <div class="cap">Home</div>
+            </div>
+            <div class="gitem">
+              <figure>
+                <img src="../images/yowza/Wallet.png" alt="Wallet wireframe" />
+              </figure>
+              <div class="cap">Wallet</div>
+            </div>
+            <div class="gitem">
+              <figure>
+                <img
+                  src="../images/yowza/top%20up.png"
+                  alt="Top up wireframe"
+                />
+              </figure>
+              <div class="cap">Top up</div>
+            </div>
+            <div class="gitem">
+              <figure>
+                <img src="../images/yowza/Menu.png" alt="Menu wireframe" />
+              </figure>
+              <div class="cap">Menu</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">04</span>
+          <h2>Refining the design</h2>
+        </div>
+        <hr class="srule" />
+        <div class="sub">Final designs</div>
+        <p class="intro">
+          A vibrant home feed, scan-to-earn rewards with clear stamp progress, a
+          wallet for top-ups and gift cards, and an interactive menu — all
+          wrapped in Yowza's signature pink-and-navy identity.
+        </p>
+        <div class="gallery" style="--g: 5">
+          <div class="gitem">
+            <figure><img src="../images/yowza/home.jpg" alt="Home" /></figure>
+            <div class="cap">Home</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/yowza/qr-scan.jpg" alt="Scan &amp; rewards" />
+            </figure>
+            <div class="cap">Scan &amp; rewards</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/yowza/wallet.jpg" alt="Wallet" />
+            </figure>
+            <div class="cap">Wallet</div>
+          </div>
+          <div class="gitem">
+            <figure><img src="../images/yowza/menu.jpg" alt="Menu" /></figure>
+            <div class="cap">Menu</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/yowza/offers.jpg" alt="Offers" />
+            </figure>
+            <div class="cap">Offers</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Three features that replaced the paper card</div>
+          <div class="fgrid n3">
+            <div class="feature wide">
+              <div>
+                <h4>Digital rewards tracker</h4>
+                <p>
+                  Every scan adds a stamp with a visible countdown to 18.
+                  Progress is always on screen, so a free dessert never feels
+                  out of reach.
+                </p>
+              </div>
+            </div>
+            <div class="feature wide">
+              <div>
+                <h4>Built-in wallet</h4>
+                <p>
+                  Top up, quick-pay at the counter, and check your balance in
+                  seconds — no fumbling for cash or cards.
+                </p>
+              </div>
+            </div>
+            <div class="feature wide">
+              <div>
+                <h4>Share a gift card</h4>
+                <p>
+                  Send credit to a friend by name and email, turning Yowza
+                  loyalty into something social and shareable.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Design system</div>
+          <p class="intro">
+            To keep Yowza playful but consistent, I built a small design system:
+            a sweet-shop palette, a clear type scale, and reusable components
+            for cards, buttons, and the wallet.
+          </p>
+          <div class="ds-card">
+            <div class="ds-label">Colour palette</div>
+            <div class="ds-pal">
+              <div class="ds-sw">
+                <div class="chip" style="background: #ff6dc0"></div>
+                <div class="hex">#FF6DC0</div>
+                <div class="nm">Berry Pink</div>
+                <div class="role">Primary · brand</div>
+              </div>
+              <div class="ds-sw">
+                <div class="chip" style="background: #102c5c"></div>
+                <div class="hex">#102C5C</div>
+                <div class="nm">Deep Navy</div>
+                <div class="role">Text · contrast</div>
+              </div>
+              <div class="ds-sw">
+                <div class="chip" style="background: #66bb6a"></div>
+                <div class="hex">#66BB6A</div>
+                <div class="nm">Fresh Green</div>
+                <div class="role">Success · positive</div>
+              </div>
+              <div class="ds-sw">
+                <div class="chip" style="background: #fff3c9"></div>
+                <div class="hex">#FFF3C9</div>
+                <div class="nm">Soft Cream</div>
+                <div class="role">Accent · warmth</div>
+              </div>
+              <div class="ds-sw">
+                <div
+                  class="chip"
+                  style="background: #f6fbfe; border: 1px solid #e7e0d5"
+                ></div>
+                <div class="hex">#F6FBFE</div>
+                <div class="nm">Ice</div>
+                <div class="role">Surface · base</div>
+              </div>
+            </div>
+            <div class="ds-div"></div>
+            <div class="ds-label">Type scale</div>
+            <div class="ds-scale">
+              <div class="ds-row">
+                <div class="lab">Display</div>
+                <div
+                  class="samp"
+                  style="
+                    font-family: var(--disp);
+                    font-weight: 700;
+                    font-size: 40px;
+                  "
+                >
+                  Yowza Desserts — sweet, simple, rewarding
+                </div>
+              </div>
+              <div class="ds-row">
+                <div class="lab">Heading</div>
+                <div
+                  class="samp"
+                  style="
+                    font-family: var(--disp);
+                    font-weight: 600;
+                    font-size: 30px;
+                  "
+                >
+                  Yowza Desserts — sweet, simple, rewarding
+                </div>
+              </div>
+              <div class="ds-row">
+                <div class="lab">Title</div>
+                <div
+                  class="samp"
+                  style="
+                    font-family: var(--disp);
+                    font-weight: 600;
+                    font-size: 22px;
+                  "
+                >
+                  Yowza Desserts — sweet, simple, rewarding
+                </div>
+              </div>
+              <div class="ds-row">
+                <div class="lab">Body</div>
+                <div
+                  class="samp"
+                  style="
+                    font-family: var(--body);
+                    font-weight: 600;
+                    font-size: 17px;
+                  "
+                >
+                  Yowza Desserts — sweet, simple, rewarding
+                </div>
+              </div>
+              <div class="ds-row">
+                <div class="lab">Caption</div>
+                <div
+                  class="samp"
+                  style="
+                    font-family: var(--body);
+                    font-weight: 600;
+                    font-size: 14px;
+                  "
+                >
+                  Yowza Desserts — sweet, simple, rewarding
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">05</span>
+          <h2>Usability study</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          I tested the high-fidelity prototype with 5 regular customers on four
+          core tasks — register &amp; log in, check rewards, top up and pay, and
+          find and redeem an offer.
+        </p>
+        <div class="stack">
+          <div
+            class="callout"
+            style="background: #ffeaf5; border: 1px solid #fad0e6"
+          >
+            <div class="em">1</div>
+            <p style="color: #102c5c">
+              <strong>Digital beat paper instantly.</strong> 4 of 5 users
+              understood the rewards system right away and called it far more
+              convenient than a stamp card.
+            </p>
+          </div>
+          <div
+            class="callout"
+            style="background: #ffeaf5; border: 1px solid #fad0e6"
+          >
+            <div class="em">2</div>
+            <p style="color: #102c5c">
+              <strong>Top Up was hard to spot.</strong> Several users missed the
+              button at first, so I increased its visibility and moved it to a
+              clearer position.
+            </p>
+          </div>
+          <div
+            class="callout"
+            style="background: #ffeaf5; border: 1px solid #fad0e6"
+          >
+            <div class="em">3</div>
+            <p style="color: #102c5c">
+              <strong>All-in-one felt “clean &amp; modern”.</strong> Combining
+              wallet and rewards was the most praised idea — it made the app
+              feel current and trustworthy.
+            </p>
+          </div>
+          <div
+            class="callout"
+            style="background: #ffeaf5; border: 1px solid #fad0e6"
+          >
+            <div class="em">4</div>
+            <p style="color: #102c5c">
+              <strong>Onboarding needed signposting.</strong> Minor first-run
+              confusion led me to add guided tooltips that introduce scanning,
+              rewards and the wallet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">★</span>
+          <h2>What I learned</h2>
+        </div>
+        <hr class="srule" />
+        <div class="card soft">
+          <h3>Research earns you the right to design.</h3>
+          <p>
+            The strongest decisions in this project came straight from
+            listening. Talking to customers who'd lost their cards reframed the
+            whole brief — payment speed was real, but the emotional weight of
+            lost progress was bigger. I learned how much clear navigation and
+            information architecture carry usability, how a single misplaced
+            button can derail a task, and how much a tight
+            feedback-and-iteration loop sharpens the end experience. Most of
+            all, I practised balancing what users need with what the business —
+            more visits, more loyalty — needs too.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">→</span>
+          <h2>Next steps</h2>
+        </div>
+        <hr class="srule" />
+        <div class="fgrid n3">
+          <div class="feature wide">
+            <div class="ic">🚀</div>
+            <div>
+              <h4>Ship &amp; measure</h4>
+              <p>
+                Launch the MVP and track reward redemption, wallet top-ups and
+                repeat-visit frequency against the paper baseline.
+              </p>
+            </div>
+          </div>
+          <div class="feature wide">
+            <div class="ic">🎁</div>
+            <div>
+              <h4>Grow the rewards</h4>
+              <p>
+                Add reward tiers, birthday treats and a referral loop to deepen
+                loyalty once the core habit is established.
+              </p>
+            </div>
+          </div>
+          <div class="feature wide">
+            <div class="ic">♿</div>
+            <div>
+              <h4>Accessibility pass</h4>
+              <p>
+                Run a full accessibility audit — contrast, tap targets and
+                screen-reader labels — before a public release.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="closer">
+        <div class="em">🍦</div>
+        <h2>Thanks for reading.</h2>
+        <p>Yowza Desserts — paper cards out, sweet digital loyalty in.</p>
+        <span class="sig">Hsu Yee Mon (Mavis) · UX/UI Designer</span>
+      </div>
+      <div class="nextnav">
+        <div><div class="k">Next project</div></div>
+        <a class="big" href="nestly.html">Nestly →</a>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span
+      ><span
+        ><a
+          href="https://www.linkedin.com/in/hsuyeemon/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        ><a href="mailto:mavismon23@gmail.com">Email</a></span
+      >
+    </footer>
+    <script src="../reveal.js" defer></script>
+  </body>
+</html>

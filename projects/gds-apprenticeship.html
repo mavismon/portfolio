@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GDS Design System Research — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      body{background:#FBF7F5}
+      /* match index.html: nav, content and footer share the same horizontal padding at every breakpoint */
+      .nav-inner{padding:18px 96px}
+      .wrap{max-width:1440px;margin:0 auto;padding:0 96px}
+      footer.ft{max-width:1440px;margin:60px auto 40px;padding:24px 96px 0}
+      .g-hero{padding:52px 0 6px}
+      .g-tag{display:inline-block;background:#FAEDF2;color:#B25578;font-family:"Figtree",sans-serif;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px}
+      .g-title{font-family:"Fraunces",serif;font-weight:600;font-size:42px;line-height:1.12;color:#3A2A32;margin-top:22px;letter-spacing:-.01em;white-space:nowrap}
+      .g-lead{font-family:"Figtree",sans-serif;font-size:18px;line-height:1.62;color:#76616C;margin-top:16px;max-width:840px}
+      .g-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;background:#F7ECEE;border-radius:22px;padding:24px 30px;margin-top:34px}
+      .g-facts .k{color:#D87C9F;font-family:"Figtree",sans-serif;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+      .g-facts .v{color:#3A2A32;font-family:"Figtree",sans-serif;font-weight:700;font-size:15px;margin-top:5px}
+      .g-sec{margin-top:50px}
+      .g-sec h2{font-family:"Fraunces",serif;font-weight:600;font-size:28px;color:#3A2A32;margin-bottom:18px}
+      .g-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+      .g-list li{display:flex;gap:12px;font-family:"Figtree",sans-serif;font-size:16px;line-height:1.62;color:#76616C;max-width:1080px}
+      .g-list li::before{content:"•";color:#D87C9F;font-weight:700;flex:none}
+      .g-note{background:#F0F4EC;border-radius:16px;padding:20px 24px;margin-top:32px;font-family:"Figtree",sans-serif;font-size:14.5px;line-height:1.55;color:#5F6B52;max-width:1180px}
+      .g-quote{background:#F7ECEE;border-left:4px solid #D87C9F;border-radius:0 18px 18px 0;padding:24px 28px;margin-top:24px;font-family:"Figtree",sans-serif;font-size:16px;line-height:1.6;color:#76616C}
+      .g-next{display:flex;justify-content:space-between;align-items:center;background:#F7ECEE;border-radius:22px;padding:26px 34px;margin-top:34px}
+      .g-next .k{font-family:"Figtree",sans-serif;font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#D87C9F}
+      .g-next a{font-family:"Fraunces",serif;font-weight:600;font-size:22px;color:#B25578;text-decoration:none}
+      @media(max-width:1024px){
+        .nav-inner{padding:16px 40px}.wrap{padding:0 40px}footer.ft{padding:24px 40px 0}
+        .g-title{font-size:34px;white-space:normal}
+        .g-facts{grid-template-columns:repeat(2,1fr)}
+      }
+      @media(max-width:640px){
+        .nav-inner{padding:14px 22px}.wrap{padding:0 22px}footer.ft{padding:24px 22px 0}
+        .g-hero{padding:36px 0 6px}
+        .g-title{font-size:28px}
+        .g-lead{font-size:16px}
+        .g-facts{grid-template-columns:1fr}
+        .g-next{flex-direction:column;gap:12px;text-align:center}
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="g-hero">
+        <span class="g-tag">Apprenticeship · Design Systems</span>
+        <h1 class="g-title">Design system research at Government Digital Service</h1>
+        <p class="g-lead">Four months inside one of the world's most respected public-sector design teams, working on the design system used across national digital services.</p>
+      </header>
+
+      <div class="g-facts">
+        <div><div class="k">Role</div><div class="v">UX/UI Design Apprentice</div></div>
+        <div><div class="k">Timeline</div><div class="v">Apr – Jul 2025</div></div>
+        <div><div class="k">Type</div><div class="v">Design systems &amp; research</div></div>
+        <div><div class="k">Environment</div><div class="v">Agile, cross-functional</div></div>
+      </div>
+
+      <section class="g-sec">
+        <h2>What I did</h2>
+        <ul class="g-list">
+          <li>Analyzed the existing design system and evaluated component usage through qualitative research, helping shape new reusable UI patterns that improved design consistency.</li>
+          <li>Mapped key user journeys and interpreted user needs, providing recommendations that streamlined development workflows.</li>
+          <li>Facilitated weekly critiques and engagement sessions, communicating design concepts and research insights across the team.</li>
+          <li>Introduced evidence-led improvements to component documentation, making it easier for designers and developers to adopt new standards.</li>
+          <li>Coordinated with product managers and developers in a fast-paced agile environment.</li>
+        </ul>
+      </section>
+
+      <div class="g-note">Government work is confidential — visuals can't be shared here, but I'm happy to walk through my process and what I learned in an interview.</div>
+
+      <div class="g-quote">A design system is a product whose users are other designers and developers. Documentation quality matters as much as component quality — if people can't find it or trust it, they rebuild it.</div>
+
+      <div class="g-next">
+        <div class="k">Next project</div>
+        <a href="tui-digital-concierge.html">TUI Digital Concierge →</a>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span>
+      <span><a href="https://www.linkedin.com/in/hsuyeemon/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:mavismon23@gmail.com">Email</a></span>
+    </footer>
+      <script src="../reveal.js" defer></script>
+</body>
+</html>

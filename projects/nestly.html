@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nestly — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      :root{
+        --ink:#1F1A22; --sub:#6B6270; --pink:#EC4E86; --pink2:#C98FB0; --deep:#C32A63;
+        --soft:#FBF1F6; --band:#FFF0F6; --line:#ECE0E8; --bg:#FBF7F5;
+      }
+      body{background:var(--bg)}
+      /* nav / footer / content share index.html padding at every breakpoint */
+      .nav-inner{padding:18px 96px}
+      .wrap{max-width:1440px;margin:0 auto;padding:0 96px}
+      footer.ft{max-width:1440px;margin:60px auto 40px;padding:24px 96px 0}
+      /* hero */
+      .ns-hero{padding:56px 0 8px}
+      .ns-tag{display:inline-block;font-family:"Inter",sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);background:var(--soft);padding:8px 15px;border-radius:999px}
+      .ns-hero h1{font-family:"Playfair Display",serif;font-weight:700;font-size:56px;line-height:1.08;color:var(--ink);margin:20px 0 0;max-width:none}
+      .ns-lead{font-family:"Inter",sans-serif;font-size:19px;line-height:1.6;color:var(--sub);margin:18px 0 0;max-width:none}
+      .ns-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line)}
+      .ns-meta .k{font-family:"Inter";font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink)}
+      .ns-meta .v{font-family:"Inter";font-weight:600;font-size:15px;color:var(--ink);margin-top:6px;display:block}
+      /* section head */
+      .ns-sec{margin-top:72px}
+      .ns-head{display:flex;align-items:baseline;gap:16px}
+      .ns-head .num{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;color:var(--pink)}
+      .ns-head h2{font-family:"Playfair Display",serif;font-weight:700;font-size:30px;color:var(--ink);letter-spacing:-.01em}
+      .ns-rule{height:1px;background:var(--line);border:none;margin:14px 0 30px}
+      /* sub items */
+      .ns-item{margin-bottom:34px}
+      .ns-label{font-family:"Inter";font-weight:700;font-size:18px;color:var(--ink);margin-bottom:12px}
+      .ns-label .n{color:var(--pink);margin-right:7px}
+      .ns-item p,.ns-p{font-family:"Inter";font-size:17px;line-height:1.65;color:var(--sub)}
+      .ns-subhead{font-family:"Playfair Display",serif;font-weight:700;font-size:23px;color:var(--ink);margin:32px 0 16px}
+      .ns-subhead .n{color:var(--pink);margin-right:8px}
+      /* process row */
+      .ns-flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+      .ns-step{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:11px 20px;font-family:"Inter";font-weight:600;font-size:15px;color:var(--ink)}
+      .ns-step.on{background:var(--pink);border-color:var(--pink);color:#fff}
+      .ns-arrow{color:var(--pink2);font-weight:700}
+      /* number cards (pain points / findings) */
+      .ns-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+      .ns-ncard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+      .ns-ncard .idx{font-family:"Playfair Display",serif;font-weight:700;font-size:22px;color:var(--pink);display:block;margin-bottom:8px}
+      .ns-ncard h4{font-family:"Inter";font-weight:700;font-size:17px;color:var(--ink);margin-bottom:6px}
+      .ns-ncard p{font-family:"Inter";font-size:14px;line-height:1.55;color:var(--sub)}
+      /* persona */
+      .ns-persona{display:flex;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+      .ns-persona .side{flex:0 0 320px;background:linear-gradient(160deg,var(--pink),var(--pink2));color:#fff;padding:32px}
+      .ns-persona .ava{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center;font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin-bottom:14px}
+      .ns-persona .nm{font-family:"Playfair Display",serif;font-weight:700;font-size:24px}
+      .ns-persona .bio{font-family:"Inter";font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.92);margin-top:10px}
+      .ns-persona .cols{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:32px}
+      .ns-persona .k{font-family:"Inter";font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin-bottom:10px}
+      .ns-persona ul{list-style:none}
+      .ns-persona li{font-family:"Inter";font-size:15px;line-height:1.5;color:var(--sub);padding-left:16px;position:relative;margin-bottom:8px}
+      .ns-persona li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--pink)}
+      /* journey */
+      .ns-jwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+      .ns-journey{display:grid;grid-template-columns:repeat(7,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:0}
+      .ns-jcell{padding:18px 14px;text-align:center;border-right:1px solid var(--line)}
+      .ns-jcell:last-child{border-right:none}
+      .ns-jcell .e{font-size:26px}
+      .ns-jcell .st{font-family:"Inter";font-weight:700;font-size:14px;color:var(--ink);margin-top:6px}
+      .ns-jcell .ds{font-family:"Inter";font-size:12.5px;line-height:1.4;color:var(--sub);margin-top:5px}
+      /* galleries */
+      .ns-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+      .ns-shot{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+      .ns-shot img{width:100%;height:auto;display:block}
+      .ns-cap{text-align:center;font-family:"Inter";font-weight:600;font-size:14px;color:var(--sub);margin-top:10px}
+      /* key screens */
+      .ns-keys{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+      .ns-key{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:20px}
+      .ns-key h4{font-family:"Inter";font-weight:700;font-size:16px;color:var(--ink);margin-bottom:6px}
+      .ns-key p{font-family:"Inter";font-size:14.5px;line-height:1.55;color:var(--sub)}
+      /* parameters */
+      .ns-params{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+      .ns-param{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+      .ns-param .k{font-family:"Inter";font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+      .ns-param .v{font-family:"Inter";font-weight:600;font-size:15px;color:var(--ink);margin-top:6px}
+      /* hi-fi prototype */
+      .ns-proto{display:flex;gap:22px;align-items:center;background:linear-gradient(135deg,var(--soft),#fff);border:1px solid var(--line);border-radius:20px;padding:28px}
+      .ns-play{flex:none;width:64px;height:64px;border-radius:50%;background:var(--pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px}
+      .ns-proto p{font-family:"Inter";font-size:16px;line-height:1.6;color:var(--sub)}
+      /* lessons */
+      .ns-lessons{display:flex;flex-direction:column;gap:14px}
+      .ns-lesson{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+      .ns-lesson .b{flex:none;width:8px;height:8px;border-radius:50%;background:var(--pink);margin-top:8px}
+      .ns-lesson p{font-family:"Inter";font-size:16px;line-height:1.6;color:var(--sub)}
+      /* closer */
+      .ns-closer{margin-top:72px;border-radius:26px;padding:52px;text-align:center;color:#fff;background:linear-gradient(150deg,var(--pink),var(--pink2))}
+      .ns-closer .e{font-size:38px}
+      .ns-closer h2{font-family:"Playfair Display",serif;font-weight:700;font-size:32px;margin-top:6px}
+      .ns-closer p{font-family:"Inter";font-size:17px;line-height:1.6;color:rgba(255,255,255,.92);max-width:640px;margin:12px auto 0}
+      /* ---- responsive: match index breakpoints for padding + reflow sections ---- */
+      @media(max-width:900px){
+        .nav-inner{padding:16px 40px}
+        .wrap{padding:0 40px}
+        footer.ft{padding:24px 40px 0}
+        .ns-hero h1{font-size:44px}
+        .ns-head h2{font-size:28px}
+        .ns-meta{grid-template-columns:repeat(2,1fr)}
+        .ns-grid4{grid-template-columns:repeat(2,1fr)}
+        .ns-gal{grid-template-columns:repeat(2,1fr)}
+        .ns-params{grid-template-columns:repeat(2,1fr)}
+        .ns-persona{flex-direction:column}
+        .ns-persona .side{flex:none}
+        .ns-journey{grid-template-columns:repeat(7,minmax(130px,1fr));min-width:820px}
+      }
+      @media(max-width:640px){
+        .nav-inner{padding:14px 22px}
+        .wrap{padding:0 22px}
+        footer.ft{padding:24px 22px 0}
+        .ns-hero{padding:36px 0 8px}
+        .ns-hero h1{font-size:34px}
+        .ns-lead{font-size:16px}
+        .ns-head h2{font-size:24px}
+        .ns-head .num{font-size:24px}
+        .ns-meta{grid-template-columns:1fr 1fr}
+        .ns-grid4{grid-template-columns:1fr}
+        .ns-gal{grid-template-columns:1fr 1fr}
+        .ns-keys{grid-template-columns:1fr}
+        .ns-params{grid-template-columns:1fr}
+        .ns-persona .cols{grid-template-columns:1fr}
+        .ns-journey{grid-template-columns:1fr;min-width:0}
+        .ns-jcell{border-right:none;border-bottom:1px solid var(--line)}
+        .ns-jcell:last-child{border-bottom:none}
+        .ns-proto{flex-direction:column;text-align:center}
+        .ns-closer{padding:40px 24px}
+        .ns-closer h2{font-size:26px}
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <!-- HERO -->
+      <header class="ns-hero">
+        <span class="ns-tag">Concept Project · Service Design</span>
+        <h1>Nestly: find your student home without the panic</h1>
+        <p class="ns-lead">Designing an app that helps international students in the UK find a verified home, tour it from anywhere, and apply for a tenancy without a UK guarantor.</p>
+        <div class="ns-meta">
+          <div><span class="k">Role</span><span class="v">Solo — research to prototype</span></div>
+          <div><span class="k">Timeline</span><span class="v">2025</span></div>
+          <div><span class="k">Type</span><span class="v">Mobile app concept</span></div>
+          <div><span class="k">Tools</span><span class="v">Figma, FigJam</span></div>
+        </div>
+      </header>
+
+      <!-- 01 PROJECT OVERVIEW -->
+      <section class="ns-sec">
+        <div class="ns-head"><span class="num">01</span><h2>Project Overview</h2></div>
+        <hr class="ns-rule" />
+        <div class="ns-item"><div class="ns-label"><span class="n">1.1</span>Background</div><p>Nestly is a concept product for international students arriving in the UK. The audience is studying abroad for the first time, often arranging accommodation from another country before they have ever set foot on campus. They are time-poor, unfamiliar with the UK rental market, and cautious about who to trust online.</p></div>
+        <div class="ns-item"><div class="ns-label"><span class="n">1.2</span>Problem</div><p>International students routinely commit to a room they have never seen, from listings they cannot verify, and are then blocked by landlords who demand a UK-based guarantor they do not have. The process is stressful, slow, and full of avoidable risk.</p></div>
+        <div class="ns-item"><div class="ns-label"><span class="n">1.3</span>Goal</div><p>Design a mobile app that lets students find verified housing, view it remotely, and apply for a tenancy guarantor-free — in the easiest, most reassuring way possible, from anywhere in the world.</p></div>
+        <div class="ns-item"><div class="ns-label"><span class="n">1.4</span>My Role</div><p>Sole UX/UI designer — research framing, information architecture, branding, design system, 25 screens, and an interactive prototype, from concept to delivery.</p></div>
+        <div class="ns-item"><div class="ns-label"><span class="n">1.5</span>Duration</div><p>3 weeks · concept project, 2025. Tools: Figma.</p></div>
+        <div class="ns-item" style="max-width:none"><div class="ns-label"><span class="n">1.6</span>Process</div><p style="margin-bottom:14px">I followed a user-centred design process, moving from understanding the user through to refining the design against feedback.</p>
+          <div class="ns-flow">
+            <span class="ns-step">Empathize</span><span class="ns-arrow">→</span>
+            <span class="ns-step">Define</span><span class="ns-arrow">→</span>
+            <span class="ns-step">Ideate</span><span class="ns-arrow">→</span>
+            <span class="ns-step">Design</span><span class="ns-arrow">→</span>
+            <span class="ns-step on">Test</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 UNDERSTANDING THE USER -->
+      <section class="ns-sec">
+        <div class="ns-head"><span class="num">02</span><h2>Understanding the User</h2></div>
+        <hr class="ns-rule" />
+        <div class="ns-subhead"><span class="n">2.1</span>Empathize</div>
+        <div class="ns-item" style="max-width:none"><div class="ns-label"><span class="n">2.1.1</span>User research summary</div><p>I ran six informal interviews with international and out-of-area students and read through university housing guides and student forums. The aim was to understand how they search, what frightens them, and what finally makes them commit. The research confirmed that time pressure mattered, but it also surfaced a deeper issue: a lack of trust, made worse by never being able to view a place in person, and a hard financial barrier in the guarantor requirement.</p></div>
+
+        <div class="ns-label" style="margin:22px 0 14px"><span class="n">2.1.2</span>Pain points</div>
+        <div class="ns-grid4">
+          <div class="ns-ncard"><span class="idx">01</span><h4>Can't view first</h4><p>Students commit to a room sight-unseen from another continent and simply hope the photos were honest.</p></div>
+          <div class="ns-ncard"><span class="idx">02</span><h4>Hard to trust</h4><p>Listings are scattered and scam stories are common, so every deposit feels like a gamble.</p></div>
+          <div class="ns-ncard"><span class="idx">03</span><h4>The guarantor wall</h4><p>Most UK landlords require a UK-based guarantor that overseas students cannot provide.</p></div>
+          <div class="ns-ncard"><span class="idx">04</span><h4>Hidden costs surprise</h4><p>Unexpected fees for utilities and maintenance often catch students off guard after signing contracts.</p></div>
+        </div>
+
+        <div class="ns-subhead" style="margin-top:34px"><span class="n">2.2</span>Define</div>
+        <div class="ns-label" style="margin-bottom:14px"><span class="n">2.2.1</span>Persona</div>
+        <div class="ns-persona">
+          <div class="side">
+            <div class="ava">Mei</div>
+            <div class="nm">Mei Lin · 19</div>
+            <div class="bio">First-year international student moving from Singapore to Manchester. Wants to secure a safe room before she flies over — without a UK guarantor.</div>
+          </div>
+          <div class="cols">
+            <div>
+              <div class="k">Goals</div>
+              <ul><li>Secure a verified room remotely</li><li>See what she's paying for</li><li>Apply without a guarantor</li></ul>
+            </div>
+            <div>
+              <div class="k">Frustrations</div>
+              <ul><li>Can't trust listings from afar</li><li>No UK co-signer</li><li>Time-zones block live viewings</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ns-label" style="margin:34px 0 14px"><span class="n">2.2.2</span>User journey map</div>
+        <div class="ns-jwrap">
+          <div class="ns-journey">
+            <div class="ns-jcell" style="background:#FBF1F6"><div class="e">😟</div><div class="st">Research</div><div class="ds">Compares areas &amp; prices from abroad</div></div>
+            <div class="ns-jcell" style="background:#FCE3EE"><div class="e">🙂</div><div class="st">Browse</div><div class="ds">Filters verified listings near campus</div></div>
+            <div class="ns-jcell" style="background:#FFE1F0"><div class="e">😀</div><div class="st">Tour</div><div class="ds">Takes a 360° tour, books a viewing</div></div>
+            <div class="ns-jcell" style="background:#F6E2EA"><div class="e">😬</div><div class="st">Apply</div><div class="ds">Pays guarantor-free deposit</div></div>
+            <div class="ns-jcell" style="background:#FFF0F6"><div class="e">🤩</div><div class="st">Move in</div><div class="ds">Approved, collects keys</div></div>
+            <div class="ns-jcell" style="background:#EFE6EC"><div class="e">🤔</div><div class="st">Negotiate</div><div class="ds">Discusses rent terms with landlord</div></div>
+            <div class="ns-jcell" style="background:#EEE9EE"><div class="e">😎</div><div class="st">Settle</div><div class="ds">Arranges utilities and internet setup</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 STARTING THE DESIGN -->
+      <section class="ns-sec">
+        <div class="ns-head"><span class="num">03</span><h2>Starting the Design</h2></div>
+        <hr class="ns-rule" />
+        <div class="ns-subhead"><span class="n">3.1</span>Ideate</div>
+        <div class="ns-item" style="max-width:none"><div class="ns-label"><span class="n">3.1.1</span>User flow</div><p style="max-width:none">From the journey map I mapped a clear task spine — discover a verified home, tour it, apply guarantor-free, then track the decision — with secondary paths (filters, reviews, messaging, payments, settings) branching off without blocking it.</p>
+          <div class="ns-flow" style="margin-top:14px">
+            <span class="ns-step">Discover verified home</span><span class="ns-arrow">→</span>
+            <span class="ns-step">Take a 360° tour</span><span class="ns-arrow">→</span>
+            <span class="ns-step">Apply guarantor-free</span><span class="ns-arrow">→</span>
+            <span class="ns-step on">Track the decision</span>
+          </div>
+        </div>
+
+        <div class="ns-subhead" style="margin-top:34px"><span class="n">3.2</span>Design</div>
+        <div class="ns-label" style="margin-bottom:14px"><span class="n">3.2.1</span>Wireframing</div>
+        <div class="ns-gal">
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/W03.png" alt="Home wireframe" /></div><div class="ns-cap">Home</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/W07.png" alt="Listing detail wireframe" /></div><div class="ns-cap">Listing detail</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/W12.png" alt="Application wireframe" /></div><div class="ns-cap">Application</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/W13.png" alt="Application status wireframe" /></div><div class="ns-cap">Status</div></div>
+        </div>
+        <p class="ns-p" style="max-width:none;margin-top:18px">I sketched each core screen on paper first, then translated the strongest ideas into 25 low-fidelity wireframes to argue with structure and flow before any visual styling. The complete lo-fi set maps one-to-one to the final designs.</p>
+
+        <div class="ns-subhead" style="margin-top:34px"><span class="n">3.3</span>Test</div>
+        <div class="ns-item" style="max-width:none"><div class="ns-label"><span class="n">3.3.1</span>Usability study</div><p>I ran a lightweight, concept-stage usability walkthrough of the lo-fi prototype to find where the flow confused people before investing in high fidelity.</p></div>
+        <div class="ns-label" style="margin:22px 0 14px"><span class="n">3.3.2</span>Parameters</div>
+        <div class="ns-params">
+          <div class="ns-param"><div class="k">Study type</div><div class="v">Concept usability walkthrough</div></div>
+          <div class="ns-param"><div class="k">Participants</div><div class="v">5 students</div></div>
+          <div class="ns-param"><div class="k">Location</div><div class="v">Manchester · remote</div></div>
+          <div class="ns-param"><div class="k">Duration</div><div class="v">25–30 minutes</div></div>
+          <div class="ns-param"><div class="k">Objective</div><div class="v">Identify navigation pain points</div></div>
+          <div class="ns-param"><div class="k">Method</div><div class="v">Think-aloud protocol</div></div>
+        </div>
+        <div class="ns-label" style="margin:26px 0 14px"><span class="n">3.3.3</span>Findings</div>
+        <div class="ns-grid4">
+          <div class="ns-ncard"><span class="idx">01</span><h4>Reassure earlier</h4><p>People wanted the guarantor-free explainer and trust signals before the price, not after.</p></div>
+          <div class="ns-ncard"><span class="idx">02</span><h4>Show progress</h4><p>In the multi-step application, people lost track of where they were and how long was left.</p></div>
+          <div class="ns-ncard"><span class="idx">03</span><h4>One clear action</h4><p>Screens with several competing buttons slowed decisions; each needed a single primary action.</p></div>
+          <div class="ns-ncard"><span class="idx">04</span><h4>Simplify language</h4><p>Users struggled with jargon; clearer, straightforward terms improved comprehension and trust.</p></div>
+        </div>
+      </section>
+
+      <!-- 04 REFINING THE DESIGN -->
+      <section class="ns-sec">
+        <div class="ns-head"><span class="num">04</span><h2>Refining the Design</h2></div>
+        <hr class="ns-rule" />
+        <div class="ns-subhead"><span class="n">4.1</span>Redesign</div>
+        <div class="ns-item" style="max-width:none"><div class="ns-label"><span class="n">4.1.1</span>Mockups — what changed</div><p>Acting on the findings, I moved the guarantor-free explainer high up the listing detail screen, added a progress bar and a live status timeline to the application flow, and gave the deposit screen a single, confident primary action with a fully itemised total so nothing felt hidden.</p></div>
+
+        <div class="ns-label" style="margin:22px 0 14px"><span class="n">4.1.2</span>Final visual designs</div>
+        <div class="ns-gal">
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/S03%20Home.png" alt="Home" /></div><div class="ns-cap">Home</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/S07%20Detail.png" alt="Listing detail" /></div><div class="ns-cap">Listing detail</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/S12%20Apply2.png" alt="Guarantor-free deposit" /></div><div class="ns-cap">Guarantor-free deposit</div></div>
+          <div class="ns-shot-wrap"><div class="ns-shot"><img src="../images/nestly/S13%20Status.png" alt="Application status" /></div><div class="ns-cap">Application status</div></div>
+        </div>
+        <p class="ns-p" style="max-width:none;margin-top:20px">The final UI applies the Nestly brand and design system across 25 device-framed screens. A few of the key ones:</p>
+        <div class="ns-keys">
+          <div class="ns-key"><h4>Home</h4><p>Search and verified listings front-and-centre, with a notifications bell in the header.</p></div>
+          <div class="ns-key"><h4>Listing detail</h4><p>Tour, reviews and the guarantor-free explainer surfaced before the price.</p></div>
+          <div class="ns-key"><h4>Guarantor-free deposit</h4><p>Clear options and a transparent total — the highest-anxiety moment, made calm.</p></div>
+          <div class="ns-key"><h4>Application status</h4><p>A live timeline turns the wait into something visible, with a direct line to the landlord.</p></div>
+        </div>
+
+        <div class="ns-label" style="margin:34px 0 14px"><span class="n">4.1.3</span>Hi-fi prototype</div>
+        <div class="ns-proto">
+          <div class="ns-play">▶</div>
+          <p>The interactive hi-fi prototype follows the same flow as the lo-fi version. It starts at 01 · Onboarding and only real controls navigate — the whole guarantor-free journey, from discovery to a live application status, in one continuous flow.</p>
+        </div>
+      </section>
+
+      <!-- LESSONS -->
+      <section class="ns-sec">
+        <div class="ns-head"><span class="num">★</span><h2>Lessons learned</h2></div>
+        <hr class="ns-rule" />
+        <div class="ns-lessons">
+          <div class="ns-lesson"><div class="b"></div><p>The early steps — personas, the journey map and the usability walkthrough — were the real foundation; every later screen traced back to them.</p></div>
+          <div class="ns-lesson"><div class="b"></div><p>Designing for emotion mattered as much as function. Lowering anxiety, not just adding features, became the brief.</p></div>
+          <div class="ns-lesson"><div class="b"></div><p>A small design system built first is what let the project scale to 25 consistent screens without drifting.</p></div>
+          <div class="ns-lesson"><div class="b"></div><p>The process was not linear — testing sent me back to redesign, and that round-trip made the product noticeably better.</p></div>
+        </div>
+      </section>
+
+      <div class="ns-closer">
+        <div class="e">🌸</div>
+        <h2>Thanks for reading.</h2>
+        <p>Designing from lived experience is a superpower — but testing kept me honest about where my experience wasn't universal.</p>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span>
+      <span><a href="https://www.linkedin.com/in/hsuyeemon/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:mavismon23@gmail.com">Email</a></span>
+    </footer>
+      <script src="../reveal.js" defer></script>
+</body>
+</html>

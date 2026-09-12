@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kpoper Palace — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --disp: "Playfair Display", serif;
+        --body: "Inter", sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      :root {
+        --accent: #7a35d6;
+        --accent2: #e0529e;
+        --soft: #f3eafc;
+        --band: #f3eafc;
+        --hero-a: #eadbfa;
+        --hero-b: #fce2f0;
+        --ink: #32145c;
+        --sub: #6a5e7a;
+        --border: #ece0f5;
+        --bg: #fbf7f5;
+        --pos: #2fa86a;
+        --neg: #d6486b;
+        --disp: "Playfair Display", serif;
+        --body: "Inter", sans-serif;
+      }
+      .shead .num {
+        background: linear-gradient(135deg, #7a35d6, #e0529e);
+      }
+      .persona-side {
+        background: linear-gradient(150deg, #7a35d6, #e0529e);
+      }
+      /* match index.html: nav, content and footer share the same horizontal padding at every breakpoint */
+      .nav-inner {
+        padding: 18px 96px;
+      }
+      .wrap {
+        padding: 0 96px;
+      }
+      footer.ft {
+        padding: 24px 96px 0;
+      }
+      @media (max-width: 900px) {
+        .nav-inner {
+          padding: 16px 40px;
+        }
+        .wrap {
+          padding: 0 40px;
+        }
+        footer.ft {
+          padding: 24px 40px 0;
+        }
+      }
+      @media (max-width: 640px) {
+        .nav-inner {
+          padding: 14px 22px;
+        }
+        .wrap {
+          padding: 0 22px;
+        }
+        footer.ft {
+          padding: 24px 22px 0;
+        }
+      }
+      /* wireframe illustration */
+      .wf-shot {
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        background: #fff;
+        margin-top: 14px;
+      }
+      .wf-shot img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* make the wide 3-up feature grids (Three features / Next steps) reflow on tablet & phone */
+      @media (max-width: 960px) {
+        .fgrid.n3 {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div
+          class="hero-blob"
+          style="
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #d8b4f5, #f2a9c9);
+            top: -110px;
+            right: -70px;
+            opacity: 0.55;
+          "
+        ></div>
+        <div class="hero-inner">
+          <span class="hero-tag">🛍️ End-to-end Case Study · 2023</span>
+          <h1>K-pop merch shopping,<br />reimagined for Myanmar's fans</h1>
+          <div class="lead-accent">
+            Kpoper Palace — every K-pop drop, one tap away.
+          </div>
+          <p class="lead">
+            In Myanmar, buying K-pop merch meant DM-ing a Facebook page admin,
+            transferring money on trust, and hoping the item didn't sell out.
+            With Team-A, I designed a dedicated mobile store where fans can
+            browse, pre-order, track deliveries, read reviews, and even trade
+            photocards — all in one place.
+          </p>
+          <div class="hero-meta">
+            <div>
+              <div class="k">Role</div>
+              <div class="v">UX/UI Designer</div>
+            </div>
+            <div>
+              <div class="k">Team</div>
+              <div class="v">Team of 3</div>
+            </div>
+            <div>
+              <div class="k">Timeline</div>
+              <div class="v">2 months</div>
+            </div>
+            <div>
+              <div class="k">Platform</div>
+              <div class="v">iOS · Mobile</div>
+            </div>
+            <div>
+              <div class="k">Scope</div>
+              <div class="v">40+ screens</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">01</span>
+          <h2>Overview</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card">
+            <h3>The problem</h3>
+            <p>
+              Almost every K-pop store in Myanmar runs entirely on Facebook. To
+              pre-order, a fan has to message the page admin, wait for a reply,
+              transfer money, and hope nothing goes wrong. In practice it often
+              does: items sell out after payment, order numbers get forgotten,
+              replies arrive hours late, and there's no way to track a delivery
+              or trust a seller.
+            </p>
+          </div>
+          <div class="card soft">
+            <h3>The goal</h3>
+            <p>
+              Give K-pop fans a dedicated mobile app where they can confidently
+              order pre-order and in-stock items from anywhere, in minutes —
+              with reviews, clear product details, order tracking, and a fairer
+              way to get the version they actually want.
+            </p>
+          </div>
+          <div class="two-col">
+            <div class="card">
+              <h3 style="font-size: 18px">My role</h3>
+              <p>
+                UX/UI designer in a three-person team (Team-A) during a UX/UI
+                course at Acodemy, Yangon. I contributed across research, IA,
+                wireframing, and the high-fidelity prototype.
+              </p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 18px">Project at a glance</h3>
+              <p>
+                Kpoper Palace is a one-stop mobile shop for K-pop fans — albums,
+                lightsticks, season's greetings and more — with a playful design
+                and all the shopping features fans actually need.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">02</span>
+          <h2>Understanding the user</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card">
+            <h3>Market research</h3>
+            <p>
+              Around 99.99% of K-pop stores in Myanmar sell entirely through
+              Facebook pages. When a pre-order opens, the admin posts details
+              and prices, and buyers message the chatbox to order. On paper it
+              looks quick — in reality it breaks down constantly. One buyer
+              messaged at 12:00 P.M. and the admin replied at 11:19 P.M. That
+              eleven-hour gap, repeated across every order, is exactly the
+              friction the app set out to remove.
+            </p>
+          </div>
+          <div>
+            <div class="sub">Competitive analysis</div>
+            <p class="intro">
+              With almost no local apps to study, we looked at two established
+              international K-pop stores to learn what works and what to avoid.
+            </p>
+            <div class="two-col">
+              <div class="card">
+                <h3 style="font-size: 20px">K-Town4U</h3>
+                <span class="quad"
+                  ><span class="qh" style="background: #e7f6e8; color: #2f8a45"
+                    >👍 GOOD</span
+                  ></span
+                >
+                <ul
+                  style="
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    margin: 4px 0 12px;
+                  "
+                >
+                  <li style="color: var(--sub)">User-friendly interface</li>
+                  <li style="color: var(--sub)">Clear categorization</li>
+                  <li style="color: var(--sub)">Search functionality</li>
+                  <li style="color: var(--sub)">
+                    Mobile responsive · multilingual
+                  </li>
+                </ul>
+                <span class="qh" style="background: #fce7ec; color: #c23a6a"
+                  >👎 BAD</span
+                >
+                <ul
+                  style="
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    margin-top: 6px;
+                  "
+                >
+                  <li style="color: var(--sub)">Slow loading times</li>
+                  <li style="color: var(--sub)">Complex checkout</li>
+                  <li style="color: var(--sub)">Too many promo banners</li>
+                </ul>
+              </div>
+              <div class="card">
+                <h3 style="font-size: 20px">YesAsia</h3>
+                <span class="qh" style="background: #e7f6e8; color: #2f8a45"
+                  >👍 GOOD</span
+                >
+                <ul
+                  style="
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    margin: 4px 0 12px;
+                  "
+                >
+                  <li style="color: var(--sub)">Simple, clean design</li>
+                  <li style="color: var(--sub)">Easy navigation</li>
+                  <li style="color: var(--sub)">Quick search</li>
+                  <li style="color: var(--sub)">Responsive · multilingual</li>
+                </ul>
+                <span class="qh" style="background: #fce7ec; color: #c23a6a"
+                  >👎 BAD</span
+                >
+                <ul
+                  style="
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 7px;
+                    margin-top: 6px;
+                  "
+                >
+                  <li style="color: var(--sub)">Slow loading times</li>
+                  <li style="color: var(--sub)">Complex checkout</li>
+                  <li style="color: var(--sub)">Too many promo banners</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>User interviews — what matters most</h3>
+            <p style="margin-bottom: 14px">
+              We interviewed dedicated K-pop fans who buy merch through
+              Facebook. When asked what matters most when buying, quality and
+              reviews led by a clear margin.
+            </p>
+            <div class="bars">
+              <div class="bar">
+                <div class="top">
+                  <span class="n">Quality</span
+                  ><span class="p" style="color: #c23a6a">80%</span>
+                </div>
+                <div class="track">
+                  <div
+                    class="fill"
+                    style="
+                      width: 80%;
+                      background: linear-gradient(90deg, #7a35d6, #e0529e);
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="top">
+                  <span class="n">Reviews</span
+                  ><span class="p" style="color: #c23a6a">70%</span>
+                </div>
+                <div class="track">
+                  <div
+                    class="fill"
+                    style="
+                      width: 70%;
+                      background: linear-gradient(90deg, #7a35d6, #e0529e);
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="top">
+                  <span class="n">Price</span
+                  ><span class="p" style="color: #c23a6a">50%</span>
+                </div>
+                <div class="track">
+                  <div
+                    class="fill"
+                    style="
+                      width: 50%;
+                      background: linear-gradient(90deg, #7a35d6, #e0529e);
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="bar">
+                <div class="top">
+                  <span class="n">Delivery time</span
+                  ><span class="p" style="color: #c23a6a">20%</span>
+                </div>
+                <div class="track">
+                  <div
+                    class="fill"
+                    style="
+                      width: 20%;
+                      background: linear-gradient(90deg, #7a35d6, #e0529e);
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Persona</div>
+          <div class="persona">
+            <div class="persona-side">
+              <div class="ava">🧑‍🎤</div>
+              <div class="nm">Khant Zaw Thant, 26</div>
+              <div class="meta">Yangon, Myanmar · K-pop fan since 2010</div>
+              <div class="quote">
+                “I just want an app to order albums, track my pre-orders, and
+                trade for the version I actually want — without DM-ing an admin
+                every time.”
+              </div>
+            </div>
+            <div class="persona-cols">
+              <div>
+                <div class="k">Background</div>
+                <p>
+                  A devoted fan of Twice who collects albums, lightsticks and
+                  season's greetings, and shares his hauls on social media.
+                </p>
+              </div>
+              <div>
+                <div class="k">Frustrations</div>
+                <p>
+                  Can't track his orders, dreads DM-ing the page admin, has no
+                  way to trade for the version he wants, and has no dedicated
+                  app in Myanmar.
+                </p>
+              </div>
+              <div>
+                <div class="k">Aims</div>
+                <p>
+                  A mobile app to order albums, a trade-in service for the
+                  version he wants, order tracking, and reliable reviews to buy
+                  with confidence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Empathy map</div>
+          <div class="quad">
+            <div class="q">
+              <span class="qh" style="background: #f3eafc; color: #7a35d6"
+                >💬 SAYS</span
+              >
+              <ul>
+                <li>
+                  “I want to discover the latest merch from my favourite groups
+                  easily with an app.”
+                </li>
+                <li>
+                  “I get excited when there are discounts or special deals.”
+                </li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #fceaf4; color: #c23a6a"
+                >💭 THINKS</span
+              >
+              <ul>
+                <li>Looks for reliable reviews and ratings before buying.</li>
+                <li>
+                  Wishes there were a service to easily trade between users.
+                </li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #eaf2ff; color: #2d5b8e"
+                >🖐 DOES</span
+              >
+              <ul>
+                <li>
+                  Spends too much time ordering by chatting with page admins.
+                </li>
+                <li>
+                  Follows official socials to catch new releases and drops.
+                </li>
+              </ul>
+            </div>
+            <div class="q">
+              <span class="qh" style="background: #fff1e8; color: #b5642a"
+                >❤️ FEELS</span
+              >
+              <ul>
+                <li>Annoyed when the page admin doesn't reply.</li>
+                <li>
+                  Anxious about whether the delivery will actually arrive.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">User journey map</div>
+          <p class="intro">
+            From discovery to delivery, we mapped the mood, the frustrations,
+            and the opportunity at each stage.
+          </p>
+          <div class="journey" style="--cols: 5">
+            <div class="jrow">
+              <div class="jcell h" style="background: #f3eafc">
+                <div class="stage">Awareness</div>
+                <div class="emo">🙂</div>
+              </div>
+              <div class="jcell h" style="background: #fceaf4">
+                <div class="stage">Consideration</div>
+                <div class="emo">😐</div>
+              </div>
+              <div class="jcell h" style="background: #f3eafc">
+                <div class="stage">Ordering</div>
+                <div class="emo">😟</div>
+              </div>
+              <div class="jcell h" style="background: #fceaf4">
+                <div class="stage">Payment</div>
+                <div class="emo">😣</div>
+              </div>
+              <div class="jcell h" style="background: #f3eafc">
+                <div class="stage">Delivery</div>
+                <div class="emo">😞</div>
+              </div>
+            </div>
+            <div class="jrow">
+              <div class="jcell b" style="background: #fceff4">
+                <div class="mini" style="color: #c23a6a">Frustration</div>
+                <div class="txt">Bad customer service</div>
+              </div>
+              <div class="jcell b" style="background: #fceff4">
+                <div class="mini" style="color: #c23a6a">Frustration</div>
+                <div class="txt">No reviews · unclear info</div>
+              </div>
+              <div class="jcell b" style="background: #fceff4">
+                <div class="mini" style="color: #c23a6a">Frustration</div>
+                <div class="txt">No in-stock items</div>
+              </div>
+              <div class="jcell b" style="background: #fceff4">
+                <div class="mini" style="color: #c23a6a">Frustration</div>
+                <div class="txt">No Visa card payment</div>
+              </div>
+              <div class="jcell b" style="background: #fceff4">
+                <div class="mini" style="color: #c23a6a">Frustration</div>
+                <div class="txt">No order tracking</div>
+              </div>
+            </div>
+            <div class="jrow">
+              <div class="jcell b" style="background: #eaf6ec">
+                <div class="mini" style="color: #2f8a45">Opportunity</div>
+                <div class="txt">Find target products easily</div>
+              </div>
+              <div class="jcell b" style="background: #eaf6ec">
+                <div class="mini" style="color: #2f8a45">Opportunity</div>
+                <div class="txt">Read reviews &amp; clear details</div>
+              </div>
+              <div class="jcell b" style="background: #eaf6ec">
+                <div class="mini" style="color: #2f8a45">Opportunity</div>
+                <div class="txt">In-stock items available</div>
+              </div>
+              <div class="jcell b" style="background: #eaf6ec">
+                <div class="mini" style="color: #2f8a45">Opportunity</div>
+                <div class="txt">Visa card payment available</div>
+              </div>
+              <div class="jcell b" style="background: #eaf6ec">
+                <div class="mini" style="color: #2f8a45">Opportunity</div>
+                <div class="txt">Track every order</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">03</span>
+          <h2>Starting the design</h2>
+        </div>
+        <hr class="srule" />
+        <div class="sub">Information architecture</div>
+        <p class="intro">
+          We grouped everything fans do into five tabs — Home, Category, Code,
+          Wallet, Profile — so browsing, ordering, and managing a collection all
+          stay within reach.
+        </p>
+        <div class="sub" style="margin-top: 26px">
+          Core user flow — pre-ordering an album
+        </div>
+        <div class="pills">
+          <span class="pill">Browse / search</span><span class="arrow">→</span>
+          <span class="pill">Product details</span><span class="arrow">→</span>
+          <span class="pill">Read reviews</span><span class="arrow">→</span>
+          <span class="pill">Add to cart</span><span class="arrow">→</span>
+          <span class="pill">Pay by card</span><span class="arrow">→</span>
+          <span class="pill on">Track order</span>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Wireframes</div>
+          <p class="intro">
+            I created 12 low-fidelity wireframes to lock structure and flow
+            before any visual design — the storefront, product detail, cart and
+            profile — testing that fans could pre-order in a few taps.
+          </p>
+          <div class="wf-shot">
+            <img
+              src="../images/kpop/wireframe.png"
+              alt="Low-fidelity wireframes — storefront, product detail, cart and profile"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">04</span>
+          <h2>Refining the design</h2>
+        </div>
+        <hr class="srule" />
+        <div class="sub">Final designs</div>
+        <p class="intro">
+          The high-fidelity app: a rich home feed of releases and events,
+          detailed product pages with reviews, a wishlist, and the standout
+          photocard trade-in — all in the Kpoper Palace purple.
+        </p>
+        <div class="gallery" style="--g: 4">
+          <div class="gitem">
+            <figure><img src="../images/kpop/home.jpg" alt="Home" /></figure>
+            <div class="cap">Home</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/kpop/wishlist.jpg" alt="Wishlist" />
+            </figure>
+            <div class="cap">Wishlist</div>
+          </div>
+          <div class="gitem">
+            <figure><img src="../images/kpop/cart.jpg" alt="Cart" /></figure>
+            <div class="cap">Cart &amp; checkout</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img
+                src="../images/kpop/trade-upload.jpg"
+                alt="Photocard trade"
+              />
+            </figure>
+            <div class="cap">Photocard trade</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">From frustration to feature</div>
+          <div class="cmp">
+            <div class="hd">
+              <div style="background: #fceff4; color: #c23a6a">
+                😣 &nbsp;FRUSTRATION
+              </div>
+              <div style="background: #efe6fb; color: #7a35d6">
+                ✨ &nbsp;FEATURE
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fbf4fb">
+                Can't track orders after paying
+              </div>
+              <div class="r" style="background: #fff">
+                Real-time order tracking from payment to delivery
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Dreads DM-ing the page admin to buy
+              </div>
+              <div class="r" style="background: #faf6fe">
+                Self-serve ordering — browse, add to cart, checkout, done
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fbf4fb">
+                No way to get the album version he wants
+              </div>
+              <div class="r" style="background: #fff">
+                A trade-in service to swap for the version he's after
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                No reviews, so sellers feel risky
+              </div>
+              <div class="r" style="background: #faf6fe">
+                Ratings and written reviews on every product
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fbf4fb">
+                No card payment option
+              </div>
+              <div class="r" style="background: #fff">
+                Visa card payment built right into checkout
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Three features fans asked for</div>
+          <div class="fgrid n3">
+            <div class="feature wide">
+              <div class="ic">🔔</div>
+              <div>
+                <h4>Order tracking</h4>
+                <p>
+                  From the moment you pay, every order has a clear status — no
+                  more wondering if it shipped or chasing an admin.
+                </p>
+              </div>
+            </div>
+            <div class="feature wide">
+              <div class="ic">🔄</div>
+              <div>
+                <h4>Photocard trade-in</h4>
+                <p>
+                  The standout idea from research: a built-in service to trade
+                  for the version or photocard you actually want, fan to fan.
+                </p>
+              </div>
+            </div>
+            <div class="feature wide">
+              <div class="ic">⭐</div>
+              <div>
+                <h4>Reviews &amp; ratings</h4>
+                <p>
+                  Real reviews on every product build the trust that Facebook
+                  selling never could.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Colour palette</div>
+          <div class="swatches" style="margin-top: 16px">
+            <div class="sw">
+              <div class="chip" style="background: #4b1c71"></div>
+              <div class="hex">#4B1C71</div>
+              <div class="nm">Royal Purple</div>
+              <div class="use">Primary</div>
+            </div>
+            <div class="sw">
+              <div class="chip" style="background: #7a35d6"></div>
+              <div class="hex">#7A35D6</div>
+              <div class="nm">Electric Violet</div>
+              <div class="use">Accent</div>
+            </div>
+            <div class="sw">
+              <div class="chip" style="background: #e0529e"></div>
+              <div class="hex">#E0529E</div>
+              <div class="nm">K-pop Pink</div>
+              <div class="use">Highlight</div>
+            </div>
+            <div class="sw">
+              <div class="chip" style="background: #f3eafc"></div>
+              <div class="hex">#F3EAFC</div>
+              <div class="nm">Lavender Mist</div>
+              <div class="use">Surface</div>
+            </div>
+            <div class="sw">
+              <div class="chip" style="background: #1e1430"></div>
+              <div class="hex">#1E1430</div>
+              <div class="nm">Ink</div>
+              <div class="use">Text</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">★</span>
+          <h2>What I learned</h2>
+        </div>
+        <hr class="srule" />
+        <div class="card soft">
+          <h3>Research surfaces the feature you'd never guess.</h3>
+          <p>
+            As my first end-to-end project — and my first time designing in a
+            team — Kpoper Palace taught me how much research drives good design.
+            None of us would have prioritised a trade-in service from intuition
+            alone; it came straight from listening to fans. I learned how clear
+            information architecture makes a content-heavy store usable, how
+            reviews and tracking build trust in a market that runs on it, and
+            how to split work and keep one coherent experience across three
+            designers.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">→</span>
+          <h2>Next steps</h2>
+        </div>
+        <hr class="srule" />
+        <div class="fgrid n3">
+          <div class="feature wide">
+            <div class="ic">🧪</div>
+            <div>
+              <h4>Usability testing</h4>
+              <p>
+                Test the high-fidelity prototype with real fans to validate the
+                pre-order and checkout flows before build.
+              </p>
+            </div>
+          </div>
+          <div class="feature wide">
+            <div class="ic">💳</div>
+            <div>
+              <h4>Local payment integration</h4>
+              <p>
+                Connect the wallet to the payment methods Myanmar fans actually
+                use, so ordering never falls back to a bank transfer on trust.
+              </p>
+            </div>
+          </div>
+          <div class="feature wide">
+            <div class="ic">🔁</div>
+            <div>
+              <h4>Grow photocard trading</h4>
+              <p>
+                Expand the trade-in service with verified profiles and ratings
+                to make fan-to-fan swaps safe and simple.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="closer">
+        <div class="em">🛍️</div>
+        <h2>Thanks for reading.</h2>
+        <p>
+          Kpoper Palace — paper-free, admin-free K-pop shopping for Myanmar's
+          fans.
+        </p>
+        <span class="sig">Hsu Yee Mon (Mavis) · UX/UI Designer</span>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span
+      ><span
+        ><a
+          href="https://www.linkedin.com/in/hsuyeemon/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        ><a href="mailto:mavismon23@gmail.com">Email</a></span
+      >
+    </footer>
+      <script src="../reveal.js" defer></script>
+</body>
+</html>

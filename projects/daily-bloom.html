@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Bloom — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      /* ===== Daily Bloom — image-based, responsive ===== */
+      .db-main{max-width:1440px;margin:0 auto;padding:20px 80px 96px;display:flex;flex-direction:column;gap:72px}
+      .db-hero{padding:72px;background:linear-gradient(240deg,#E5F2EB 0%,#FCEADD 100%);border-radius:32px;overflow:hidden;display:flex;flex-direction:column;gap:18px}
+      .db-tag{align-self:flex-start;padding:9px 18px;background:rgba(255,255,255,.7);border-radius:20px;color:#4E8E76;font:600 14px/16px Inter;letter-spacing:.14px}
+      .db-hero h1{color:#2C3A31;font:700 84px/88px Fraunces;letter-spacing:-.01em}
+      .db-hero .sub{color:#4E8E76;font:600 30px/40px Fraunces}
+      .db-hero .lead{color:#5C6B62;font:400 19px/30px Inter;max-width:1000px}
+      .db-meta{display:flex;flex-wrap:wrap;gap:24px;padding-top:16px}
+      .db-meta>div{display:flex;flex-direction:column;gap:4px;min-width:110px}
+      .db-meta .k{color:#9AA89F;font:600 12px/16px Inter;letter-spacing:.12px}
+      .db-meta .v{color:#2C3A31;font:600 16px/22px Inter}
+      .shead{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+      .snum{padding:7px 14px;background:#4E8E76;border-radius:14px;color:#fff;font:600 14px/16px Inter;letter-spacing:.14px}
+      .shead h2{color:#2C3A31;font:700 34px/40px Fraunces}
+      .srule{height:2px;background:#E2DACE;width:100%;border:none;margin:0}
+      .sec{display:flex;flex-direction:column;gap:24px;width:100%}
+      .stack{display:flex;flex-direction:column;gap:22px;width:100%}
+      .card{padding:28px;background:#fff;border-radius:20px;border:1px solid #ECE5D8;display:flex;flex-direction:column;gap:12px}
+      .card.soft{background:#F1F8F4;border-color:#C9E4D6}
+      .card.peach{background:#FFF7F2;border-color:#F3D9C8}
+      .card h3{color:#2C3A31;font:600 21px/27px Inter}
+      .card p{color:#5C6B62;font:400 17px/28px Inter}
+      .card.soft p{color:#42584C}
+      .card.peach p{color:#8A5A3C}
+      .card.mini h3{font-size:18px}
+      .card.mini p{font-size:16px;line-height:25px}
+      .sublabel{color:#2C3A31;font:600 24px/30px Fraunces}
+      .intro{color:#5C6B62;font:400 17px/28px Inter;max-width:1000px}
+      .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%}
+      .stats4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;width:100%}
+      .stat{padding:24px;background:#F1F8F4;border-radius:18px;border:1px solid #C9E4D6;display:flex;flex-direction:column;gap:6px}
+      .stat .big{color:#4E8E76;font:700 34px/38px Fraunces}
+      .stat.peach{background:#FCEADD;border-color:#F7D9C6}
+      .stat.peach .big{color:#C07A4A}
+      .stat .lbl{color:#5C6B62;font:500 14px/19px Inter}
+      .pills{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+      .pill{padding:12px 18px;background:#fff;border-radius:22px;border:1.5px solid #D8E3DC;color:#2C3A31;font:600 15px/20px Inter}
+      .pill.on{background:#4E8E76;border-color:#4E8E76;color:#fff}
+      .pill-arrow{color:#9AB5A6;font:600 18px Inter}
+      .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+      .pcard{padding:26px;background:#fff;border-radius:20px;border:1px solid #ECE5D8;display:flex;flex-direction:column;gap:10px}
+      .pcard .ptag{align-self:flex-start;padding:8px 14px;background:linear-gradient(225deg,#F4A07A,#F7B796);border-radius:18px;color:#fff;font:600 13px/16px Inter}
+      .pcard h4{color:#2C3A31;font:600 18px/24px Inter}
+      .pcard p{color:#5C6B62;font:400 15px/23px Inter}
+      .persona{display:flex;border:1px solid #ECE5D8;border-radius:24px;overflow:hidden}
+      .persona .side{flex:0 0 360px;padding:32px;background:linear-gradient(240deg,#4E8E76,#6FAE93);color:#fff;display:flex;flex-direction:column;gap:14px}
+      .persona .side .ava{width:88px;height:88px;border-radius:44px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:40px}
+      .persona .side .nm{font:700 30px/36px Fraunces}
+      .persona .side .meta{color:#E5F2EB;font:500 15px/20px Inter}
+      .persona .side .quote{font:600 17px/24px Fraunces}
+      .persona .cols{flex:1;padding:32px;display:flex;flex-direction:column;gap:16px}
+      .persona .cols .k{color:#9AA89F;font:600 12px/16px Inter;letter-spacing:.14px}
+      .persona .cols p{color:#5C6B62;font:400 15px/23px Inter}
+      .journey{display:flex;border:1px solid #ECE5D8;border-radius:20px;overflow:hidden}
+      .jc{flex:1;padding:18px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+      .jc .d{color:#2C3A31;font:600 13px/16px Inter}
+      .jc .e{font-size:26px;line-height:30px}
+      .jc .a{color:#5C6B62;font:500 12px/16px Inter}
+      .jc .m{color:#4E8E76;font:600 12px/16px Inter}
+      .callout{display:flex;gap:12px;padding:22px;background:#F1F8F4;border:1px solid #C9E4D6;border-radius:20px}
+      .callout .em{font-size:22px;flex:none}
+      .callout p{color:#42584C;font:500 16px/24px Inter}
+      .params{display:flex;flex-wrap:wrap;gap:20px;width:100%}
+      .param{flex:1 1 150px;padding:22px;background:#fff;border-radius:16px;border:1px solid #ECE5D8;display:flex;flex-direction:column;gap:6px}
+      .param .k{color:#9AA89F;font:600 11px/15px Inter;letter-spacing:.13px}
+      .param .v{color:#2C3A31;font:600 16px/22px Inter}
+      .finding{display:flex;gap:18px;padding:22px 24px;background:#F1F8F4;border:1px solid #C9E4D6;border-radius:18px}
+      .finding .n{flex:none;width:40px;height:40px;border-radius:20px;background:#4E8E76;color:#fff;font:600 17px/20px Inter;display:flex;align-items:center;justify-content:center}
+      .finding h4{color:#2C3A31;font:600 17px/23px Inter;margin-bottom:4px}
+      .finding p{color:#42584C;font:400 15px/23px Inter}
+      .ba .tag{align-self:flex-start;padding:6px 12px;border-radius:12px;color:#fff;font:600 12px/15px Inter;margin-bottom:10px}
+      /* Phone image galleries — responsive grid, scales down only (crisp, never upscaled) */
+      .phones{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 18px;width:100%;justify-items:center;align-items:start}
+      .phone{width:100%;max-width:240px;display:flex;flex-direction:column;align-items:center;gap:10px}
+      .phone img{width:100%;height:auto;display:block;background:transparent}
+      .phone .cap{text-align:center;color:#6B7A70;font:500 13px/17px Inter}
+      .sig-wrap{display:flex;gap:0;border:1px solid #C9E4D6;border-radius:24px;overflow:hidden;width:100%}
+      .sig-wrap .txt{flex:1;padding:40px;background:linear-gradient(240deg,#E5F2EB,#F1F8F4);display:flex;flex-direction:column;gap:18px}
+      .sig-wrap .txt .tag{align-self:flex-start;padding:7px 14px;background:#4E8E76;border-radius:14px;color:#fff;font:600 12px/16px Inter}
+      .sig-wrap .txt h3{color:#2C3A31;font:600 26px/32px Fraunces}
+      .sig-wrap .txt p{color:#42584C;font:400 16px/26px Inter}
+      .sig-wrap .txt .em{color:#4E8E76;font:600 16px/24px Inter}
+      .dec{display:flex;gap:18px;padding:24px 26px;background:#fff;border:1px solid #ECE5D8;border-radius:18px}
+      .dec .ic{flex:none;width:52px;height:52px;border-radius:16px;background:#F1F8F4;display:flex;align-items:center;justify-content:center;font-size:24px}
+      .dec h4{color:#2C3A31;font:600 18px/24px Inter;margin-bottom:5px}
+      .dec p{color:#5C6B62;font:400 16px/24px Inter}
+      .learn{padding:32px;background:linear-gradient(240deg,#E5F2EB 0%,#FCEADD 100%);border-radius:22px;display:flex;flex-direction:column;gap:12px}
+      .learn h3{color:#2C3A31;font:600 22px/30px Fraunces}
+      .learn p{color:#42584C;font:400 17px/28px Inter}
+      .closer{padding:44px 36px;background:#2C3A31;border-radius:24px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+      .closer .em{font-size:34px}
+      .closer h2{color:#fff;font:700 30px/38px Fraunces}
+      .closer p{color:#B4DAC6;font:400 16px/24px Inter}
+      .closer .sig{margin-top:14px;padding:11px 20px;background:rgba(255,255,255,.14);border-radius:22px;color:#E5F2EB;font:600 14px Inter}
+      @media(max-width:1024px){
+        .db-main{padding:20px 48px 72px;gap:56px}
+        .db-hero{padding:56px}
+        .db-hero h1{font-size:60px;line-height:64px}
+        .db-hero .sub{font-size:26px;line-height:34px}
+        .stats4{grid-template-columns:repeat(2,1fr)}
+        .phones{grid-template-columns:repeat(3,1fr);gap:24px}
+      }
+      @media(max-width:768px){
+        .db-main{padding:20px 24px 64px;gap:48px}
+        .db-hero{padding:38px 26px;border-radius:24px}
+        .db-hero h1{font-size:44px;line-height:48px}
+        .db-hero .sub{font-size:22px;line-height:30px}
+        .db-hero .lead{font-size:16px;line-height:26px}
+        .shead h2{font-size:27px;line-height:33px}
+        .sublabel{font-size:21px}
+        .grid2,.pgrid{grid-template-columns:1fr}
+        .persona{flex-direction:column}
+        .persona .side{flex:none}
+        .journey{flex-direction:column}
+        .sig-wrap{flex-direction:column}
+        .card p{font-size:16px}
+        .phones{grid-template-columns:repeat(2,1fr);gap:22px}
+      }
+      @media(max-width:480px){
+        .db-main{padding:20px 18px 56px;gap:40px}
+        .db-hero{padding:28px 20px}
+        .db-hero h1{font-size:36px;line-height:40px}
+        .db-hero .sub{font-size:20px;line-height:28px}
+        .db-hero .lead{font-size:15px;line-height:24px}
+        .shead h2{font-size:24px;line-height:30px}
+        .sublabel{font-size:20px}
+        .stats4{grid-template-columns:1fr 1fr}
+        .learn h3{font-size:20px}
+        .phones{grid-template-columns:repeat(2,1fr);gap:16px}
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="db-main">
+      <!-- HERO -->
+      <div class="db-hero">
+        <div class="db-tag">🌱 CONCEPT PROJECT · 2026</div>
+        <h1>Daily Bloom</h1>
+        <div class="sub">A habit tracker that doesn't guilt-trip you.</div>
+        <div class="lead">Most habit apps punish you for slipping — broken streaks, red marks, guilt. Daily Bloom reframes habit-building as something you grow: gentle streaks, mood check-ins, and a calendar that rewards showing up over being perfect.</div>
+        <div class="db-meta">
+          <div><div class="k">ROLE</div><div class="v">UX/UI Designer</div></div>
+          <div><div class="k">TIMELINE</div><div class="v">3 weeks</div></div>
+          <div><div class="k">TOOLS</div><div class="v">Figma, FigJam</div></div>
+          <div><div class="k">PLATFORM</div><div class="v">iOS · Mobile</div></div>
+          <div><div class="k">SCOPE</div><div class="v">End-to-end</div></div>
+        </div>
+      </div>
+
+      <!-- 01 OVERVIEW -->
+      <div class="sec">
+        <div class="shead"><span class="snum">01</span><h2>Overview</h2></div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card"><h3>The problem</h3><p>Habit trackers are everywhere, yet most people abandon them within weeks. The common thread is that they're built around streaks and perfection. Miss one day and the streak resets to zero, the calendar fills with red, and the app starts to feel like a source of shame rather than support. For people already managing anxiety, ADHD, or burnout, that guilt loop is the exact reason they quit.</p></div>
+          <div class="card soft"><h3>The goal</h3><p>Design a mobile habit tracker that keeps people coming back by being kind. It should make progress visible and motivating without weaponising streaks — celebrating consistency, forgiving slips, and treating each small action as a win worth noticing.</p></div>
+          <div class="grid2">
+            <div class="card mini"><h3>My role</h3><p>Sole UX/UI designer — owning research, information architecture, interaction design, visual design, and the design system, end to end.</p></div>
+            <div class="card mini"><h3>Responsibilities</h3><p>Competitive teardown, user interviews, persona and journey mapping, wireflows, low- and high-fidelity design, a usability study, and a reusable component library.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 UNDERSTANDING THE USER -->
+      <div class="sec">
+        <div class="shead"><span class="snum">02</span><h2>Understanding the user</h2></div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card"><h3>Research approach</h3><p>I started with a competitive teardown of six popular habit apps, then ran five 30-minute interviews with people who had tried — and mostly quit — habit trackers. I wanted to understand the emotional moment of giving up, not just the feature gaps. A short survey (32 responses) helped me sense-check how common those feelings were.</p></div>
+          <div class="stats4">
+            <div class="stat"><div class="big">6</div><div class="lbl">apps audited</div></div>
+            <div class="stat"><div class="big">5</div><div class="lbl">user interviews</div></div>
+            <div class="stat"><div class="big">32</div><div class="lbl">survey responses</div></div>
+            <div class="stat peach"><div class="big">78%</div><div class="lbl">quit over broken streaks</div></div>
+          </div>
+          <div class="card peach"><h3>What surprised me</h3><p>I assumed people wanted more powerful tracking — richer stats, smarter reminders. Interviews said the opposite. The people who quit didn't want more data; they wanted permission to be imperfect. The streak counter, meant to motivate, was the single most common reason they felt like a failure and deleted the app.</p></div>
+        </div>
+
+        <div class="sec" style="gap:18px">
+          <div class="sublabel">Pain points</div>
+          <div class="pgrid">
+            <div class="pcard"><span class="ptag">Pain 1</span><h4>Streak shame</h4><p>Resetting to zero after one missed day felt like erasing weeks of effort — so people stopped trying altogether.</p></div>
+            <div class="pcard"><span class="ptag">Pain 2</span><h4>All-or-nothing</h4><p>Habits were marked simply done or not done, ignoring partial effort like 3 of 5 glasses of water.</p></div>
+            <div class="pcard"><span class="ptag">Pain 3</span><h4>Nagging reminders</h4><p>Push notifications felt like a manager checking in, not a friend — guilt-laden and easy to mute.</p></div>
+            <div class="pcard"><span class="ptag">Pain 4</span><h4>No emotional context</h4><p>Apps tracked behaviour but never asked how you felt, missing why habits actually slip.</p></div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:18px">
+          <div class="sublabel">Persona</div>
+          <div class="persona">
+            <div class="side">
+              <div class="ava">🌷</div>
+              <div class="nm">Maya, 27</div>
+              <div class="meta">Junior teacher · Manchester</div>
+              <div class="quote">“I don't need an app to tell me I failed. I already know.”</div>
+            </div>
+            <div class="cols">
+              <div><div class="k">GOALS</div><p>Build a consistent morning routine, drink more water, and read before bed — without feeling monitored.</p></div>
+              <div><div class="k">FRUSTRATIONS</div><p>Has downloaded four habit apps. Each one made her feel worse the moment she missed a day, so she deleted them.</p></div>
+              <div><div class="k">MOTIVATIONS</div><p>Responds to encouragement and visible-but-gentle progress. Wants to feel proud, not policed.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:14px">
+          <div class="sublabel">User journey map</div>
+          <div class="intro">Mapping Maya's week with a typical streak-based app revealed exactly where the emotional drop-off happens.</div>
+          <div class="journey">
+            <div class="jc" style="background:#E5F2EB"><div class="d">Mon</div><div class="e">😊</div><div class="a">Signs up</div><div class="m">Hopeful</div></div>
+            <div class="jc" style="background:#D9EDE2"><div class="d">Tue</div><div class="e">😄</div><div class="a">All habits hit</div><div class="m">Proud</div></div>
+            <div class="jc" style="background:#FCEADD"><div class="d">Wed</div><div class="e">😟</div><div class="a">Misses one</div><div class="m">Anxious</div></div>
+            <div class="jc" style="background:#F8DCCB"><div class="d">Thu</div><div class="e">😣</div><div class="a">Streak resets</div><div class="m">Defeated</div></div>
+            <div class="jc" style="background:#F3D2C2"><div class="d">Fri</div><div class="e">😞</div><div class="a">Guilt on open</div><div class="m">Avoidant</div></div>
+            <div class="jc" style="background:#EFE9E0"><div class="d">Sat</div><div class="e">🫥</div><div class="a">Deletes app</div><div class="m">Relieved</div></div>
+          </div>
+          <div class="callout"><div class="em">💡</div><p>Design opportunity: the collapse happens on Wednesday — the first miss. If the app reframes that moment as “you're still growing” instead of “you failed,” the whole journey changes.</p></div>
+        </div>
+      </div>
+
+      <!-- 03 STARTING THE DESIGN -->
+      <div class="sec">
+        <div class="shead"><span class="snum">03</span><h2>Starting the design</h2></div>
+        <hr class="srule" />
+        <div class="sec" style="gap:16px">
+          <div class="sublabel">User flow</div>
+          <div class="intro">Before any pixels, I mapped the core loop — and deliberately designed the “miss” path to lead somewhere supportive rather than punishing.</div>
+          <div class="pills">
+            <span class="pill">Open app</span><span class="pill-arrow">→</span>
+            <span class="pill">Today screen</span><span class="pill-arrow">→</span>
+            <span class="pill">Tap a habit</span><span class="pill-arrow">→</span>
+            <span class="pill">Mark progress</span><span class="pill-arrow">→</span>
+            <span class="pill on">Gentle celebration</span><span class="pill-arrow">→</span>
+            <span class="pill">Evening reflection</span>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:20px">
+          <div class="sublabel">Low-fidelity wireframes</div>
+          <div class="intro">I sketched the key screens as greyscale wireframes to lock structure before visual design. The focus: a calm Today list, a forgiving habit detail view, and a calendar that shows shades of progress rather than pass/fail.</div>
+          <div class="phones">
+            <div class="phone"><img src="../images/dailybloom/wf-onboarding.png" alt="Onboarding wireframe" /><div class="cap">Onboarding</div></div>
+            <div class="phone"><img src="../images/dailybloom/wf-today.png" alt="Today home wireframe" /><div class="cap">Today (Home)</div></div>
+            <div class="phone"><img src="../images/dailybloom/wf-add-habit.png" alt="Add habit wireframe" /><div class="cap">Add Habit</div></div>
+            <div class="phone"><img src="../images/dailybloom/wf-calendar.png" alt="Calendar wireframe" /><div class="cap">Calendar</div></div>
+            <div class="phone"><img src="../images/dailybloom/wf-reflection.png" alt="Reflection wireframe" /><div class="cap">Reflection</div></div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:20px">
+          <div class="sublabel">Usability study</div>
+          <div class="intro">I tested an interactive low-fi prototype with 5 participants who self-identified as “lapsed habit-app users,” using a moderated, task-based approach.</div>
+          <div class="params">
+            <div class="param"><div class="k">TYPE</div><div class="v">Moderated, remote</div></div>
+            <div class="param"><div class="k">PARTICIPANTS</div><div class="v">5 lapsed users</div></div>
+            <div class="param"><div class="k">LENGTH</div><div class="v">25 min each</div></div>
+            <div class="param"><div class="k">TASKS</div><div class="v">4 core flows</div></div>
+            <div class="param"><div class="k">GOALS</div><div class="v">Identify pain points causing user drop-off</div></div>
+          </div>
+          <div style="color:#2C3A31;font:600 19px/25px Inter">Key findings</div>
+          <div class="finding"><div class="n">1</div><div><h4>The reset wording stung</h4><p>Even in greyscale, “streak lost” made two participants wince. I replaced it with “streak paused — pick it back up.”</p></div></div>
+          <div class="finding"><div class="n">2</div><div><h4>Partial progress was loved</h4><p>Everyone gravitated to the “3 of 5” style habits, so I made partial progress a first-class state, not an edge case.</p></div></div>
+          <div class="finding"><div class="n">3</div><div><h4>Reflection felt like a chore</h4><p>The end-of-day note was skipped by 4 of 5, so I cut it to a one-tap mood with the written note strictly optional.</p></div></div>
+        </div>
+      </div>
+
+      <!-- 04 REFINING THE DESIGN -->
+      <div class="sec">
+        <div class="shead"><span class="snum">04</span><h2>Refining the design</h2></div>
+        <hr class="srule" />
+        <div class="sec" style="gap:16px">
+          <div class="sublabel">From wireframe to final</div>
+          <div class="intro">The usability findings drove three concrete changes: kinder language, partial-progress as a core state, and a one-tap mood check-in. Here's how the Today screen and the “missed day” moment evolved.</div>
+          <div class="grid2 ba">
+            <div class="card" style="background:#F4EFE6;border-color:#E2DACE"><span class="tag" style="background:#9AA89F">BEFORE</span><p style="color:#5C6B62;font-size:16px;line-height:24px">Streak-first: a big number at the top, pass/fail rows, and a red “streak lost” banner on a miss.</p></div>
+            <div class="card soft ba"><span class="tag" style="background:#4E8E76">AFTER</span><p style="font-size:16px;line-height:24px">Progress-first: a gentle bloom ring, “3 of 5” partial states, and “streak paused — pick it back up” instead of failure.</p></div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:24px">
+          <div class="sublabel">Final designs</div>
+          <div class="intro">High-fidelity screens built from a sage-and-peach system designed to feel like a calm garden, not a productivity dashboard. Soft cards, rounded geometry, and warm encouragement throughout.</div>
+          <div class="phones">
+            <div class="phone"><img src="../images/dailybloom/today.png" alt="Today screen" /><div class="cap">Today</div></div>
+            <div class="phone"><img src="../images/dailybloom/habit-detail.png" alt="Habit detail" /><div class="cap">Habit detail</div></div>
+            <div class="phone"><img src="../images/dailybloom/calendar.png" alt="Calendar" /><div class="cap">Calendar</div></div>
+            <div class="phone"><img src="../images/dailybloom/insights.png" alt="Insights" /><div class="cap">Insights</div></div>
+            <div class="phone"><img src="../images/dailybloom/all-done.png" alt="Celebration" /><div class="cap">Celebration</div></div>
+          </div>
+        </div>
+
+        <div class="sig-wrap">
+          <div class="txt">
+            <span class="tag">SIGNATURE SCREEN</span>
+            <h3>The “streak paused” moment</h3>
+            <p>This is the screen the whole product is built around. In every other app, a missed day means a broken streak and a wave of guilt. Daily Bloom intercepts that exact moment — the Wednesday from Maya's journey map — and reframes it. The streak pauses instead of resetting, the copy reassures rather than scolds, and a single warm button invites you back without shame.</p>
+            <div class="em">It's the clearest expression of the core principle: progress over perfection.</div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:24px">
+          <div class="sublabel">More of the experience</div>
+          <div class="intro">Beyond the core loop, I designed the full journey — from a warm sign-up and an empty “first day” garden, to a browsable habit library and a calm settings space.</div>
+          <div class="phones">
+            <div class="phone"><img src="../images/dailybloom/sign-up.png" alt="Sign up" /><div class="cap">Sign up</div></div>
+            <div class="phone"><img src="../images/dailybloom/first-day.png" alt="First day" /><div class="cap">First day</div></div>
+            <div class="phone"><img src="../images/dailybloom/habit-library.png" alt="Habit library" /><div class="cap">Habit library</div></div>
+            <div class="phone"><img src="../images/dailybloom/settings.png" alt="Settings" /><div class="cap">Settings</div></div>
+            <div class="phone"><img src="../images/dailybloom/reminders.png" alt="Reminders" /><div class="cap">Reminders</div></div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:24px">
+          <div class="sublabel">The full journey</div>
+          <div class="intro">The final design spans twenty-two screens. Beyond the daily loop, I designed the onboarding that sets the tone, a gentle notification opt-in, a goals picker, habit editing, milestone “blooms,” and a weekly review that closes each week with encouragement rather than a scorecard.</div>
+          <div class="phones">
+            <div class="phone"><img src="../images/dailybloom/goals.png" alt="Goals" /><div class="cap">Goals</div></div>
+            <div class="phone"><img src="../images/dailybloom/notifications.png" alt="Notifications" /><div class="cap">Notifications</div></div>
+            <div class="phone"><img src="../images/dailybloom/edit-habit.png" alt="Edit habit" /><div class="cap">Edit habit</div></div>
+            <div class="phone"><img src="../images/dailybloom/achievements.png" alt="Achievements" /><div class="cap">Achievements</div></div>
+            <div class="phone"><img src="../images/dailybloom/weekly-review.png" alt="Weekly review" /><div class="cap">Weekly review</div></div>
+          </div>
+        </div>
+
+        <div class="sec" style="gap:16px">
+          <div class="sublabel">Three decisions that define the product</div>
+          <div class="dec"><div class="ic">🌱</div><div><h4>Streaks that pause, not break</h4><p>A missed day pauses your streak instead of resetting it. The number dims but holds, so one off day never erases weeks of effort.</p></div></div>
+          <div class="dec"><div class="ic">💧</div><div><h4>Partial progress counts</h4><p>Habits support “3 of 5” style targets. Doing some is always better than nothing — and the UI rewards it visibly.</p></div></div>
+          <div class="dec"><div class="ic">🌙</div><div><h4>Mood over metrics</h4><p>Each day ends with a one-tap mood check-in. It adds the emotional context streak-counters ignore, with notes kept optional.</p></div></div>
+        </div>
+
+        <div class="sec" style="gap:20px">
+          <div class="sublabel">Accessibility</div>
+          <div class="grid2">
+            <div class="card soft mini"><h3 style="font-size:16px">Contrast</h3><p>All text and key UI meet WCAG AA; the sage primary was darkened to pass on white.</p></div>
+            <div class="card soft mini"><h3 style="font-size:16px">Colour independence</h3><p>Progress is never shown by colour alone — rings, labels and counts reinforce every state.</p></div>
+            <div class="card soft mini"><h3 style="font-size:16px">Tap targets</h3><p>All interactive elements are at least 44×44pt with generous spacing.</p></div>
+            <div class="card soft mini"><h3 style="font-size:16px">Tone</h3><p>Microcopy was written to reassure, avoiding shame language anywhere in the product.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT I LEARNED -->
+      <div class="sec" style="gap:16px">
+        <div class="sublabel">What I learned</div>
+        <div class="learn">
+          <h3>Designing for kindness is a constraint, not a vibe.</h3>
+          <p>The hardest part wasn't the visuals — it was resisting the urge to add streaks, badges, and pressure that “drive engagement.” Every motivational pattern I reached for had a guilt-shaped shadow. Interviewing people who'd quit kept me honest: the most motivating thing an app can do is make you feel capable, not watched. I also learned to treat copy as interaction design — “streak paused” versus “streak lost” is the entire product in two words.</p>
+        </div>
+      </div>
+
+      <!-- NEXT STEPS -->
+      <div class="sec" style="gap:20px">
+        <div class="sublabel">Next steps</div>
+        <div class="finding" style="background:#fff;border-color:#ECE5D8"><div class="n" style="background:#F4A07A">1</div><div><h4>Validate the “pause” model</h4><p style="color:#5C6B62">Run a longitudinal test to confirm gentle streaks actually sustain habits better than hard streaks.</p></div></div>
+        <div class="finding" style="background:#fff;border-color:#ECE5D8"><div class="n" style="background:#F4A07A">2</div><div><h4>Build adaptive nudges</h4><p style="color:#5C6B62">Use the mood data to time reminders for when a user is most receptive, not just at a fixed hour.</p></div></div>
+        <div class="finding" style="background:#fff;border-color:#ECE5D8"><div class="n" style="background:#F4A07A">3</div><div><h4>Add quiet social</h4><p style="color:#5C6B62">Optional, pressure-free “bloom with a friend” accountability without leaderboards or comparison.</p></div></div>
+      </div>
+
+      <div class="closer">
+        <div class="em">🌸</div>
+        <h2>Thanks for reading.</h2>
+        <p>Daily Bloom — a habit tracker that grows with you, gently.</p>
+        <span class="sig">Hsu Yee Mon (Mavis) · UX/UI Designer</span>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span>
+      <span><a href="https://www.linkedin.com/in/hsuyeemon/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:mavismon23@gmail.com">Email</a></span>
+    </footer>
+      <script src="../reveal.js" defer></script>
+</body>
+</html>

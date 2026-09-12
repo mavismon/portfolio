@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Hsu Yee Mon (Mavis)</title>
+<meta name="description" content="The full story of Hsu Yee Mon (Mavis) — a UX designer with an engineer's brain who teaches Chinese and ICT and designs for people across three languages.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Roboto:wght@400;700&family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── tokens ───────────────────────────────────────── */
+:root {
+  --rose:       #D87C9F;
+  --rose-dark:  #B25578;
+  --rose-soft:  #F8E6EC;
+  --rose-pale:  #FAEDF2;
+  --rose-mid:   #EFC2D3;
+  --ink:        #3A2A32;
+  --muted:      #76616C;
+  --cream:      #FBF7F5;
+}
+body { background: var(--cream); }
+
+/* ── layout wrapper — matches nav-inner padding ───── */
+.aw { max-width: 1440px; margin: 0 auto; padding: 0 96px; }
+@media (max-width: 900px) { .aw { padding-left: 40px; padding-right: 40px; } }
+@media (max-width: 640px) { .aw { padding-left: 22px; padding-right: 22px; } }
+
+/* ── hero ─────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+  padding: clamp(40px, 7vw, 88px) 0 clamp(36px, 5vw, 64px);
+}
+.hero h1 {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.4rem, 2.78vw, 2.5rem); /* reduced one step: 40px */
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.12;
+  margin: 0 0 18px;
+}
+.hero p {
+  font-family: Figtree, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.125rem); /* Figma: 18px */
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 600px;
+  margin: 0;
+}
+.hero-photo img {
+  width: clamp(180px, 28.6vw, 412px); /* Figma: 412px */
+  aspect-ratio: 412/379;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: clamp(20px, 3.33vw, 48px); /* Figma: 48px */
+  display: block;
+}
+
+/* ── story ────────────────────────────────────────── */
+.story {
+  border-top: 1px solid var(--rose-soft);
+  padding: clamp(36px, 5vw, 64px) 0;
+}
+.story h2 {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.4rem, 2.78vw, 2.5rem); /* matches hero h1: 40px */
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 clamp(20px, 3vw, 36px);
+}
+.story-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: start;
+}
+.story-quote {
+  font-family: Figtree, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.125rem); /* Figma: 18px */
+  color: var(--muted);
+  line-height: 1.65;
+}
+.story-quote p { margin: 0 0 1.1em; }
+.story-quote p:last-child { margin: 0; }
+.story-avatar { display: flex; justify-content: center; }
+.story-avatar img { width: 100%; max-width: 380px; object-fit: contain; }
+
+/* ── two-col main ─────────────────────────────────── */
+.main-cols {
+  display: grid;
+  grid-template-columns: 1fr 440px; /* Figma: sidebar cards 440px wide */
+  gap: clamp(28px, 4.44vw, 64px);  /* Figma: ~64px gap */
+  padding: clamp(36px, 5vw, 64px) 0;
+  border-top: 1px solid var(--rose-soft);
+  align-items: start;
+}
+.left-col  { display: flex; flex-direction: column; gap: clamp(32px, 4.5vw, 56px); }
+.right-col { display: flex; flex-direction: column; gap: clamp(16px, 2vw, 24px); }
+
+/* ── section headings & body ──────────────────────── */
+.sh {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.25rem, 2.08vw, 1.875rem); /* Figma: 30px */
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+.sb {
+  font-family: Figtree, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.125rem); /* Figma: 18px */
+  color: var(--muted);
+  line-height: 1.78; /* Figma: line-height 32px / 18px = 1.78 */
+}
+
+/* ── teaching photo ───────────────────────────────── */
+.teach-img {
+  width: 100%;
+  aspect-ratio: 736/408;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+  margin: 14px 0;
+}
+
+/* ── fun fact list ────────────────────────────────── */
+.fun-list {
+  margin: 0; padding-left: 20px; list-style: disc;
+  font-family: Figtree, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.125rem); /* Figma: 18px */
+  color: var(--muted);
+  line-height: 1.78;
+}
+
+/* ── education timeline ───────────────────────────── */
+.tl { display: flex; flex-direction: column; }
+.tl-row { display: flex; gap: 14px; position: relative; }
+.tl-row:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 5px; top: 14px;
+  width: 3px; bottom: 0;
+  background: var(--rose-soft);
+  border-radius: 2px;
+}
+.tl-dot {
+  flex-shrink: 0;
+  width: 14px; height: 14px;
+  margin-top: 3px;
+  background: var(--rose);
+  border: 3px solid var(--rose-soft);
+  border-radius: 50%;
+}
+.tl-body { padding-bottom: 26px; }
+.tl-year   { font-family: Figtree, sans-serif; font-size: 0.8125rem; font-weight: 800; color: var(--rose); margin-bottom: 3px; } /* Figma: 13px */
+.tl-title  { font-family: Fraunces, serif; font-size: clamp(0.9375rem, 1.25vw, 1.125rem); font-weight: 600; color: var(--ink); margin-bottom: 3px; } /* Figma: 18px */
+.tl-school { font-family: Figtree, sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--muted); margin-bottom: 3px; } /* Figma: 15px */
+.tl-desc   { font-family: Figtree, sans-serif; font-size: 0.9375rem; color: var(--muted); line-height: 1.62; } /* Figma: 15px */
+
+/* ── sidebar cards ────────────────────────────────── */
+.card {
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(178,85,120,.10);
+  border-radius: 22px;
+  padding: 22px 24px;
+}
+.card.pale { background: var(--rose-pale); }
+.card.mid  { background: var(--rose-mid); }
+.card h3 {
+  font-family: Fraunces, serif;
+  font-size: 1.0625rem; /* Figma: 17px */
+  font-weight: 600;
+  color: var(--ink); margin: 0 0 14px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  background: var(--rose-pale);
+  color: var(--rose-dark);
+  font-family: Figtree, sans-serif;
+  font-size: 0.875rem; /* Figma: 14px */
+  font-weight: 600;
+  padding: 6px 14px; border-radius: 999px;
+  height: 30px; display: flex; align-items: center;
+}
+.card.pale .chip { background: #fff; }
+.card.mid  .chip { background: rgba(255,255,255,.55); }
+.clist { display: flex; flex-direction: column; }
+.clist-item { padding: 10px 0; }
+.clist-item:not(:last-child) { border-bottom: 1px solid var(--rose-soft); }
+.clist-item .ct { font-family: Figtree, sans-serif; font-size: 0.9375rem; font-weight: 700; color: var(--ink); margin-bottom: 2px; } /* Figma: 15px */
+.clist-item .cs { font-family: Figtree, sans-serif; font-size: 0.9375rem; color: var(--muted); } /* Figma: 15px */
+
+/* ── CTA banner — Figma: underlined links, no pill buttons ── */
+.cta-banner {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+  gap: clamp(32px, 5.49vw, 79px); /* Figma: 79px gap */
+  background: var(--rose-soft);
+  border-radius: 22px;
+  padding: clamp(40px, 4.31vw, 62px) clamp(22px, 4vw, 48px); /* Figma: 62px top/bottom */
+  margin: clamp(36px, 5vw, 64px) 0;
+}
+.cta-banner a {
+  font-family: Fraunces, serif;
+  font-size: clamp(1.125rem, 1.53vw, 1.375rem); /* Figma: 22px */
+  font-weight: 600;
+  color: var(--rose-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cta-banner a:hover { opacity: .75; }
+
+/* ── together ─────────────────────────────────────── */
+.together {
+  border-top: 1px solid var(--rose-soft);
+  padding: clamp(36px, 5vw, 64px) 0 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: start;
+}
+.tg-text { position: relative; min-width: 0; overflow: hidden; }
+.tg-headline {
+  line-height: 1;
+  margin: 0 0 clamp(24px, 2.5vw, 40px);
+}
+/* Figma: "Lets work" at x=354, "Together" at x=94 → indent = (354-94)/1440 = 18vw */
+.tg-sub {
+  font-family: 'Great Vibes', 'Pinyon Script', cursive;
+  font-size: clamp(2rem, 4.44vw, 4rem); /* Figma: 64px */
+  color: var(--rose);
+  display: block;
+  margin-left: clamp(1.5rem, 18vw, 16rem);
+  line-height: 1.2;
+}
+.tg-script {
+  font-family: 'Great Vibes', 'Pinyon Script', cursive;
+  font-size: clamp(4rem, 13.89vw, 12.5rem); /* Figma: 200px */
+  color: var(--rose);
+  display: block;
+  line-height: 0.9;
+}
+.tg-label {
+  font-family: Roboto, sans-serif;
+  font-size: clamp(1rem, 1.39vw, 1.25rem); /* Figma: 20px */
+  font-weight: 700; color: var(--ink); margin-bottom: 8px;
+}
+.tg-links { display: flex; flex-direction: column; gap: 4px; }
+.tg-links a {
+  font-family: Roboto, sans-serif;
+  font-size: clamp(1rem, 1.39vw, 1.25rem); /* Figma: 20px */
+  font-weight: 700; color: var(--muted); text-decoration: underline;
+}
+.tg-img { display: flex; align-items: flex-start; }
+/* height-based so photo never taller than viewport; ratio 793:1057, width auto */
+.tg-img img { height: clamp(320px, 52vh, 520px); width: auto; object-fit: contain; display: block; }
+
+/* ── breakpoints ──────────────────────────────────── */
+@media (max-width: 1100px) {
+  .main-cols { grid-template-columns: 1fr 380px; }
+}
+@media (max-width: 1000px) {
+  .main-cols { grid-template-columns: 1fr; }
+  .right-col { flex-direction: row; flex-wrap: wrap; }
+  .right-col .card { flex: 1 1 260px; }
+}
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { display: flex; justify-content: center; order: -1; }
+  .hero-photo img { width: clamp(160px, 58vw, 260px); }
+  .story-body { grid-template-columns: 1fr; }
+  .story-avatar { display: flex; order: -1; }
+  .story-avatar img { max-width: 220px; }
+  .together { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .tg-img { display: flex; justify-content: center; }
+  .tg-img img { height: auto; width: clamp(200px, 60vw, 320px); }
+  .tg-sub { margin-left: 0; }
+}
+@media (max-width: 500px) {
+  .right-col { flex-direction: column; }
+  .cta-banner { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+    <nav>
+      <div class="nav-inner">
+        <a class="nav-logo" href="index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="design.html">Design</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+<main>
+<div class="aw">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Designer with an engineer's brain 🌷</h1>
+      <p>I'm Hsu Yee Mon — everyone calls me Mavis. I came to UX through a Computer Systems Engineering degree (1st Class Honours, University of Sunderland), which means I prototype in Figma and understand what developers need to ship it. I speak English, Chinese, and Burmese, and I design for people across all three worlds.</p>
+    </div>
+    <div class="hero-photo">
+      <img src="images/about/portrait.jpg" alt="Portrait of Hsu Yee Mon (Mavis)">
+    </div>
+  </section>
+
+  <!-- My Full Story -->
+  <section class="story">
+    <h2>My Full Story</h2>
+    <div class="story-body">
+      <div class="story-avatar">
+        <img src="images/about/avatar.png" alt="Illustrated avatar of Mavis">
+      </div>
+      <div class="story-quote">
+        <p>"My path here wasn't a straight line. I started medical school in 2019, drawn to the idea of helping people — but in 2022, I made the leap into information technology, chasing a different kind of problem-solving. That decision led me to a degree in Computer Systems Engineering, where I learned to think like an engineer: structured, logical, and obsessed with how things actually work under the hood.</p>
+        <p>Somewhere along the way, I realized the part I loved most wasn't just building systems — it was designing them around people. That's what pulled me fully into UX design, where I get to combine the empathy from my medical school days with the technical grounding from engineering.</p>
+        <p>Alongside design work, I teach Chinese language and ICT to young learners at an international school — a role that keeps me sharp at breaking down complex ideas into something simple and clear, a skill that shows up in every design I make."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main two-col content -->
+  <div class="main-cols">
+
+    <!-- Left column -->
+    <div class="left-col">
+
+      <div>
+        <h2 class="sh">Character Introduction</h2>
+        <p class="sb">A fast-learning, full-cycle UX designer — research to prototype to polish, picking up new skills as quickly as new projects</p>
+      </div>
+
+      <div>
+        <h2 class="sh">My Teaching Journey</h2>
+        <img class="teach-img" src="images/about/teaching.jpg" alt="Mavis with colleagues at SKT International School">
+        <p class="sb">Teaching Chinese Language and being a ICT lecturer at <strong>SKT International School</strong> has shaped how I design just as much as my engineering background has.<br><br>Breaking down a grammar rule for a 10-year-old isn't so different from simplifying a checkout flow for a frustrated user, both demand patience, clarity, and a lot of empathy for where the other person is starting from.<br><br>It's a part of my life I didn't expect to influence my design work, but it does, every day.</p>
+      </div>
+
+      <div>
+        <h2 class="sh">Fun Fact:</h2>
+        <ul class="fun-list">
+          <li>Former medical school student turned UX designer</li>
+          <li>Speaks 3 languages fluently</li>
+          <li>Teaches Chinese &amp; ICT to young learners</li>
+          <li>Learns new tools fast — usually within a weekend</li>
+          <li>Believes good design should feel invisible</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="sh">Education</h2>
+        <div class="tl">
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <div class="tl-year">2024 – 2025</div>
+              <div class="tl-title">BSc (Hons) Computer Systems Engineering — 1st Class</div>
+              <div class="tl-school">University of Sunderland, UK</div>
+              <div class="tl-desc">Product Development (UX/UI, frontend, backend), Android Mobile Development, AI with Python, Advanced Data Technology, Cyber Security, Product Design.</div>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <div class="tl-year">2022 – 2023</div>
+              <div class="tl-title">Higher Diploma in Infocomm Technology — High Distinction</div>
+              <div class="tl-school">TMC Academy, Singapore</div>
+              <div class="tl-desc">First Class Honours Award — 10 of 11 modules at High Distinction. Project management, databases, Java/C#/C++, web &amp; mobile development, UI/UX design.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /left-col -->
+
+    <!-- Right sidebar -->
+    <div class="right-col">
+
+      <div class="card">
+        <h3>Design skills</h3>
+        <div class="chips">
+          <span class="chip">UX Research</span>
+          <span class="chip">Prototyping</span>
+          <span class="chip">Wireframing</span>
+          <span class="chip">User Flows</span>
+          <span class="chip">Design Systems</span>
+          <span class="chip">Usability Testing</span>
+          <span class="chip">Journey Mapping</span>
+          <span class="chip">Responsive Design</span>
+          <span class="chip">Accessibility</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Tools &amp; tech</h3>
+        <div class="chips">
+          <span class="chip">Figma</span>
+          <span class="chip">HTML/CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">PHP</span>
+          <span class="chip">Java</span>
+          <span class="chip">Node.js</span>
+          <span class="chip">Python</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Git</span>
+          <span class="chip">VS Code</span>
+          <span class="chip">Wix</span>
+          <span class="chip">React</span>
+        </div>
+      </div>
+
+      <div class="card pale">
+        <h3>Certifications</h3>
+        <div class="clist">
+          <div class="clist-item">
+            <div class="ct">Google UX Professional Certificate</div>
+            <div class="cs">Jan 2026</div>
+          </div>
+          <div class="clist-item">
+            <div class="ct">Design System "Complete" Hands-on Training</div>
+            <div class="cs">May 2025</div>
+          </div>
+          <div class="clist-item">
+            <div class="ct">Professional Web Development Course</div>
+            <div class="cs">Dec 2023</div>
+          </div>
+          <div class="clist-item">
+            <div class="ct">UX &amp; Interface Design Specialist</div>
+            <div class="cs">Dec 2023</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mid">
+        <h3>Languages</h3>
+        <div class="clist">
+          <div class="clist-item">
+            <div class="ct">Burmese</div>
+            <div class="cs">Native</div>
+          </div>
+          <div class="clist-item">
+            <div class="ct">English</div>
+            <div class="cs">Professional proficiency</div>
+          </div>
+          <div class="clist-item">
+            <div class="ct">Chinese</div>
+            <div class="cs">Advanced</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /right-col -->
+
+  </div><!-- /main-cols -->
+
+  <!-- CTA banner -->
+  <div class="cta-banner">
+    <a href="design.html">See Other Design</a>
+    <a href="https://drive.google.com/file/d/1xtQVW304RGPcJEKEEuNn48uA0tBTxAdx/view?usp=sharing" target="_blank" rel="noopener">View My Resume</a>
+  </div>
+
+  <!-- Together / contact -->
+  <section class="together">
+    <div class="tg-text">
+      <div class="tg-headline">
+        <span class="tg-sub">Lets work</span>
+        <span class="tg-script">Together</span>
+      </div>
+      <p class="tg-label">For professional work, contact me via Email. 💌</p>
+      <div class="tg-links">
+        <a href="mailto:mavismon23@gmail.com">mavismon23@gmail.com</a>
+        <a href="https://www.linkedin.com/in/hsuyeemon/" target="_blank" rel="noopener">Linkedin</a>
+      </div>
+    </div>
+    <div class="tg-img">
+      <img src="images/about/together-crop.png" alt="Mavis">
+    </div>
+  </section>
+
+</div><!-- /aw -->
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Hsu Yee Mon (Mavis)</span>
+    <span>
+      <a href="https://www.linkedin.com/in/hsuyeemon/">LinkedIn</a>
+      <a href="mailto:mavismon23@gmail.com">Email</a>
+    </span>
+  </div>
+</footer>
+
+    <script src="reveal.js" defer></script>
+</body>
+</html>

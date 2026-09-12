@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TUI Digital Concierge — Hsu Yee Mon (Mavis)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* content typography matches Nestly; nav + footer come from case-study.css (index style) */
+      :root {
+        --disp: "Playfair Display", serif;
+        --body: "Inter", sans-serif;
+      }
+    </style>
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      :root {
+        --accent: #1e6fd9;
+        --accent2: #36a0e0;
+        --soft: #eaf2fc;
+        --band: #eef3f9;
+        --ink: #0b2a5b;
+        --sub: #51607a;
+        --border: #e2eaf3;
+        --bg: #FBF7F5;
+        --pos: #2fa86a;
+        --neg: #e0556b;
+        --disp: "Playfair Display", serif;
+        --body: "Inter", sans-serif;
+      }
+      .hero {
+        background: linear-gradient(140deg, #0b2a5b, #15498f);
+      }
+      .hero .hero-tag {
+        background: rgba(255, 255, 255, 0.14);
+        color: #cfe0f5;
+      }
+      .hero h1 {
+        color: #fff;
+      }
+      .hero .lead-accent {
+        color: #f4b73e;
+      }
+      .hero .lead {
+        color: #dce7f5;
+      }
+      .hero-meta .k {
+        color: #8fb2dd;
+      }
+      .hero-meta .v {
+        color: #fff;
+      }
+      .closer {
+        background: linear-gradient(140deg, #0b2a5b, #15498f);
+      }
+
+      /* match index.html: nav, content and footer share the same horizontal padding at every breakpoint */
+      .nav-inner{padding:18px 96px}
+      .wrap{padding:0 96px}
+      footer.ft{padding:24px 96px 0}
+      @media(max-width:900px){.nav-inner{padding:16px 40px}.wrap{padding:0 40px}footer.ft{padding:24px 40px 0}}
+      @media(max-width:640px){.nav-inner{padding:14px 22px}.wrap{padding:0 22px}footer.ft{padding:24px 22px 0}}
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrap">
+      <header class="hero">
+        <div
+          class="hero-blob"
+          style="
+            width: 420px;
+            height: 420px;
+            background: linear-gradient(135deg, #f4b73e, #ff8a5b);
+            top: -130px;
+            right: -70px;
+            opacity: 0.9;
+          "
+        ></div>
+        <div class="hero-inner">
+          <span class="hero-tag">🏖️ Business Case · Service Design · 2026</span>
+          <h1>Ending the poolside towel wars</h1>
+          <div class="lead-accent">
+            A digital concierge that turns TUI's most-complained-about friction
+            into a premium guest experience — and a new revenue stream.
+          </div>
+          <p class="lead">
+            Every morning at TUI's sunniest resorts, guests race to drape towels
+            over loungers at dawn, then disappear for hours. I built the
+            strategy and prototype for a Digital Concierge that replaces manual
+            towel reservations with a real-time, automated management system.
+          </p>
+          <div class="hero-meta">
+            <div>
+              <div class="k">Role</div>
+              <div class="v">UX &amp; Product Strategy</div>
+            </div>
+            <div>
+              <div class="k">Client</div>
+              <div class="v">TUI Hotels &amp; Resorts</div>
+            </div>
+            <div>
+              <div class="k">Type</div>
+              <div class="v">Concept · Business case</div>
+            </div>
+            <div>
+              <div class="k">Date</div>
+              <div class="v">March 2026</div>
+            </div>
+            <div>
+              <div class="k">Output</div>
+              <div class="v">Strategy + Prototype</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 01 friction -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">01</span>
+          <h2>The friction</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card">
+            <h3>The “Dawn Rush”</h3>
+            <p>
+              Guests race to reserve loungers at dawn with towels — then vanish
+              for hours. The loungers sit empty but “reserved,” the best spots
+              vanish before breakfast, and families who can't sit together are
+              the first to complain. Staff get caught refereeing disputes they
+              have no tools to resolve. It's the holiday equivalent of road
+              rage, and it shows up loud and clear in the guest data.
+            </p>
+          </div>
+          <div
+            class="callout"
+            style="background: #f0e2ea; border: 1px solid #f0e0ae"
+          >
+            <div class="em">☀️</div>
+            <p style="color: #7a6320">
+              “Seat ghosting”: a lounger reserved free all day, but actually
+              used for only ~3 of the 8.2 hours of sun. The culture is
+              first-come-first-served — not active use.
+            </p>
+          </div>
+        </div>
+        <div style="margin-top: 26px">
+          <div class="sub">By the numbers</div>
+          <div class="stat-band">
+            <div class="stat" style="background: #ffeae7">
+              <div class="big" style="color: #ff6b5e">12%</div>
+              <div class="lbl">
+                of all guest complaints are about sun loungers
+              </div>
+            </div>
+            <div class="stat" style="background: #f0e2ea">
+              <div class="big" style="color: #1e6fd9">44%</div>
+              <div class="lbl">actual lounger utilisation across the day</div>
+            </div>
+            <div class="stat" style="background: #fff3d6">
+              <div class="big" style="color: #c9962a">8.2 hrs</div>
+              <div class="lbl">
+                of daily sun — most of it wasted by ghosting
+              </div>
+            </div>
+            <div class="stat" style="background: #f0e2ea">
+              <div class="big" style="color: #2fa86a">90</div>
+              <div class="lbl">
+                standard loungers fighting over the best spots
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 business -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">02</span>
+          <h2>Why it matters to TUI</h2>
+        </div>
+        <hr class="srule" />
+        <div class="card">
+          <h3>The business context</h3>
+          <p>
+            TUI is the world's leading integrated tourism group, managing the
+            whole journey from booking to flight, hotel, and cruise — its brand
+            purpose is to “create the moments that make life richer.” Sun
+            loungers sound trivial, but they sit right at the heart of the hotel
+            experience that drives repeat bookings. A 12% complaint rate on
+            something this visible quietly erodes the guest satisfaction TUI's
+            growth depends on.
+          </p>
+        </div>
+        <div style="margin-top: 22px">
+          <div class="sub">The numbers behind the case</div>
+          <p class="intro">
+            From TUI Group's 2025 financial highlights — protecting the hotel
+            experience protects the profit engine.
+          </p>
+          <div class="stat-band">
+            <div class="stat" style="background: #f0e2ea">
+              <div class="big" style="color: #0b2a5b">€735M</div>
+              <div class="lbl">Hotels &amp; Resorts underlying EBIT</div>
+              <span class="tag" style="color: #1e6fd9">+13.5%</span>
+            </div>
+            <div class="stat" style="background: #f0e2ea">
+              <div class="big" style="color: #0b2a5b">€1,283M</div>
+              <div class="lbl">Holiday Experiences EBIT</div>
+              <span class="tag" style="color: #2fa86a">+20.2%</span>
+            </div>
+            <div class="stat" style="background: #fff3d6">
+              <div class="big" style="color: #0b2a5b">€675.7M</div>
+              <div class="lbl">Net capex &amp; investment</div>
+              <span class="tag" style="color: #c9962a">+12.2%</span>
+            </div>
+            <div class="stat" style="background: #f0e2ea">
+              <div class="big" style="color: #0b2a5b">40%</div>
+              <div class="lbl">guest retention being defended</div>
+              <span class="tag" style="color: #ff6b5e">at risk</span>
+            </div>
+          </div>
+          <div
+            class="callout"
+            style="
+              background: #f0e2ea;
+              border: 1px solid #cfe0f5;
+              margin-top: 16px;
+            "
+          >
+            <div class="em">📉</div>
+            <p style="color: #2a4a78">
+              The Northern region's hotel profitability fell 25.5%. A low-capex
+              digital fix that lifts satisfaction is exactly the kind of lever
+              that defends margins without heavy investment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 routes -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">03</span>
+          <h2>Three routes explored</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          Rather than jump to an app, I pressure-tested three phased options
+          against budget, guest impact, and risk.
+        </p>
+        <div class="routes">
+          <div class="route">
+            <span class="rtag" style="background: #fff3d6; color: #c9962a"
+              >PHASE 1 · LOW BUDGET</span
+            >
+            <h3>The “Fair Play” Policy</h3>
+            <div class="desc">
+              A 30-minute turnover rule at peak hours — if a lounger sits empty
+              for 30 min, staff move the towel to a holding area.
+            </div>
+            <ul>
+              <li class="pro">Zero capital investment</li>
+              <li class="pro">Immediate results</li>
+              <li class="pro">Restores fairness</li>
+              <li class="con">Conflict potential</li>
+              <li class="con">Labour intensive</li>
+              <li class="con">Perception risk</li>
+            </ul>
+          </div>
+          <div class="route pick">
+            <span class="rtag" style="background: #f0e2ea; color: #1e6fd9"
+              >PHASE 2 · MID BUDGET</span
+            >
+            <h3>The Digital Concierge App</h3>
+            <div class="desc">
+              A live “Lounger Map” in the TUI app — guests check in by QR and
+              get auto-notified when their 2 free hours expire.
+            </div>
+            <ul>
+              <li class="pro">Automated fairness</li>
+              <li class="pro">Live availability</li>
+              <li class="pro">No confrontation</li>
+              <li class="pro">Boosts revenue</li>
+              <li class="con">Admin heavy</li>
+              <li class="con">Added complexity</li>
+            </ul>
+            <span class="chosen">★ CHOSEN DIRECTION</span>
+          </div>
+          <div class="route">
+            <span class="rtag" style="background: #f0e2ea; color: #2fa86a"
+              >PHASE 3 · HIGH BUDGET</span
+            >
+            <h3>Premium “Family Cabana” Rentals</h3>
+            <div class="desc">
+              Shaded, bookable “Family Hubs” for a daily fee — a guaranteed home
+              base for the guests most likely to complain.
+            </div>
+            <ul>
+              <li class="pro">Guaranteed peace of mind</li>
+              <li class="pro">New revenue stream</li>
+              <li class="pro">Frees the main deck</li>
+              <li class="con">Space constraints</li>
+              <li class="con">£6,250 up-front each</li>
+              <li class="con">Doesn't stop ghosting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout card dark" style="margin-top: 22px">
+          <div class="em">🎯</div>
+          <p style="color: #cfe0f5">
+            The Digital Concierge wins: it shifts the burden from staff to
+            system, scales across resorts at low capex, and is the only option
+            that turns the friction itself into measurable revenue. Fair Play
+            becomes its day-one rule; cabanas become a later upsell.
+          </p>
+        </div>
+      </section>
+
+      <!-- 04 solution -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">04</span>
+          <h2>The solution — Digital Concierge</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          A live “Lounger Map” inside the TUI ecosystem. Guests check in by QR,
+          get two free hours, and a gentle nudge before time's up. The system
+          enforces fairness automatically — no staff confrontation, no dawn
+          rush.
+        </p>
+        <div class="two-col">
+          <div class="card" style="background: #ffeae7; border-color: #f6cfc9">
+            <h3 style="color: #b84a40">Before · the friction</h3>
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 6px;
+              "
+            >
+              <li style="color: #0b2a5b">
+                ✕ Towels claim empty loungers all day
+              </li>
+              <li style="color: #0b2a5b">✕ Staff stuck refereeing disputes</li>
+              <li style="color: #0b2a5b">✕ Best spots gone before breakfast</li>
+              <li style="color: #0b2a5b">✕ 12% of complaints, every season</li>
+            </ul>
+          </div>
+          <div class="card" style="background: #e7f6ef; border-color: #c7e8d5">
+            <h3 style="color: #2f8a55">After · the flow</h3>
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 6px;
+              "
+            >
+              <li style="color: #0b2a5b">✓ Live map shows what's truly free</li>
+              <li style="color: #0b2a5b">✓ System reclaims expired loungers</li>
+              <li style="color: #0b2a5b">✓ Fair 2-hour access for everyone</li>
+              <li style="color: #0b2a5b">
+                ✓ Friction becomes a premium service
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top: 30px">
+          <div class="sub">What's inside</div>
+          <div class="fgrid">
+            <div class="feature">
+              <div class="ic">🗺️</div>
+              <h4>Live Pool Map</h4>
+              <p>
+                Real-time view of every free, occupied, and expiring lounger.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">📲</div>
+              <h4>QR check-in</h4>
+              <p>Tap a lounger's QR to claim your two free hours instantly.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">⏳</div>
+              <h4>Expiry nudges</h4>
+              <p>
+                Friendly notification before your time runs out — renew or
+                release.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">⚖️</div>
+              <h4>Automated fairness</h4>
+              <p>The system, not a staff member, reclaims ghosted loungers.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">👨‍👩‍👧</div>
+              <h4>Family Sync</h4>
+              <p>Book adjacent loungers together so families never split up.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">🔥</div>
+              <h4>Heat-map analytics</h4>
+              <p>Occupancy data helps managers staff and price by demand.</p>
+            </div>
+            <div class="feature">
+              <div class="ic">🍹</div>
+              <h4>Poolside ordering</h4>
+              <p>
+                Order snacks and drinks to your lounger without losing your
+                spot.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🛎️</div>
+              <h4>Staff turnover view</h4>
+              <p>
+                A live map lets staff spot vacated loungers and reset them fast.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 how it works -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">05</span>
+          <h2>How it works</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          Strategic shift: instead of a standalone app, the concierge lives
+          inside TUI's existing infrastructure — cutting build cost and meeting
+          guests where they already are.
+        </p>
+        <div class="fgrid">
+          <div class="feature" style="background: #eaf2fc">
+            <div class="ic" style="background: #1e6fd9; color: #fff">1</div>
+            <h4>Scan the QR</h4>
+            <p>
+              Each lounger has a QR. Scanning deep-links to the TUI app if
+              installed, or opens the browser — no download required.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="ic" style="background: #1e6fd9; color: #fff">2</div>
+            <h4>Universal login</h4>
+            <p>
+              Guests sign in with room number + last name, unifying every
+              profile across the TUI ecosystem.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="ic" style="background: #1e6fd9; color: #fff">3</div>
+            <h4>Claim &amp; enjoy</h4>
+            <p>
+              Two free hours start. The live map updates instantly so others see
+              what's genuinely taken.
+            </p>
+          </div>
+          <div class="feature">
+            <div class="ic" style="background: #1e6fd9; color: #fff">4</div>
+            <h4>Auto turnaround</h4>
+            <p>
+              A nudge before expiry lets guests renew or release; staff see
+              vacated loungers in real time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 impact -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">06</span>
+          <h2>Projected impact</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          By moving from “first come” to “active use,” the concierge defends
+          retention while opening new, high-margin revenue — at low capital
+          cost.
+        </p>
+        <div class="stat-band">
+          <div class="stat" style="background: #eaf2fc">
+            <div class="big" style="color: #1e6fd9">+30%</div>
+            <div class="lbl">website engagement from non-app guests</div>
+          </div>
+          <div class="stat" style="background: #e7f6ef">
+            <div class="big" style="color: #2fa86a">+20%</div>
+            <div class="lbl">ancillary revenue from app guests</div>
+          </div>
+          <div class="stat" style="background: #fff3d6">
+            <div class="big" style="color: #c9962a">12% → 0</div>
+            <div class="lbl">complaints reframed as premium service</div>
+          </div>
+          <div class="stat" style="background: #e9f6f8">
+            <div class="big" style="color: #1fa9be">~125 days</div>
+            <div class="lbl">for a £6,250 cabana to pay for itself</div>
+          </div>
+        </div>
+        <div class="callout card dark" style="margin-top: 16px">
+          <div class="em">💸</div>
+          <p style="color: #cfe0f5">
+            A £6,250 cabana yielding ~£50 a day recovers its cost in about 125
+            days — then it's pure margin. The concierge turns guest friction
+            into a self-funding asset that protects and restores regional
+            profitability.
+          </p>
+        </div>
+      </section>
+
+      <!-- 07 budget -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">07</span>
+          <h2>The £60,000 build</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          A lean budget for a regional rollout, weighted toward the software
+          that does the heavy lifting.
+        </p>
+        <div class="card">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 18px;
+            "
+          >
+            <span style="font-weight: 700; font-size: 18px; color: #0b2a5b"
+              >Total project cost</span
+            ><span
+              style="
+                font-family: Fraunces;
+                font-weight: 600;
+                font-size: 30px;
+                color: #1e6fd9;
+              "
+              >£60,000</span
+            >
+          </div>
+          <div class="bars">
+            <div class="bar">
+              <div class="top">
+                <span class="n">Development</span
+                ><span
+                  ><span style="color: #51607a">£36,060</span> &nbsp;<span
+                    class="p"
+                    style="color: #1e6fd9"
+                    >60.1%</span
+                  ></span
+                >
+              </div>
+              <div class="track">
+                <div
+                  class="fill"
+                  style="width: 60.1%; background: #1e6fd9"
+                ></div>
+              </div>
+            </div>
+            <div class="bar">
+              <div class="top">
+                <span class="n">Team &amp; training</span
+                ><span
+                  ><span style="color: #51607a">£10,320</span> &nbsp;<span
+                    class="p"
+                    style="color: #1fa9be"
+                    >17.2%</span
+                  ></span
+                >
+              </div>
+              <div class="track">
+                <div
+                  class="fill"
+                  style="width: 17.2%; background: #1fa9be"
+                ></div>
+              </div>
+            </div>
+            <div class="bar">
+              <div class="top">
+                <span class="n">Infrastructure</span
+                ><span
+                  ><span style="color: #51607a">£6,420</span> &nbsp;<span
+                    class="p"
+                    style="color: #2fa86a"
+                    >10.7%</span
+                  ></span
+                >
+              </div>
+              <div class="track">
+                <div
+                  class="fill"
+                  style="width: 10.7%; background: #2fa86a"
+                ></div>
+              </div>
+            </div>
+            <div class="bar">
+              <div class="top">
+                <span class="n">Hardware</span
+                ><span
+                  ><span style="color: #51607a">£3,600</span> &nbsp;<span
+                    class="p"
+                    style="color: #c9962a"
+                    >6.0%</span
+                  ></span
+                >
+              </div>
+              <div class="track">
+                <div class="fill" style="width: 6%; background: #c9962a"></div>
+              </div>
+            </div>
+            <div class="bar">
+              <div class="top">
+                <span class="n">Contingency</span
+                ><span
+                  ><span style="color: #51607a">£3,600</span> &nbsp;<span
+                    class="p"
+                    style="color: #ff6b5e"
+                    >6.0%</span
+                  ></span
+                >
+              </div>
+              <div class="track">
+                <div class="fill" style="width: 6%; background: #ff6b5e"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 app -->
+      <section class="section">
+        <div class="shead">
+          <span class="num">08</span>
+          <h2>The app</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          The high-fidelity prototype brings the concierge to life: scan a
+          lounger, watch the live map, track your two hours, renew with a tap,
+          and order to your seat — for guests and staff alike.
+        </p>
+        <div class="gallery" style="--g: 5">
+          <div class="gitem">
+            <figure>
+              <img src="../images/tui/welcome.jpg" alt="Welcome" />
+            </figure>
+            <div class="cap">Welcome</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/tui/qr-scan.jpg" alt="Scan to claim" />
+            </figure>
+            <div class="cap">Scan to claim</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/tui/map.jpg" alt="Live pool map" />
+            </figure>
+            <div class="cap">Live pool map</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/tui/timer.jpg" alt="Your 2 hours" />
+            </figure>
+            <div class="cap">Your 2 hours</div>
+          </div>
+          <div class="gitem">
+            <figure>
+              <img src="../images/tui/rent.jpg" alt="Renew or rent" />
+            </figure>
+            <div class="cap">Renew &amp; rent</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="closer">
+        <div
+          class="hero-blob"
+          style="
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #f4b73e, #ff8a5b);
+            top: -90px;
+            right: -60px;
+            opacity: 0.9;
+          "
+        ></div>
+        <div class="em">🏖️</div>
+        <h2>Let's turn the app vision into reality.</h2>
+        <p>
+          From a 12% complaint rate to a self-funding premium service — that's
+          how you defend a holiday.
+        </p>
+        <span class="sig" style="background: #f4b73e; color: #0b2a5b"
+          >Hsu Yee Mon (Mavis) · UX &amp; Product Strategy</span
+        >
+      </div>
+     
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span
+      ><span
+        ><a
+          href="https://www.linkedin.com/in/hsuyeemon/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        ><a href="mailto:mavismon23@gmail.com">Email</a></span
+      >
+    </footer>
+      <script src="../reveal.js" defer></script>
+</body>
+</html>
