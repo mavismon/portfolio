@@ -277,6 +277,12 @@ section {
 .thumb-gds {
   background: linear-gradient(135deg, #7a5c6b, #a8889a);
 }
+.thumb-horizon {
+  background: linear-gradient(135deg, #2e6b66, #7fb7a4);
+}
+.thumb-nexcell {
+  background: linear-gradient(135deg, #4a3f6b, #8c7bb8);
+}
 .project-thumb.has-img {
   padding: 0;
   overflow: hidden;

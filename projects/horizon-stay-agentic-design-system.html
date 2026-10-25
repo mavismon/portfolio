@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Horizon Stay: Agentic Design System — Hsu Yee Mon (Mavis)</title>
+    <meta
+      name="description"
+      content="How I built Horizon, a design system for a UK holiday-home booking product, and shipped it with a crew of seven AI agents, from raw Figma screens to working code."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      :root {
+        --accent: #2e6b66;
+        --accent2: #5fa596;
+        --soft: #e6f2ef;
+        --band: #eef6f3;
+        --hero-a: #dcefe9;
+        --hero-b: #fbf3e4;
+        --ink: #1e2f2d;
+        --sub: #56706c;
+        --border: #d5e6e1;
+      }
+      .card.dark h3 {
+        color: #fff;
+      }
+      .cmp .rw .l {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .journey .jrow + .jrow {
+        border-top: 1px solid var(--border);
+      }
+      .jcell.b .mini {
+        color: var(--accent);
+      }
+      .bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .bullets li {
+        position: relative;
+        padding-left: 18px;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--sub);
+      }
+      .bullets li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 9px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .rules {
+        list-style: none;
+        counter-reset: rule;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .rules li {
+        counter-increment: rule;
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--sub);
+      }
+      .rules li::before {
+        content: counter(rule);
+        flex: none;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--soft);
+        color: var(--accent);
+        font-weight: 800;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .layers {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .layer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        border-radius: 18px;
+        padding: 18px 24px;
+      }
+      .layer b {
+        font-family: var(--disp);
+        font-weight: 600;
+        font-size: 22px;
+        color: var(--ink);
+      }
+      .layer span {
+        font-size: 15px;
+        color: var(--ink);
+      }
+      .layer.l3 {
+        background: var(--accent);
+      }
+      .layer.l3 b,
+      .layer.l3 span {
+        color: #fff;
+      }
+      .layer.l2 {
+        background: var(--accent2);
+      }
+      .layer.l1 {
+        background: var(--soft);
+        border: 1px solid var(--border);
+      }
+      .rm {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .rm .col {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .rm .h {
+        color: #fff;
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 14px 18px;
+      }
+      .rm ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 18px 18px;
+      }
+      .rm li {
+        font-size: 14.5px;
+        line-height: 1.5;
+        color: var(--sub);
+      }
+      @media (max-width: 1024px) {
+        .fgrid.n3 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 900px) {
+        .rm {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .fgrid.n3,
+        .stat-band.n3,
+        .rm {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div
+          class="hero-blob"
+          style="
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #bfe3d9, #f6e3c2);
+            top: -110px;
+            right: -70px;
+            opacity: 0.6;
+          "
+        ></div>
+        <div class="hero-inner">
+          <span class="hero-tag" style="color: #2e6b66"
+            >🏡 Case Study · Agentic Design System · 2026</span
+          >
+          <h1>One design system,<br />from raw screens to working code</h1>
+          <div class="lead-accent">
+            Horizon Stay — a UK holiday-home booking product, shipped on one
+            system.
+          </div>
+          <p class="lead">
+            Horizon is a design system proven by shipping a guest web app, an
+            iOS app and a staff back office on top of it. A crew of seven AI
+            agents built, tested, shipped and documented it, while I made the
+            design and system decisions.
+          </p>
+          <div class="hero-meta">
+            <div>
+              <div class="k">Role</div>
+              <div class="v">System architect &amp; product designer</div>
+            </div>
+            <div>
+              <div class="k">Timeline</div>
+              <div class="v">3 Sep – 23 Oct 2026</div>
+            </div>
+            <div>
+              <div class="k">Tools</div>
+              <div class="v">Claude, Figma, Storybook, Airtable, Astro</div>
+            </div>
+            <div>
+              <div class="k">Platform</div>
+              <div class="v">Web · iOS · Back office</div>
+            </div>
+            <div>
+              <div class="k">Scope</div>
+              <div class="v">23 components · 179 tokens</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">01</span>
+          <h2>Overview</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stack">
+          <div class="card soft">
+            <h3>The question</h3>
+            <p>
+              Can one design system carry a product from raw screens to working
+              code without design and build drifting apart?
+            </p>
+          </div>
+          <div class="card">
+            <h3>The starting point</h3>
+            <p>
+              Horizon Stay is a UK holiday-home booking product with a guest
+              website, an iOS app and a staff back office. I started from a raw
+              master file with about 130 guest screens and 82 back office
+              screens, with no shared components and no naming.
+            </p>
+          </div>
+          <div class="sub" style="margin-top: 8px">What was going wrong</div>
+          <div class="fgrid n3">
+            <div class="feature">
+              <div class="ic">🎨</div>
+              <h4>The same button, drawn many ways</h4>
+              <p>
+                Each screen had its own version of the same component, so one
+                button looked different from one page to the next.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🛤️</div>
+              <h4>Happy paths only</h4>
+              <p>
+                The designs showed the success case and left out the failure
+                states that users run into.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🔗</div>
+              <h4>No link to code</h4>
+              <p>Nothing tied the Figma file to the code that had to match it.</p>
+            </div>
+          </div>
+          <div class="card">
+            <h3>My role</h3>
+            <p>
+              System architect, process designer, product designer and builder.
+              I also directed a small crew of AI agents for the repeatable work.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">02</span>
+          <h2>How I built it</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          I audited the raw file first (11 audits), then built tokens, then
+          components, and only then the product. Each step left evidence that
+          the next one could read.
+        </p>
+        <div class="pills">
+          <span class="pill">Audit · 11 audits</span><span class="arrow">→</span
+          ><span class="pill">Tokens</span><span class="arrow">→</span
+          ><span class="pill">Components</span><span class="arrow">→</span
+          ><span class="pill on">Product</span>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Decisions behind the order</div>
+          <div class="cmp">
+            <div class="hd">
+              <div style="background: var(--soft); color: var(--accent)">
+                DECISION
+              </div>
+              <div style="background: var(--soft); color: var(--accent)">
+                WHY
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Tokens before components
+              </div>
+              <div class="r" style="background: #fff">
+                Hardcoded values cannot be themed or kept in sync.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Figma is the source of truth
+              </div>
+              <div class="r" style="background: #fff">
+                Tokens export from Figma as JSON, and the build follows them.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                One component per Figma node
+              </div>
+              <div class="r" style="background: #fff">
+                Props are named like Figma, so there is no lookup.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Build up, never sideways
+              </div>
+              <div class="r" style="background: #fff">
+                Organisms compose molecules and atoms, never the reverse.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                A literal needs a written ruling
+              </div>
+              <div class="r" style="background: #fff">
+                A value with no token is a gap to record, not a number to round.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                Status comes from evidence
+              </div>
+              <div class="r" style="background: #fff">
+                A typed status drifts. A link or a test row does not.
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">
+                The builder never checks its own work
+              </div>
+              <div class="r" style="background: #fff">
+                The engineer builds, QA tests and the PM audits. Nobody grades
+                themselves.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Foundations</div>
+          <p class="intro">
+            Colour, type and spacing are tokens before anything else.
+            Components never use the core palettes directly.
+          </p>
+          <div class="stat-band">
+            <div class="stat" style="background: var(--soft)">
+              <div class="big" style="color: var(--accent)">179</div>
+              <div class="lbl">tokens in total</div>
+            </div>
+            <div class="stat" style="background: var(--soft)">
+              <div class="big" style="color: var(--accent)">50</div>
+              <div class="lbl">semantic colour tokens redeclared for dark mode</div>
+            </div>
+            <div class="stat" style="background: var(--soft)">
+              <div class="big" style="color: var(--accent)">8</div>
+              <div class="lbl">core colour palettes, steps 50 to 900</div>
+            </div>
+            <div class="stat" style="background: var(--soft)">
+              <div class="big" style="color: var(--accent)">10</div>
+              <div class="lbl">composite text styles, built from Inter</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Components, in three layers</div>
+          <p class="intro">
+            23 components, one per Figma node. Each one has a story for every
+            state and a documentation frame built from the same template.
+          </p>
+          <div class="layers">
+            <div class="layer l3">
+              <b>6 organisms</b>
+              <span>Compose molecules and atoms</span>
+            </div>
+            <div class="layer l2">
+              <b>8 molecules</b>
+              <span>Compose atoms</span>
+            </div>
+            <div class="layer l1">
+              <b>9 atoms</b>
+              <span>The smallest building blocks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>One naming rule</h3>
+            <p>
+              Every token follows <code>--{category}-{role or scale}</code>. A
+              Figma variable and its CSS property share one name, so a token
+              reads the same in design and in code.
+            </p>
+          </div>
+          <div class="card">
+            <h3>One build, three platforms</h3>
+            <p>
+              The same build writes CSS, iOS Swift and Android XML. Dark mode
+              redeclares only the semantic colour tokens, so components never
+              change.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">03</span>
+          <h2>The agent crew</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          Horizon is built, tested, shipped and documented by a small crew of
+          seven AI agents, directed by me. Each agent has one lane and one job.
+          The decisions stay with people: design sign-off, rulings on edge
+          cases, the version tag and the npm publish.
+        </p>
+        <div class="card dark">
+          <h3>The one rule</h3>
+          <p>
+            Agents never message each other. They hand work over through the
+            Airtable registry, using evidence: a link, a test row or a commit.
+            Status is a formula over that evidence, so no agent can type
+            “done”.
+          </p>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Seven agents, one lane each</div>
+          <div class="fgrid n3" style="margin-top: 14px">
+            <div class="feature">
+              <div class="ic">🛠️</div>
+              <h4>Engineer</h4>
+              <p>
+                Builds or repairs one component from one Figma node, and owns
+                the token pipeline. Never tests its own work.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🧪</div>
+              <h4>QA</h4>
+              <p>
+                Tests every variant and state against Figma, and writes Passed
+                or Failed with a fix an engineer can act on. Never fixes.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🚢</div>
+              <h4>DevOps</h4>
+              <p>
+                Merges and deploys a component once QA has passed it. Never
+                changes anything after QA.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">📚</div>
+              <h4>Doc generator</h4>
+              <p>
+                Writes each component's intent file and builds the docs site.
+                Never invents intent content.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🏷️</div>
+              <h4>Release</h4>
+              <p>
+                Runs a release end to end, from preflight to a publish dry run.
+                It proposes the version and never decides it.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🔍</div>
+              <h4>PM</h4>
+              <p>
+                Audits the whole registry from outside and reports every row
+                where evidence and status disagree. Read-only on purpose.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🎛️</div>
+              <h4>Token runner</h4>
+              <p>
+                Runs the token build and reports the raw output. No analysis,
+                no editing.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">How one component moves</div>
+          <p class="intro">
+            Each hand-off reads a status and writes the evidence that moves it
+            on. Nothing moves forward on a promise.
+          </p>
+          <div class="journey" style="--cols: 7">
+            <div class="jrow">
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">Designer</div>
+                <div class="emo">🎨</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">Engineer</div>
+                <div class="emo">🛠️</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">Staging</div>
+                <div class="emo">🚦</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">QA</div>
+                <div class="emo">🧪</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">DevOps</div>
+                <div class="emo">🚢</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">Docs</div>
+                <div class="emo">📚</div>
+              </div>
+              <div class="jcell h" style="background: var(--soft)">
+                <div class="stage">Release</div>
+                <div class="emo">🏷️</div>
+              </div>
+            </div>
+            <div class="jrow">
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Row reads To-do</div>
+                <div class="txt">Signs off the Figma node in Design.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Commit recorded</div>
+                <div class="txt">Builds the component on a branch.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Ready for testing</div>
+                <div class="txt">Storybook is deployed and the link is written.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Passed or To be fixed</div>
+                <div class="txt">Tests every state. A failure goes back to the engineer.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Completed</div>
+                <div class="txt">Merges and deploys production Storybook.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Docs link recorded</div>
+                <div class="txt">The intent file is written and the docs page is built.</div>
+              </div>
+              <div class="jcell b" style="background: #fff">
+                <div class="mini">Released</div>
+                <div class="txt">Reviewed, then cleared for release.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Nine shared skills</div>
+          <p class="intro">
+            Each skill is a playbook the agents read before they work, so two
+            agents never invent two procedures for the same job.
+          </p>
+          <div class="pills">
+            <span class="pill">registry</span>
+            <span class="pill">build</span>
+            <span class="pill">test</span>
+            <span class="pill">finding-format</span>
+            <span class="pill">security-check</span>
+            <span class="pill">component-intent</span>
+            <span class="pill">astro-page</span>
+            <span class="pill">release-review</span>
+            <span class="pill">sweep</span>
+          </div>
+        </div>
+
+        <div
+          class="callout"
+          style="background: var(--soft); border: 1px solid var(--border); margin-top: 28px"
+        >
+          <div class="em">🔎</div>
+          <p>
+            The release review checks seven gates and six intent-file checks
+            before a component's name goes into a public version. Its own
+            advice: “Expect Blocked on a first run. A review that passes
+            everything first time isn't reading.”
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>What surprised me</h3>
+            <ul class="bullets">
+              <li>
+                Spawned agents cannot open a browser, so I do the “watch it
+                render” step myself and write those links.
+              </li>
+              <li>
+                The engineer refused to write a staging link on my say-so. It
+                was right: only whoever opened the page can vouch for it.
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What stays with me</h3>
+            <p>
+              A decisions.md file holds my rulings on findings that aren't
+              defects, and only I write in it. Sign-off, the version tag and the
+              npm publish stay with me, so no agent ships an irreversible step
+              on its own.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">04</span>
+          <h2>One registry, one source of truth</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          Every step writes its evidence to one Airtable base, Horizon Design
+          System. A component's status is worked out from that evidence, never
+          typed in.
+        </p>
+        <div class="stat-band n3">
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">23</div>
+            <div class="lbl">components, each with its own registry row</div>
+          </div>
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">4</div>
+            <div class="lbl">links per component: Figma, staging, production and docs</div>
+          </div>
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">328</div>
+            <div class="lbl">staging test rows, every one passed</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">How status is worked out</div>
+          <div class="cmp">
+            <div class="hd">
+              <div style="background: var(--soft); color: var(--accent)">
+                EVIDENCE
+              </div>
+              <div style="background: var(--soft); color: var(--accent)">
+                STATUS
+              </div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Failed test, re-test pending</div>
+              <div class="r" style="background: #fff">Fixing</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Failed test</div>
+              <div class="r" style="background: #fff">To be fixed</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Docs link, review and a Cleared verdict</div>
+              <div class="r" style="background: #fff">Released</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Production Storybook link</div>
+              <div class="r" style="background: #fff">Completed</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Staging tests present</div>
+              <div class="r" style="background: #fff">To be deployed</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Staging Storybook link</div>
+              <div class="r" style="background: #fff">Ready for testing</div>
+            </div>
+            <div class="rw">
+              <div class="l" style="background: #fff">Figma link and design marked Done</div>
+              <div class="r" style="background: #fff">To-do</div>
+            </div>
+          </div>
+          <p class="intro" style="margin-top: 16px; margin-bottom: 0">
+            A failure outranks everything below it, so a released component
+            that fails a re-test drops back to To be fixed.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">05</span>
+          <h2>From code to published</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          A finished component moves out in a fixed order. Each step is recorded
+          in the registry, and a person makes the final call on release.
+        </p>
+        <div class="pills">
+          <span class="pill">Tokens build</span><span class="arrow">→</span
+          ><span class="pill">Components bundle into three entry points</span
+          ><span class="arrow">→</span><span class="pill">Staging on Storybook</span
+          ><span class="arrow">→</span><span class="pill">QA passes</span
+          ><span class="arrow">→</span><span class="pill">Production Storybook</span
+          ><span class="arrow">→</span><span class="pill">Astro docs site</span
+          ><span class="arrow">→</span><span class="pill on">Reviewed release, npm</span>
+        </div>
+        <div class="two-col">
+          <div class="card">
+            <h3>Staging and production</h3>
+            <p>
+              Storybook runs on Vercel, and every state is a story and a test
+              row. Production only follows a QA pass, and a security check scans
+              the build for secrets first.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Docs and release</h3>
+            <p>
+              The docs are an Astro Starlight site with one page per component,
+              each linked back into the registry. Every release is reviewed
+              first, then I tag the version and publish to npm.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">06</span>
+          <h2>Using Horizon in the product</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          A design system proves itself in a real product. These are the rules I
+          followed when I built with Horizon.
+        </p>
+        <div class="card">
+          <ol class="rules">
+            <li>Import tokens, then package styles, then the app reset, in that order.</li>
+            <li>Audit and map every Figma instance to an export before building.</li>
+            <li>Use a component exactly as Figma shows it. No restyling, no wrapper.</li>
+            <li>Style with tokens only. No hardcoded values and no Tailwind.</li>
+            <li>Build gaps locally from tokens, and record each one for the system owner.</li>
+          </ol>
+        </div>
+
+        <div style="margin-top: 34px">
+          <div class="sub">Three surfaces, one system</div>
+          <div class="fgrid n3" style="margin-top: 14px">
+            <div class="feature">
+              <div class="ic">🏡</div>
+              <h4>Guest web</h4>
+              <p>
+                Search results built from Horizon Card, Chip, Checkbox and
+                Dropdown. Negative state: the price changed while booking.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">📱</div>
+              <h4>iOS app</h4>
+              <p>
+                The iOS prototype in Figma, with 122 screens in one flow, built
+                from the same components and tokens.
+              </p>
+            </div>
+            <div class="feature">
+              <div class="ic">🗂️</div>
+              <h4>Back office</h4>
+              <p>
+                The dashboard, with occupancy, revenue and what needs attention.
+                Negative state: wrong password on sign-in.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">07</span>
+          <h2>Timeline and roadmap</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          The project ran from 3 September to 23 October 2026. The roadmap is
+          split into what is happening now, what is next, the app system, and
+          what comes later.
+        </p>
+        <div class="rm">
+          <div class="col">
+            <div class="h" style="background: var(--accent)">Now</div>
+            <ul>
+              <li>Tokens for sizes and widths are still hardcoded on 17 components.</li>
+              <li>Reconcile Figma colour variables with the token build.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h" style="background: #4f8f86">Next · 0.4</div>
+            <ul>
+              <li>Footer, Toast, Notice, Accordion, Rating, Timeline, Tabs and Pagination.</li>
+              <li>Button disabled and loading states.</li>
+              <li>More icons.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h" style="background: #7fb7a4; color: var(--ink)">App system</div>
+            <ul>
+              <li>Mobile stepper and calendar.</li>
+              <li>Tab bar and sticky bottom bar.</li>
+              <li>iOS status bar as a component.</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="h" style="background: #b9d9ce; color: var(--ink)">Later</div>
+            <ul>
+              <li>Dark theme in the product.</li>
+              <li>Back office actions back to the guest side.</li>
+              <li>An SSR decision.</li>
+              <li>End-to-end tests.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">08</span>
+          <h2>Results and lessons</h2>
+        </div>
+        <hr class="srule" />
+        <div class="stat-band n3">
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">23 of 23</div>
+            <div class="lbl">components released</div>
+          </div>
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">100%</div>
+            <div class="lbl">synchronization between design and code</div>
+          </div>
+          <div class="stat" style="background: var(--soft)">
+            <div class="big" style="color: var(--accent)">328 of 328</div>
+            <div class="lbl">staging tests passed</div>
+          </div>
+        </div>
+        <p class="intro" style="margin-top: 22px">
+          The web build passes typecheck, lint with accessibility rules, 398
+          tests and a production build.
+        </p>
+        <div class="card soft">
+          <h3>What I'd tell my past self</h3>
+          <ol class="rules" style="margin-top: 6px">
+            <li>Audit before you build.</li>
+            <li>Design the unhappy paths. Trust is won or lost there.</li>
+            <li>Make status come from evidence.</li>
+            <li>Separate the builder from the checker.</li>
+            <li>Keep a human on the irreversible steps.</li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="closer">
+        <div class="em">🏡</div>
+        <h2>Thanks for reading.</h2>
+        <p>
+          Everything in this case study is evidence for one claim: a single
+          design system can carry a product from raw screens to working code.
+        </p>
+        <span class="sig">Hsu Yee Mon (Mavis) · UX/UI Designer</span>
+      </div>
+      <div class="nextnav">
+        <div><div class="k">Next project</div></div>
+        <a class="big" href="gds-apprenticeship.html">Government Digital Service →</a>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span
+      ><span
+        ><a
+          href="https://www.linkedin.com/in/hsuyeemon/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        ><a href="mailto:mavismon23@gmail.com">Email</a></span
+      >
+    </footer>
+    <script src="../reveal.js" defer></script>
+  </body>
+</html>
