@@ -27,6 +27,11 @@
         --sub: #56706c;
         --border: #d5e6e1;
       }
+
+      /* One type system: Fraunces for headings and figures, Figtree for everything else */
+      code {
+        font-family: var(--body);
+      }
       .card.dark h3 {
         color: #fff;
       }
@@ -39,6 +44,19 @@
       }
       .jcell.b .mini {
         color: var(--accent);
+      }
+      .block {
+        margin-top: 44px;
+      }
+      .token {
+        font-family: var(--body);
+        font-weight: 600;
+        font-size: 0.95em;
+        color: var(--accent);
+        background: var(--soft);
+        padding: 2px 8px;
+        border-radius: 8px;
+        white-space: nowrap;
       }
       .bullets {
         list-style: none;
@@ -164,6 +182,43 @@
         line-height: 1.5;
         color: var(--sub);
       }
+
+      /* Screenshots from the Notion write-up: one frame, one caption style */
+      .shot {
+        margin: 20px 0 0;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+      .shot img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .shot figcaption {
+        padding: 14px 20px 16px;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--sub);
+        border-top: 1px solid var(--border);
+      }
+      .shot.narrow {
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .shots {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        align-items: start;
+        margin-top: 20px;
+      }
+      .shots .shot {
+        margin-top: 0;
+      }
+
       @media (max-width: 1024px) {
         .fgrid.n3 {
           grid-template-columns: repeat(2, 1fr);
@@ -172,6 +227,11 @@
       @media (max-width: 900px) {
         .rm {
           grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .shots {
+          grid-template-columns: 1fr;
         }
       }
       @media (max-width: 640px) {
@@ -196,20 +256,9 @@
 
     <div class="wrap">
       <header class="hero">
-        <div
-          class="hero-blob"
-          style="
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #bfe3d9, #f6e3c2);
-            top: -110px;
-            right: -70px;
-            opacity: 0.6;
-          "
-        ></div>
         <div class="hero-inner">
           <span class="hero-tag" style="color: #2e6b66"
-            >🏡 Case Study · Agentic Design System · 2026</span
+            >Case study · Agentic design system · 2026</span
           >
           <h1>One design system,<br />from raw screens to working code</h1>
           <div class="lead-accent">
@@ -247,6 +296,18 @@
         </div>
       </header>
 
+      <figure class="shot">
+        <img
+          src="../images/horizon/01-web-home.jpg"
+          alt="Horizon Stay guest web home screen"
+          fetchpriority="high"
+        />
+        <figcaption>
+          Horizon Stays, the guest web home, built from Horizon components and
+          tokens.
+        </figcaption>
+      </figure>
+
       <section class="section">
         <div class="shead">
           <span class="num">01</span>
@@ -273,7 +334,6 @@
           <div class="sub" style="margin-top: 8px">What was going wrong</div>
           <div class="fgrid n3">
             <div class="feature">
-              <div class="ic">🎨</div>
               <h4>The same button, drawn many ways</h4>
               <p>
                 Each screen had its own version of the same component, so one
@@ -281,7 +341,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🛤️</div>
               <h4>Happy paths only</h4>
               <p>
                 The designs showed the success case and left out the failure
@@ -289,9 +348,10 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🔗</div>
               <h4>No link to code</h4>
-              <p>Nothing tied the Figma file to the code that had to match it.</p>
+              <p>
+                Nothing tied the Figma file to the code that had to match it.
+              </p>
             </div>
           </div>
           <div class="card">
@@ -315,14 +375,20 @@
           components, and only then the product. Each step left evidence that
           the next one could read.
         </p>
-        <div class="pills">
-          <span class="pill">Audit · 11 audits</span><span class="arrow">→</span
-          ><span class="pill">Tokens</span><span class="arrow">→</span
-          ><span class="pill">Components</span><span class="arrow">→</span
-          ><span class="pill on">Product</span>
-        </div>
+        <figure class="shot">
+          <img
+            src="../images/horizon/02-diagram-flow.jpg"
+            alt="Diagram of the path from the raw file to a published system and product"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            The path from the raw file to a published system and a product.
+            Each step leaves evidence the next one reads.
+          </figcaption>
+        </figure>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">Decisions behind the order</div>
           <div class="cmp">
             <div class="hd">
@@ -393,7 +459,7 @@
           </div>
         </div>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">Foundations</div>
           <p class="intro">
             Colour, type and spacing are tokens before anything else.
@@ -417,9 +483,47 @@
               <div class="lbl">composite text styles, built from Inter</div>
             </div>
           </div>
+          <div class="shots">
+            <figure class="shot">
+              <img
+                src="../images/horizon/03-token-colour-palette.jpg"
+                alt="The eight core colour palettes, steps 50 to 900"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Colour: the eight core palettes.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/04-token-colour-semantic.jpg"
+                alt="Semantic colour tokens in light and dark mode"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Colour: semantic tokens in light and dark.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/05-token-typography.jpg"
+                alt="Ten text styles from display to caption"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Typography: ten text styles from display to caption.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/06-token-spacing.jpg"
+                alt="Spacing, radius and elevation scales"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Spacing, radius and elevation scales.</figcaption>
+            </figure>
+          </div>
         </div>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">Components, in three layers</div>
           <p class="intro">
             23 components, one per Figma node. Each one has a story for every
@@ -439,14 +543,64 @@
               <span>The smallest building blocks</span>
             </div>
           </div>
+          <div class="shots">
+            <figure class="shot">
+              <img
+                src="../images/horizon/07-fig-button.png"
+                alt="Figma Button component page with every variant and state"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Figma: the Button page, every variant and state.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/08-fig-card.png"
+                alt="Figma Card component page"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Figma: the Card page.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/09-fig-table.png"
+                alt="Figma Table component page"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Figma: the Table page.</figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/10-fig-calendar.png"
+                alt="Figma Calendar component page"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Figma: the Calendar page.</figcaption>
+            </figure>
+          </div>
+          <figure class="shot">
+            <img
+              src="../images/horizon/11-fig-utility.png"
+              alt="Figma Utility page with the documentation frame template"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Figma: the Utility page with doc frame template, status badges and
+              annotation kit.
+            </figcaption>
+          </figure>
         </div>
 
         <div class="two-col">
           <div class="card">
             <h3>One naming rule</h3>
             <p>
-              Every token follows <code>--{category}-{role or scale}</code>. A
-              Figma variable and its CSS property share one name, so a token
+              Every token follows <span class="token">--{category}-{role or scale}</span>.
+              A Figma variable and its CSS property share one name, so a token
               reads the same in design and in code.
             </p>
           </div>
@@ -473,7 +627,20 @@
           The decisions stay with people: design sign-off, rulings on edge
           cases, the version tag and the npm publish.
         </p>
-        <div class="card dark">
+        <figure class="shot">
+          <img
+            src="../images/horizon/12-agent-crew-loop-original.jpg"
+            alt="The agent crew loop, from the original Figma board"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            The agent crew loop, the original board (Figma: Agent Crew and
+            Registry).
+          </figcaption>
+        </figure>
+
+        <div class="card dark block" style="margin-top: 20px">
           <h3>The one rule</h3>
           <p>
             Agents never message each other. They hand work over through the
@@ -483,11 +650,10 @@
           </p>
         </div>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">Seven agents, one lane each</div>
           <div class="fgrid n3" style="margin-top: 14px">
             <div class="feature">
-              <div class="ic">🛠️</div>
               <h4>Engineer</h4>
               <p>
                 Builds or repairs one component from one Figma node, and owns
@@ -495,7 +661,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🧪</div>
               <h4>QA</h4>
               <p>
                 Tests every variant and state against Figma, and writes Passed
@@ -503,7 +668,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🚢</div>
               <h4>DevOps</h4>
               <p>
                 Merges and deploys a component once QA has passed it. Never
@@ -511,7 +675,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">📚</div>
               <h4>Doc generator</h4>
               <p>
                 Writes each component's intent file and builds the docs site.
@@ -519,7 +682,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🏷️</div>
               <h4>Release</h4>
               <p>
                 Runs a release end to end, from preflight to a publish dry run.
@@ -527,7 +689,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🔍</div>
               <h4>PM</h4>
               <p>
                 Audits the whole registry from outside and reports every row
@@ -535,7 +696,6 @@
               </p>
             </div>
             <div class="feature">
-              <div class="ic">🎛️</div>
               <h4>Token runner</h4>
               <p>
                 Runs the token build and reports the raw output. No analysis,
@@ -543,9 +703,21 @@
               </p>
             </div>
           </div>
+          <figure class="shot">
+            <img
+              src="../images/horizon/27-diagram-roster-skills.jpg"
+              alt="Diagram of the agent crew roles and the skills each agent reads"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Agent crew: roles and skills. A dot means the agent reads that
+              skill first.
+            </figcaption>
+          </figure>
         </div>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">How one component moves</div>
           <p class="intro">
             Each hand-off reads a status and writes the evidence that moves it
@@ -555,31 +727,24 @@
             <div class="jrow">
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">Designer</div>
-                <div class="emo">🎨</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">Engineer</div>
-                <div class="emo">🛠️</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">Staging</div>
-                <div class="emo">🚦</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">QA</div>
-                <div class="emo">🧪</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">DevOps</div>
-                <div class="emo">🚢</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">Docs</div>
-                <div class="emo">📚</div>
               </div>
               <div class="jcell h" style="background: var(--soft)">
                 <div class="stage">Release</div>
-                <div class="emo">🏷️</div>
               </div>
             </div>
             <div class="jrow">
@@ -615,7 +780,7 @@
           </div>
         </div>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">Nine shared skills</div>
           <p class="intro">
             Each skill is a playbook the agents read before they work, so two
@@ -635,10 +800,9 @@
         </div>
 
         <div
-          class="callout"
+          class="callout block"
           style="background: var(--soft); border: 1px solid var(--border); margin-top: 28px"
         >
-          <div class="em">🔎</div>
           <p>
             The release review checks seven gates and six intent-file checks
             before a component's name goes into a public version. Its own
@@ -671,6 +835,19 @@
             </p>
           </div>
         </div>
+
+        <figure class="shot">
+          <img
+            src="../images/horizon/13-diagram-board-to-airtable.jpg"
+            alt="Diagram of how the agent board connects to Airtable"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            How the board connects to Airtable: who writes which evidence, and
+            the status it produces.
+          </figcaption>
+        </figure>
       </section>
 
       <section class="section">
@@ -698,8 +875,20 @@
             <div class="lbl">staging test rows, every one passed</div>
           </div>
         </div>
+        <figure class="shot">
+          <img
+            src="../images/horizon/19-airtable-dashboard.jpg"
+            alt="Airtable dashboard of 23 components grouped by layer"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            Airtable overview: the dashboard. 23 components grouped by layer,
+            with design and dev sync, development status and design status.
+          </figcaption>
+        </figure>
 
-        <div style="margin-top: 34px">
+        <div class="block">
           <div class="sub">How status is worked out</div>
           <div class="cmp">
             <div class="hd">
@@ -744,6 +933,57 @@
             that fails a re-test drops back to To be fixed.
           </p>
         </div>
+
+        <div class="shots">
+          <figure class="shot">
+            <img
+              src="../images/horizon/14-airtable-links-columns.jpg"
+              alt="Airtable Components table with the Figma, staging, production and Astro links"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Airtable, Components table: the Figma, staging, production and
+              Astro links for every component.
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="../images/horizon/15-airtable-status-columns.jpg"
+              alt="Airtable Components table with design, development and synchronisation status"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Airtable, Components table: Design, Development (Released),
+              Synchronization % and Commit.
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="../images/horizon/20-airtable-testing-report.jpg"
+              alt="Storybook testing report with 328 stories, every one passed"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Airtable: the Storybook testing report. 328 stories, every one
+              passed.
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="../images/horizon/16-airtable-test-rows.jpg"
+              alt="Airtable Staging Testing table with one row per check"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              Airtable, Staging Testing: 328 rows, with notes such as “NOT A
+              DARK PASS” where a check could not be fully done.
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <section class="section">
@@ -764,6 +1004,29 @@
           ><span class="arrow">→</span><span class="pill">Production Storybook</span
           ><span class="arrow">→</span><span class="pill">Astro docs site</span
           ><span class="arrow">→</span><span class="pill on">Reviewed release, npm</span>
+        </div>
+        <div class="shots">
+          <figure class="shot">
+            <img
+              src="../images/horizon/17-docs-button.jpg"
+              alt="Docs site page for the Button component"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              A component page on the docs site: usage, variants, accessibility,
+              props and tokens.
+            </figcaption>
+          </figure>
+          <figure class="shot">
+            <img
+              src="../images/horizon/18-storybook-button.jpg"
+              alt="Storybook Button page with every state and live controls"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Storybook: every Button state with live controls.</figcaption>
+          </figure>
         </div>
         <div class="two-col">
           <div class="card">
@@ -805,33 +1068,83 @@
           </ol>
         </div>
 
-        <div style="margin-top: 34px">
-          <div class="sub">Three surfaces, one system</div>
-          <div class="fgrid n3" style="margin-top: 14px">
-            <div class="feature">
-              <div class="ic">🏡</div>
-              <h4>Guest web</h4>
-              <p>
-                Search results built from Horizon Card, Chip, Checkbox and
-                Dropdown. Negative state: the price changed while booking.
-              </p>
-            </div>
-            <div class="feature">
-              <div class="ic">📱</div>
-              <h4>iOS app</h4>
-              <p>
-                The iOS prototype in Figma, with 122 screens in one flow, built
-                from the same components and tokens.
-              </p>
-            </div>
-            <div class="feature">
-              <div class="ic">🗂️</div>
-              <h4>Back office</h4>
-              <p>
-                The dashboard, with occupancy, revenue and what needs attention.
-                Negative state: wrong password on sign-in.
-              </p>
-            </div>
+        <div class="block">
+          <div class="sub">Guest web</div>
+          <p class="intro">
+            Built from Horizon Card, Chip, Checkbox and Dropdown, with the
+            failure states designed in.
+          </p>
+          <div class="shots">
+            <figure class="shot">
+              <img
+                src="../images/horizon/21-web-search.jpg"
+                alt="Guest web search results built from Horizon components"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                Web: search results built from Horizon Card, Chip, Checkbox and
+                Dropdown.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/22-web-booking-price-changed.jpg"
+                alt="Guest web booking screen showing a price-changed message"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Web: a negative state. The price changed while booking.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="sub">iOS app</div>
+          <p class="intro">
+            The same components and tokens, carried over to a native app.
+          </p>
+          <figure class="shot narrow">
+            <img
+              src="../images/horizon/23-figma-app-overview.jpg"
+              alt="Figma overview of the iOS prototype with 122 screens in one flow"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              App: the iOS prototype in Figma, 122 screens as one flow.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="block">
+          <div class="sub">Back office</div>
+          <p class="intro">
+            A staff tool built from the same system, including its sign-in error
+            state.
+          </p>
+          <div class="shots">
+            <figure class="shot">
+              <img
+                src="../images/horizon/24-bo-dashboard.jpg"
+                alt="Back office dashboard with occupancy, revenue and attention items"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                Back office: the dashboard, with occupancy, revenue and what
+                needs attention.
+              </figcaption>
+            </figure>
+            <figure class="shot">
+              <img
+                src="../images/horizon/25-bo-sign-in-error.jpg"
+                alt="Back office sign-in screen with a wrong password message"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Back office: a negative state. Wrong password on sign-in.</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -847,6 +1160,15 @@
           split into what is happening now, what is next, the app system, and
           what comes later.
         </p>
+        <figure class="shot">
+          <img
+            src="../images/horizon/26-diagram-timeline.jpg"
+            alt="Project timeline from 3 September to 23 October 2026"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Project timeline, 3 Sep to 23 Oct 2026.</figcaption>
+        </figure>
         <div class="rm">
           <div class="col">
             <div class="h" style="background: var(--accent)">Now</div>
@@ -920,7 +1242,6 @@
       </section>
 
       <div class="closer">
-        <div class="em">🏡</div>
         <h2>Thanks for reading.</h2>
         <p>
           Everything in this case study is evidence for one claim: a single
