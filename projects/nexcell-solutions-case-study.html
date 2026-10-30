@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NexCell Solutions and Propily — Hsu Yee Mon (Mavis)</title>
+    <meta
+      name="description"
+      content="Confidential internship case study: the NexCell Solutions website redesign, and UX and product UI for the admin CRM of Propily, an AI CRM for UK estate agencies."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="case-study.css" />
+    <style>
+      body {
+        background: #faf8f6;
+      }
+      /* match index.html: nav, content and footer share the same horizontal padding at every breakpoint */
+      .nav-inner {
+        padding: 18px 96px;
+      }
+      .wrap {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 96px;
+      }
+      footer.ft {
+        max-width: 1440px;
+        margin: 60px auto 40px;
+        padding: 24px 96px 0;
+      }
+      .g-hero {
+        padding: 52px 0 6px;
+      }
+      .g-tag {
+        display: inline-block;
+        background: #f4eef1;
+        color: #7a3b55;
+        font-family: "Figtree", sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        border-radius: 999px;
+      }
+      .g-title {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 42px;
+        line-height: 1.12;
+        color: #2a2326;
+        margin-top: 22px;
+        letter-spacing: -0.01em;
+      }
+      .g-lead {
+        font-family: "Figtree", sans-serif;
+        font-size: 18px;
+        line-height: 1.62;
+        color: #6e6668;
+        margin-top: 16px;
+        max-width: 840px;
+      }
+      .g-facts {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        background: #f4eef1;
+        border-radius: 22px;
+        padding: 24px 30px;
+        margin-top: 34px;
+      }
+      .g-facts .k {
+        color: #9b4f6e;
+        font-family: "Figtree", sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .g-facts .v {
+        color: #2a2326;
+        font-family: "Figtree", sans-serif;
+        font-weight: 700;
+        font-size: 15px;
+        margin-top: 5px;
+      }
+      .g-sec {
+        margin-top: 50px;
+      }
+      .g-sec h2 {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 28px;
+        color: #2a2326;
+        margin-bottom: 18px;
+      }
+      .g-sec h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 20px;
+        color: #2a2326;
+        margin: 26px 0 12px;
+      }
+      .g-sec > p {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        line-height: 1.62;
+        color: #6e6668;
+        max-width: 1080px;
+      }
+      .g-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .g-list li {
+        display: flex;
+        gap: 12px;
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        line-height: 1.62;
+        color: #6e6668;
+        max-width: 1080px;
+      }
+      .g-list li::before {
+        content: "•";
+        color: #9b4f6e;
+        font-weight: 700;
+        flex: none;
+      }
+      .g-quote {
+        background: #f4eef1;
+        border-left: 4px solid #9b4f6e;
+        border-radius: 0 18px 18px 0;
+        padding: 24px 28px;
+        margin-top: 40px;
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #6e6668;
+      }
+      .g-status {
+        font-family: "Figtree", sans-serif;
+        font-size: 15px;
+        color: #6e6668;
+        margin-top: 22px;
+      }
+      .g-note {
+        background: #f3f1ef;
+        border-radius: 16px;
+        padding: 20px 24px;
+        margin-top: 32px;
+        font-family: "Figtree", sans-serif;
+        font-size: 14.5px;
+        line-height: 1.55;
+        color: #5e585b;
+        max-width: 1180px;
+      }
+      .g-next {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f4eef1;
+        border-radius: 22px;
+        padding: 26px 34px;
+        margin-top: 34px;
+      }
+      .g-next .k {
+        font-family: "Figtree", sans-serif;
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #9b4f6e;
+      }
+      .g-next a {
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: #7a3b55;
+        text-decoration: none;
+      }
+      @media (max-width: 1024px) {
+        .nav-inner {
+          padding: 16px 40px;
+        }
+        .wrap {
+          padding: 0 40px;
+        }
+        footer.ft {
+          padding: 24px 40px 0;
+        }
+        .g-title {
+          font-size: 34px;
+          white-space: normal;
+        }
+        .g-facts {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .nav-inner {
+          padding: 14px 22px;
+        }
+        .wrap {
+          padding: 0 22px;
+        }
+        footer.ft {
+          padding: 24px 22px 0;
+        }
+        .g-hero {
+          padding: 36px 0 6px;
+        }
+        .g-title {
+          font-size: 28px;
+        }
+        .g-lead {
+          font-size: 16px;
+        }
+        .g-facts {
+          grid-template-columns: 1fr;
+        }
+        .g-next {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-inner">
+        <a class="nav-logo" href="../index.html">Mavis <span>Mon</span></a>
+        <ul class="nav-links">
+          <li><a href="../design.html">Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="g-hero">
+        <span class="g-tag">Confidential · Internship · Website redesign and CRM UI</span>
+        <h1 class="g-title">NexCell Solutions and Propily</h1>
+        <p class="g-lead">
+          My internship at NexCell Solutions covered two pieces of work. I redesigned
+          the company website, and I worked on the admin CRM for Propily, the AI CRM
+          for UK estate agencies that NexCell builds. I worked as a user experience
+          designer and product UI designer across both.
+        </p>
+      </header>
+
+      <div class="g-facts">
+        <div>
+          <div class="k">Role</div>
+          <div class="v">User Experience Designer Intern</div>
+        </div>
+        <div>
+          <div class="k">Timeline</div>
+          <div class="v">Sep 2026 – Present</div>
+        </div>
+        <div>
+          <div class="k">Type</div>
+          <div class="v">Website redesign and CRM UX and UI</div>
+        </div>
+        <div>
+          <div class="k">Environment</div>
+          <div class="v">Small team, weekly task briefs</div>
+        </div>
+      </div>
+
+      <section class="g-sec">
+        <h2>The company and the product</h2>
+        <p>
+          NexCell Solutions builds custom AI solutions and software for businesses,
+          and is moving from consultancy work towards its own products. Propily is
+          its flagship: an AI CRM and operating system for UK estate and letting
+          agencies. It brings enquiries, leads, viewings, tenancies, compliance and
+          finance into one system, with an in-app AI assistant. It was previously
+          called ConneX.
+        </p>
+      </section>
+
+      <section class="g-sec">
+        <h2>Part 1: NexCell website redesign</h2>
+
+        <h3>The brief</h3>
+        <p>
+          NexCell wanted its website to move from a consultancy page to an
+          enterprise-grade product company site, in a new blue brand. The first review
+          of the live homepage found positioning, trust claims and product links that
+          needed fixing before the rebuild.
+        </p>
+
+        <h3>Audit and direction</h3>
+        <ul class="g-list">
+          <li>
+            Audited the live site and ranked every issue by impact: positioning, trust
+            claims, product links, images, contact details and the AI summary links.
+          </li>
+          <li>
+            Flagged unverifiable claims and testimonials as a legal risk under UK
+            consumer law, and listed each one to be confirmed or removed.
+          </li>
+          <li>
+            Researched inspiration sites and wrote a section map for the homepage, from
+            the hero and products through to proof, team, security, careers and contact.
+          </li>
+        </ul>
+
+        <h3>Site map and copy</h3>
+        <ul class="g-list">
+          <li>
+            Mapped the full site: 17 pages across the company pages, six service pages
+            and the legal pages.
+          </li>
+          <li>
+            Wrote a copy table that shows the status of every item, so the team could
+            see what was final, what was a draft and what was still missing.
+          </li>
+          <li>
+            Grouped the services into three clear blocks with one product link, instead
+            of one long list.
+          </li>
+        </ul>
+
+        <h3>Design</h3>
+        <ul class="g-list">
+          <li>
+            Designed every page for desktop and mobile in Figma, with shared header and
+            footer components and a mobile menu.
+          </li>
+          <li>
+            Set up a style guide covering colour, typography, spacing, border radius and
+            elevation, with a components page for reuse.
+          </li>
+          <li>
+            Designed the Propily page as its own explainer, with a link out to the
+            product site.
+          </li>
+        </ul>
+
+        <h3>Feedback and final designs</h3>
+        <ul class="g-list">
+          <li>
+            Took feedback on SEO, motion, the depth of the service pages and the Propily
+            page.
+          </li>
+          <li>
+            Produced final homepage designs for desktop and mobile, including modal and
+            hover states for the components.
+          </li>
+        </ul>
+      </section>
+
+      <section class="g-sec">
+        <h2>Part 2: Propily CRM UX and product UI</h2>
+
+        <h3>My role</h3>
+        <p>
+          I work as a user experience designer and product UI designer on the CRM. I
+          take each admin page through the same steps: audit it, redesign it, then
+          check the live version with the developers who build it.
+        </p>
+
+        <h3>Audit</h3>
+        <ul class="g-list">
+          <li>
+            Walked through the product as an agent would, noting every screen worth
+            showing and how each one is used.
+          </li>
+          <li>
+            Audited nine admin pages: Today, Inbox, Tasks, Calendar, Leads, Lead
+            capture, Contacts, Matching and Deals. Checked contrast, layout and form
+            friction by eye.
+          </li>
+        </ul>
+
+        <h3>Redesign</h3>
+        <ul class="g-list">
+          <li>
+            Drew a Before and After design in Figma for each of the nine pages. Each
+            After has a spec panel with numbered notes for the developers.
+          </li>
+          <li>
+            Prioritised the findings into fix first, next and polish. The main theme was
+            trust: the same figure showing different values on different pages matters
+            more than visual polish.
+          </li>
+        </ul>
+
+        <h3>Cross-check</h3>
+        <ul class="g-list">
+          <li>
+            Checked the live leads, contacts and deals pages: working controls, correct
+            data, empty and error states, responsive layout and brand consistency.
+          </li>
+          <li>
+            Logged each issue as a blocker, major or minor, with what I did, what I
+            expected and what happened.
+          </li>
+          <li>
+            Continuing the UI improvements one section at a time, as set out in the
+            weekly brief.
+          </li>
+        </ul>
+      </section>
+
+      <section class="g-sec">
+        <h2>What the two have in common</h2>
+        <p>
+          Both pieces came back to one question: can the reader believe what they see?
+          On the website, every claim had to be provable. In the CRM, every number had
+          to agree across pages.
+        </p>
+      </section>
+
+      <div class="g-quote">
+        A company site has to earn trust before it earns a click, and a CRM is only
+        useful if people believe the numbers on screen.
+      </div>
+
+      <p class="g-status">
+        Status: both are in progress. The website is waiting on final content and
+        approvals, and the CRM work continues section by section.
+      </p>
+
+      <div class="g-note">
+        Confidential. Visuals, internal documents and client data can't be shared
+        here, but I'm happy to walk through my process and decisions in an interview.
+      </div>
+
+      <div class="g-next">
+        <div class="k">Next project</div>
+        <a href="horizon-stay-agentic-design-system.html">Horizon Stay: agentic design system →</a>
+      </div>
+    </div>
+
+    <footer class="ft">
+      <span>© 2026 Hsu Yee Mon (Mavis)</span
+      ><span
+        ><a
+          href="https://www.linkedin.com/in/hsuyeemon/"
+          target="_blank"
+          rel="noopener"
+          >LinkedIn</a
+        ><a href="mailto:mavismon23@gmail.com">Email</a></span
+      >
+    </footer>
+    <script src="../reveal.js" defer></script>
+  </body>
+</html>

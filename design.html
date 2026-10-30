@@ -7,6 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* One cover frame for every project on this page, so the cards in each row line up */
+  .project-grid .project-thumb {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .project-grid .project-thumb.has-img img {
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+</style>
 </head>
 <body>
 
@@ -28,19 +40,23 @@
 <section class="container">
   <div class="project-grid">
 
-    <a class="project-card" href="about.html#experience">
-      <div class="project-thumb thumb-nexcell">Nexcell Solution</div>
+    <a class="project-card" href="projects/nexcell-solutions-case-study.html">
+      <div class="project-thumb thumb-nexcell has-img">
+        <img src="images/nexcell/cover-nexcell-propily.jpg" alt="NexCell Solutions and Propily: website redesign and CRM UI" />
+      </div>
       <div class="project-body">
-        <div class="project-tags"><span class="tag">Internship</span><span class="tag">UX/UI Design</span><span class="tag">Current</span></div>
-        <h3>UX/UI internship at Nexcell Solution</h3>
-        <div class="project-meta">Internship · Current</div>
-        <p>My current internship, working on UX/UI design alongside the team at Nexcell Solution.</p>
-        <span class="project-link">View experience →</span>
+        <div class="project-tags"><span class="tag">Confidential</span><span class="tag">Website Design</span><span class="tag">CRM UI</span></div>
+        <h3>NexCell Solutions and Propily: website and CRM</h3>
+        <div class="project-meta">Internship · Confidential</div>
+        <p>Internship work at NexCell Solutions: the website redesign, and the UX and UI of the admin CRM for Propily. The work is confidential, so no visuals are shared.</p>
+        <span class="project-link">Read summary →</span>
       </div>
     </a>
 
     <a class="project-card" href="projects/horizon-stay-agentic-design-system.html">
-      <div class="project-thumb thumb-horizon">Horizon Stay</div>
+      <div class="project-thumb thumb-horizon has-img">
+        <img src="images/horizon/cover-overview.jpg" alt="Horizon Stays overview: one design system across the guest web, iOS app and back office" />
+      </div>
       <div class="project-body">
         <div class="project-tags"><span class="tag">Design System</span><span class="tag">AI Agents</span><span class="tag">Product Design</span></div>
         <h3>Horizon: a design system from raw screens to working code</h3>

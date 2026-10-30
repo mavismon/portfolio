@@ -14,6 +14,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* One cover frame for every project in Previous work, so the cards in each row line up */
+      .project-grid .project-thumb {
+        height: auto;
+        aspect-ratio: 16 / 10;
+      }
+      .project-grid .project-thumb.has-img img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -27,7 +39,7 @@
     </nav>
 
     <header class="hero container">
-      <h1>Hi, I’m Mavis <span class="flower">🌷</span></h1>
+      <h1>Hi, I’m Mavis</h1>
       <p class="lead">
         User Experience Designer & Design System Enthusiast: Backed by a
         Computer Systems Engineering background (1st Class Honours), I combine
@@ -48,7 +60,7 @@
         <div>
           <h4>Currently</h4>
           <p>
-            UX/UI Design Intern<br />
+            User Experience Designer Intern<br />
             <strong>@ Nexcell Solution</strong><br />
             Freelance UX/UI Designer
           </p>
@@ -78,28 +90,47 @@
       </p>
 
       <div class="project-grid">
-        <a class="project-card" href="about.html#experience">
-          <div class="project-thumb thumb-nexcell">Nexcell Solution</div>
+        <a
+          class="project-card"
+          href="projects/nexcell-solutions-case-study.html"
+        >
+          <div class="project-thumb thumb-nexcell has-img">
+            <img
+              src="images/nexcell/cover-nexcell-propily.jpg"
+              alt="NexCell Solutions and Propily: website redesign and CRM UI"
+            />
+          </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="tag">Internship</span><span class="tag">UX/UI Design</span
-              ><span class="tag">Current</span>
+              <span class="tag">Confidential</span
+              ><span class="tag">Website Design</span
+              ><span class="tag">CRM UI</span>
             </div>
-            <h3>UX/UI internship at Nexcell Solution</h3>
-            <div class="project-meta">Internship · Current</div>
+            <h3>NexCell Solutions and Propily: website and CRM</h3>
+            <div class="project-meta">Internship · Confidential</div>
             <p>
-              My current internship, working on UX/UI design alongside the team
-              at Nexcell Solution.
+              Internship work at NexCell Solutions: the website redesign, and
+              the UX and UI of the admin CRM for Propily. The work is
+              confidential, so no visuals are shared.
             </p>
-            <span class="project-link">View experience →</span>
+            <span class="project-link">Read summary →</span>
           </div>
         </a>
 
-        <a class="project-card" href="projects/horizon-stay-agentic-design-system.html">
-          <div class="project-thumb thumb-horizon">Horizon Stay</div>
+        <a
+          class="project-card"
+          href="projects/horizon-stay-agentic-design-system.html"
+        >
+          <div class="project-thumb thumb-horizon has-img">
+            <img
+              src="images/horizon/cover-overview.jpg"
+              alt="Horizon Stays overview: one design system across the guest web, iOS app and back office"
+            />
+          </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="tag">Design System</span><span class="tag">AI Agents</span
+              <span class="tag">Design System</span
+              ><span class="tag">AI Agents</span
               ><span class="tag">Product Design</span>
             </div>
             <h3>Horizon: a design system from raw screens to working code</h3>
@@ -115,11 +146,16 @@
 
         <a class="project-card" href="projects/gds-apprenticeship.html">
           <div class="project-thumb thumb-gds has-img">
-            <img src="images/design/gds.png" alt="Government Digital Service — design system" />
+            <img
+              src="images/design/gds.png"
+              alt="Government Digital Service — design system"
+            />
           </div>
           <div class="project-body">
             <div class="project-tags">
-              <span class="tag">Design Systems</span><span class="tag">Service Design</span><span class="tag">Gov</span>
+              <span class="tag">Design Systems</span
+              ><span class="tag">Service Design</span
+              ><span class="tag">Gov</span>
             </div>
             <h3>Design system research at Government Digital Service</h3>
             <div class="project-meta">Apprenticeship · Apr–Jul 2025</div>
@@ -163,6 +199,7 @@
       <h2 class="section-title">Previously worked with</h2>
       <div class="logo-row">
         <span class="logo-chip">Government Digital Service</span>
+        <span class="logo-chip">NexCell and Propily (confidential)</span>
         <span class="logo-chip">TUI (case study)</span>
         <span class="logo-chip">British University College</span>
         <span class="logo-chip">Lloyds Banking Group (Forage)</span>
@@ -174,7 +211,7 @@
       <div class="cta-banner">
         <a href="design.html">See Other Design</a>
         <a
-          href="https://drive.google.com/file/d/1xtQVW304RGPcJEKEEuNn48uA0tBTxAdx/view?usp=sharing"
+          href="https://drive.google.com/file/d/13fMqivvPfWhrE7Ix1yDoXsQ9O6i5hcAb/view?usp=sharing"
           target="_blank"
           rel="noopener"
           >View My Resume</a

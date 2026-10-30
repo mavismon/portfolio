@@ -32,6 +32,54 @@
       code {
         font-family: var(--body);
       }
+      /* Links to the live docs, Storybook and code */
+      .link-btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 15px;
+        padding: 11px 18px;
+        border-radius: 12px;
+      }
+      .link-btn:hover {
+        background: #245a56;
+      }
+      .reuse {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .reuse-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .reuse-card h3 {
+        font-family: var(--disp);
+        font-weight: 600;
+        font-size: 21px;
+        color: var(--ink);
+      }
+      .reuse-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--sub);
+      }
+      .reuse-card .link-btn {
+        margin-top: auto;
+        align-self: flex-start;
+      }
+      @media (max-width: 900px) {
+        .reuse {
+          grid-template-columns: 1fr;
+        }
+      }
       .card.dark h3 {
         color: #fff;
       }
@@ -465,6 +513,11 @@
             Colour, type and spacing are tokens before anything else.
             Components never use the core palettes directly.
           </p>
+          <p class="intro">
+            Figma variables export as JSON, and the build reads that file. It
+            writes the CSS variables for the web, plus iOS Swift and Android XML
+            from the same source, so the three platforms can't drift apart.
+          </p>
           <div class="stat-band">
             <div class="stat" style="background: var(--soft)">
               <div class="big" style="color: var(--accent)">179</div>
@@ -593,6 +646,24 @@
               annotation kit.
             </figcaption>
           </figure>
+        </div>
+
+        <div class="card soft block" style="margin-top: 28px">
+          <h3>Storybook: every component, every state</h3>
+          <p>
+            Storybook shows each component on its own page, with a story for
+            every state and live controls, so you can change a prop and see the
+            result. It's the quickest way to check how a component behaves before
+            you reuse it.
+          </p>
+          <a
+            class="link-btn"
+            href="https://horizon-design-system-cdfi.vercel.app/?path=/story"
+            target="_blank"
+            rel="noopener"
+            style="margin-top: 16px"
+            >Open Storybook →</a
+          >
         </div>
 
         <div class="two-col">
@@ -1051,6 +1122,83 @@
       <section class="section">
         <div class="shead">
           <span class="num">06</span>
+          <h2>Reuse it: docs, Storybook and code</h2>
+        </div>
+        <hr class="srule" />
+        <p class="intro">
+          Horizon is built to be reused, not just admired. Each component has a
+          documentation page, a Storybook page and a place in the source code, so
+          a designer or developer can check a component and use it the same way
+          the product does.
+        </p>
+        <div class="reuse">
+          <div class="reuse-card">
+            <h3>Documentation</h3>
+            <p>
+              The docs are an Astro Starlight site with one page per component.
+              Each page covers when to use the component, when not to, its
+              accessibility notes, its props and the tokens it uses. The text
+              comes from an intent file for each component, which the doc
+              generator writes from the Figma documentation and the code. It never
+              invents product rules.
+            </p>
+            <a
+              class="link-btn"
+              href="https://horizon-docs-zeta.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              >Read the docs →</a
+            >
+          </div>
+          <div class="reuse-card">
+            <h3>Storybook</h3>
+            <p>
+              Every component in every state, with live controls for its props.
+              Use it to try a prop, copy the exact usage, and check a state before
+              you build with it.
+            </p>
+            <a
+              class="link-btn"
+              href="https://horizon-design-system-cdfi.vercel.app/?path=/story"
+              target="_blank"
+              rel="noopener"
+              >Open Storybook →</a
+            >
+          </div>
+          <div class="reuse-card">
+            <h3>GitHub</h3>
+            <p>
+              The source code, the token build script and the docs site source.
+              Read how the tokens are built, or look at the code behind each
+              component.
+            </p>
+            <a
+              class="link-btn"
+              href="https://github.com/mavismon/horizon-design-system"
+              target="_blank"
+              rel="noopener"
+              >View on GitHub →</a
+            >
+          </div>
+        </div>
+        <div class="block">
+          <div class="sub">How to reuse a component</div>
+          <ol class="rules" style="margin-top: 16px">
+            <li>Read the component's docs page to see when to use it and which tokens it needs.</li>
+            <li>Open its Storybook page and check the state you need.</li>
+            <li>Use it exactly as Figma shows it, with no restyling and no wrappers.</li>
+            <li>Style it with tokens only. If a token is missing, record the gap instead of hardcoding a value.</li>
+          </ol>
+          <p class="intro" style="margin-top: 22px">
+            The package is also published on npm as
+            <span class="token">@layerbasesystemic/horizon-design-system</span>.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="shead">
+          <span class="num">07</span>
           <h2>Using Horizon in the product</h2>
         </div>
         <hr class="srule" />
@@ -1151,7 +1299,7 @@
 
       <section class="section">
         <div class="shead">
-          <span class="num">07</span>
+          <span class="num">08</span>
           <h2>Timeline and roadmap</h2>
         </div>
         <hr class="srule" />
@@ -1207,7 +1355,7 @@
 
       <section class="section">
         <div class="shead">
-          <span class="num">08</span>
+          <span class="num">09</span>
           <h2>Results and lessons</h2>
         </div>
         <hr class="srule" />
@@ -1228,6 +1376,11 @@
         <p class="intro" style="margin-top: 22px">
           The web build passes typecheck, lint with accessibility rules, 398
           tests and a production build.
+        </p>
+        <p class="intro">
+          Each component passed QA and got a production Storybook link before it
+          could be completed. It was released only after its docs link was in
+          place and the release review cleared it.
         </p>
         <div class="card soft">
           <h3>What I'd tell my past self</h3>
