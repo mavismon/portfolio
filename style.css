@@ -138,11 +138,18 @@ nav {
 .hero h1 .flower {
   color: var(--primary);
 }
+.hero .hero-role {
+  margin-bottom: 18px;
+}
 .hero p.lead {
-  max-width: 1250px;
+  max-width: 720px;
   font-size: 1.18rem;
   color: var(--ink-soft);
   margin-bottom: 30px;
+}
+.hero .hero-description {
+  max-width: 720px;
+  margin-bottom: 40px;
 }
 .hero .cta-row {
   display: flex;
