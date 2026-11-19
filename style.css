@@ -148,7 +148,7 @@ nav {
   margin-bottom: 30px;
 }
 .hero .hero-description {
-  max-width: 720px;
+  max-width: none;
   margin-bottom: 40px;
 }
 .hero .cta-row {
